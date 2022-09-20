@@ -1,0 +1,37 @@
+.watch {
+    height: 700px;
+    background: url(../../assets/images/Giant\ Panda.jpg) 0 -80px /100% no-repeat;
+    padding-top: 86px;
+    h2 {
+        position: relative;
+        font-weight: 700;
+        font-size: 106.5px;
+        text-align: center;
+        line-height: 75%;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        z-index: 1;
+        span {
+            color: #FFEE2E
+        }
+    }
+    &_container {
+        width: 500px;
+        height: 400px;
+        margin-left: 57%;
+        .btn {
+            margin: 60px auto;
+            padding-left: 6px;
+        }
+        &::before {
+            content: '';
+            width: 465px;
+            height: 465px;
+            position: absolute;
+            z-index: 0;
+            border-radius: 100%;
+            background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+            transform: translate(-16%, -16%);
+        }
+    }
+}

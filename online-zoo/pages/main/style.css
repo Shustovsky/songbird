@@ -36,6 +36,31 @@ html {
   font-family: "Roboto-Regular";
   src: url("../../assets/fonts/Roboto-Regular.ttf");
 }
+.btn {
+  width: 298px;
+  height: 54px;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-radius: 25px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  display: block;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #E47209;
+}
+.btn-active {
+  background: #4B9200;
+}
+.btn-disable {
+  background: #767474;
+}
+
 .header {
   background: #000000;
   backdrop-filter: blur(2px);
@@ -95,4 +120,42 @@ html {
 .header .designed {
   text-align: right;
   line-height: 140%;
+}
+
+.watch {
+  height: 700px;
+  background: url(../../assets/images/Giant\ Panda.jpg) 0 -80px/100% no-repeat;
+  padding-top: 86px;
+}
+.watch h2 {
+  position: relative;
+  font-weight: 700;
+  font-size: 106.5px;
+  text-align: center;
+  line-height: 75%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  z-index: 1;
+}
+.watch h2 span {
+  color: #FFEE2E;
+}
+.watch_container {
+  width: 500px;
+  height: 400px;
+  margin-left: 57%;
+}
+.watch_container .btn {
+  margin: 60px auto;
+  padding-left: 6px;
+}
+.watch_container::before {
+  content: "";
+  width: 465px;
+  height: 465px;
+  position: absolute;
+  z-index: 0;
+  border-radius: 100%;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  transform: translate(-16%, -16%);
 }

@@ -21,4 +21,6 @@ html {
 
 @import 'base/_variables';
 @import 'base/_fonts.scss';
-@import 'blocks/_header';
+@import 'base/_buttons.scss';
+@import 'blocks/_01-header';
+@import 'blocks/_02-watch';

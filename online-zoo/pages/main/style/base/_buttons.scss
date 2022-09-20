@@ -1,0 +1,24 @@
+.btn {
+    width: 298px;
+    height: 54px;
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    border-radius: 25px;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    display: block;
+    cursor: pointer;
+    &:hover {
+        background: #E47209;
+    }
+    &-active {
+        background: #4B9200;
+    }
+    &-disable {
+        background: #767474;
+    }
+}
