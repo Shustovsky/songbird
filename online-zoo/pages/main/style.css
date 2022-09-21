@@ -20,22 +20,6 @@ html {
   position: relative;
 }
 
-@font-face {
-  font-family: "Roboto-Bold";
-  src: url("../../assets/fonts/Roboto-Bold.ttf");
-}
-@font-face {
-  font-family: "Roboto-Light";
-  src: url("../../assets/fonts/Roboto-Light.ttf");
-}
-@font-face {
-  font-family: "Roboto";
-  src: url("../../assets/fonts/Roboto-Medium.ttf");
-}
-@font-face {
-  font-family: "Roboto-Regular";
-  src: url("../../assets/fonts/Roboto-Regular.ttf");
-}
 .btn {
   width: 298px;
   height: 54px;
@@ -288,4 +272,94 @@ html {
   bottom: 0px;
   right: 0px;
   z-index: -1;
+}
+
+.pick {
+  height: 1003px;
+  padding: 4.4vw;
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  opacity: 0.9;
+}
+.pick_wrapper {
+  height: 834px;
+  background: rgba(253, 253, 255, 0.52);
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+  padding-top: 2.5vw;
+}
+.pick_wrapper h2 {
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 120%;
+  text-align: center;
+  color: #FE9013;
+}
+.pick_wrapper .subtitle {
+  padding-top: 2vw;
+  padding-left: 6.2vw;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 120%;
+}
+.pick_wrapper .text {
+  padding: 0.7vw 12vw 0 6.2vw;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+}
+.pick_wrapper .text a {
+  text-decoration: none;
+  color: #000000;
+  border-bottom: 1px solid #FE9013;
+  line-height: 1px;
+}
+.pick_wrapper .text-bold {
+  padding-top: 2.4vw;
+  padding-right: 0;
+  font-weight: 500;
+}
+.pick_wrapper h3 {
+  padding-top: 3.7vw;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 130%;
+  text-align: center;
+}
+.pick_wrapper .btn {
+  margin: 0 auto;
+  margin-top: 3.7vw;
+}
+.pick__instruction {
+  display: flex;
+  justify-content: center;
+  padding-top: 2.5vw;
+  gap: 8.1vw;
+}
+.pick__instruction__item {
+  position: relative;
+  width: 168px;
+  height: 244px;
+}
+.pick__instruction__item_img {
+  width: 168px;
+  height: 168px;
+  border: 1px solid transparent;
+  background: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
+  box-shadow: inset 0px 0px 0px 100vw #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pick__instruction__item_text {
+  padding-top: 1.9vw;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+}
+.pick__instruction__item:nth-child(-n+2):before {
+  content: url("../../assets/icons/arow-right.svg");
+  position: absolute;
+  top: 62px;
+  right: -100px;
 }
