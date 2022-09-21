@@ -60,6 +60,15 @@ html {
 .btn-disable {
   background: #767474;
 }
+.btn-left, .btn-right {
+  width: 62px;
+  height: 62px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
 
 .header {
   background: #000000;
@@ -192,4 +201,91 @@ html {
   line-height: 120%;
   padding-top: 54px;
   font-size: 24px;
+}
+
+.pets {
+  margin-top: 3px;
+  position: relative;
+  height: 1106px;
+}
+.pets_wrapper {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 30px;
+}
+.pets .item {
+  width: 366px;
+  height: 426px;
+  display: grid;
+  grid-template-rows: 86% 1fr 2fr;
+  grid-template-columns: 80% 1fr;
+  border: 1px solid transparent;
+  /*Обводка нужной толщины, но прозрачная*/
+  background: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
+  /*Нужный градиент в качестве фона*/
+  box-shadow: inset 0px 0px 0px 100vw #fff;
+  /*Тень направленная внутрь контейнера, перекрывает ненужный фон и оставляет только рамку*/
+  border-radius: 5px;
+  /*Скругляет углы*/
+}
+.pets .item_img {
+  grid-column: 1/3;
+  transition: 1s;
+}
+.pets .item_img:hover {
+  transform: scale(1.05);
+}
+.pets .item img {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: auto;
+}
+.pets .item_name {
+  grid-row: 2/3;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  padding: 11px 0 0 15px;
+}
+.pets .item_place {
+  grid-row: 3/4;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 100%;
+  padding: 3px 0 0 15px;
+}
+.pets .item_food {
+  grid-row: 2/4;
+  justify-self: center;
+  align-self: center;
+  padding-left: 14px;
+}
+.pets .btn {
+  margin: 0 auto;
+  margin-top: 80px;
+}
+.pets .btn-left, .pets .btn-right {
+  font-size: 10px;
+  top: 40%;
+  margin-top: 0;
+}
+.pets .btn-left {
+  left: -6.9%;
+}
+.pets .btn-right {
+  right: -6.9%;
+}
+.pets .palm {
+  position: absolute;
+  bottom: 0px;
+  left: -588px;
+  z-index: -1;
+}
+.pets .strelitzia {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: -1;
 }

@@ -21,4 +21,14 @@
     &-disable {
         background: #767474;
     }
+    &-left,
+    &-right {
+        width: 62px;
+        height: 62px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+    }
 }
