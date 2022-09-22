@@ -1,0 +1,106 @@
+.footer {
+    height: 443px;
+    background: #111115;
+    &_container {
+        padding-top: 2.6vw;
+        display: grid;
+        grid-template-columns: 25vw 24vw 24vw;
+        grid-template-rows: 7.5vw 5vw 9.5vw;
+    }
+    &__logo {
+        position: relative;
+        width: 82px;
+        height: 52px;
+        border: 0.5px solid #FFFFFF;
+        border-radius: 2px;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 120%;
+        text-align: center;
+        color: #FFFFFF;
+        cursor: pointer;
+        img {
+            position: absolute;
+            left: 9px;
+            bottom: 9px;
+        }
+    }
+    &__subscribe {
+        padding-left: 9px;
+        grid-column: 3/4;
+        display: grid;
+        grid-template-columns: 228px 129px;
+        grid-template-rows: 1fr 2fr;
+        gap: 3px 10px;
+        .subtitle {
+            grid-column: 1/3;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 120%;
+            color: #FFFFFF;
+        }
+        input {
+            width: 228px;
+            height: 42px;
+            background: black;
+            border: 0.7px solid #F9804B;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            color: #BDBDBD;
+            padding-left: 10px;
+        }
+    }
+    &__social {
+        grid-row: 3/4;
+        margin-top: 18px;
+        ul {
+            margin-top: 1px;
+            list-style-type: none;
+            li {
+                margin-bottom: 10px;
+            }
+        }
+        a {
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            color: #FFFFFF;
+        }
+        &_icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 100%;
+            background: rgba(196, 196, 196, 0.5);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            span {
+                font-size: 14px;
+            }
+        }
+    }
+    nav {
+        grid-row: 3/4;
+        align-self: end;
+        ul {
+            gap: 3.6vw;
+        }
+    }
+    &_design {
+        grid-row: 3/4;
+        justify-self: end;
+        align-self: end;
+        font-weight: 100;
+        font-size: 16px;
+        line-height: 1.9vw;
+        color: #FFFFFF;
+        width: 232px;
+        height: 52px;
+        margin-right: 5px;
+        margin-bottom: 4px;
+    }
+}

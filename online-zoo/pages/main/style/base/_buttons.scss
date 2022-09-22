@@ -35,3 +35,23 @@
         border-radius: 5px;
     }
 }
+
+.submit {
+    width: 129px;
+    height: 42px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    border: 1px solid #000000;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 5px;
+    &-active {
+        color: #4B9200;
+        border-color: #4B9200;
+    }
+    &-mistake {
+        color: #D31414;
+        border-color: #D31414;
+    }
+}
