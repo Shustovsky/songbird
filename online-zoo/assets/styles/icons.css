@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'icomoon';
-    src: url('../fonts/icons/icomoon.eot?cimhp6');
-    src: url('../fonts/icons/icomoon.eot?cimhp6#iefix') format('embedded-opentype'), url('../fonts/icons/icomoon.ttf?cimhp6') format('truetype'), url('../fonts/icons/icomoon.woff?cimhp6') format('woff'), url('../fonts/icons/icomoon.svg?cimhp6#icomoon') format('svg');
+    src: url('../fonts/icons/icomoon.eot?wkmnvm');
+    src: url('../fonts/icons/icomoon.eot?wkmnvm#iefix') format('embedded-opentype'), url('../fonts/icons/icomoon.ttf?wkmnvm') format('truetype'), url('../fonts/icons/icomoon.woff?wkmnvm') format('woff'), url('../fonts/icons/icomoon.svg?wkmnvm#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -20,6 +20,11 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+    content: "\e915";
+    color: #fff;
 }
 
 .icon-alligator_icon:before {
