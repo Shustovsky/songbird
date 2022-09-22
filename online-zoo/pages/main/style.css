@@ -53,6 +53,9 @@ html {
   align-items: center;
   position: absolute;
 }
+.btn-rectangular {
+  border-radius: 5px;
+}
 
 .header {
   background: #000000;
@@ -362,4 +365,86 @@ html {
   position: absolute;
   top: 62px;
   right: -100px;
+}
+
+.testimonials {
+  height: 919px;
+  overflow: hidden;
+  position: relative;
+}
+.testimonials h3 {
+  padding-top: 9vw;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 130%;
+  text-align: center;
+  color: #333B41;
+}
+.testimonials_wrapper {
+  padding-top: 2.8vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.85vw;
+}
+.testimonials__item {
+  padding: 12px 14px 0 15px;
+  width: 268px;
+  height: 391px;
+  background: #F1F3F2;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background: linear-gradient(45deg, #FEBDAB 74%, #F3A9F8 66%, #E0D8F0 100%, #EAF7FE 100%, #EAF7FE 100%);
+  box-shadow: inset 0px 0px 0px 100vw #F1F3F2;
+  overflow: hidden;
+}
+.testimonials__item__user {
+  display: grid;
+  grid-template-columns: 20% 39% 4% 36%;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #BDBDBD;
+}
+.testimonials__item__user_icon {
+  grid-row: 1/3;
+}
+.testimonials__item__user_name {
+  grid-column: 2/5;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+}
+.testimonials__item_feedback {
+  height: 310px;
+  padding-top: 0.5vw;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #767474;
+  overflow: hidden;
+}
+.testimonials .progressline {
+  margin: 0 auto;
+  margin-top: 1.3vw;
+  width: 599px;
+  height: 8px;
+  background: #F5F7F6;
+  border-radius: 5px;
+}
+.testimonials .progressline_active {
+  width: 19%;
+  height: 100%;
+  background: #FE9013;
+  border-radius: 5px;
+}
+.testimonials .btn {
+  margin-top: 2vw;
+}
+.testimonials .leav {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  transform: translate(40%, 33%);
 }
