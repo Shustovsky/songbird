@@ -5,7 +5,7 @@
         font-size: 16px;
         font-weight: 500;
         &_wrapper {
-            height: 80px;
+            height: 5vw;
             display: grid;
             grid-template-columns: 1fr 6fr 1fr;
             align-items: center;
@@ -38,7 +38,7 @@
         ul {
             display: flex;
             list-style-type: none;
-            gap: 58px;
+            gap: 3.64vw;
             line-height: 140%;
             li:first-child {
                 a {

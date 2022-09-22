@@ -1,13 +1,12 @@
 .pets {
-    margin-top: 3px;
     // overflow: hidden;
     position: relative;
-    height: 1106px;
+    height: 69.2vw;
     &_wrapper {
         display: grid;
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px 30px;
+        gap: 1.3vw 1.7vw;
     }
     .item {
         width: 366px;
@@ -61,7 +60,8 @@
     }
     .btn {
         margin: 0 auto;
-        margin-top: 80px;
+        margin-top: 5vw;
+        padding-left: 0.3vw;
         &-left,
         &-right {
             font-size: 10px;
@@ -69,10 +69,12 @@
             margin-top: 0;
         }
         &-left {
-            left: -6.9%;
+            left: -7%;
+            padding-right: 5px;
         }
         &-right {
             right: -6.9%;
+            padding-right: 5px;
         }
     }
     .palm {

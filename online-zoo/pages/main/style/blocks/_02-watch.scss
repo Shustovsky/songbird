@@ -1,7 +1,7 @@
 .watch {
-    height: 700px;
-    background: url(../../assets/images/Giant\ Panda.jpg) 0 -80px /100% no-repeat;
-    padding-top: 86px;
+    height: 43.67vw;
+    background: url(../../assets/images/Giant\ Panda.jpg) 0 -5vw /100% no-repeat;
+    padding-top: 5.4vw;
     h2 {
         position: relative;
         font-weight: 700;
@@ -16,17 +16,16 @@
         }
     }
     &_container {
-        width: 500px;
-        height: 400px;
         margin-left: 57%;
         .btn {
-            margin: 60px auto;
+            margin: 0 auto;
+            margin-top: 3.8vw;
             padding-left: 6px;
         }
         &::before {
             content: '';
-            width: 465px;
-            height: 465px;
+            width: 29vw;
+            height: 29vw;
             position: absolute;
             z-index: 0;
             border-radius: 100%;
