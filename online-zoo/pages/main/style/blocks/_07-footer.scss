@@ -4,8 +4,8 @@
     &_container {
         padding-top: 2.5vw;
         display: grid;
-        grid-template-columns: 25vw 24vw 24vw;
-        grid-template-rows: 7.5vw 5vw 9.5vw;
+        grid-template-columns: 34.5% 33.1% 32.5%;
+        grid-template-rows: 39% 26% 50%;
     }
     &__logo {
         position: relative;
@@ -96,11 +96,11 @@
         align-self: end;
         font-weight: 100;
         font-size: 16px;
-        line-height: 1.9vw;
+        line-height: 30px;
         color: #FFFFFF;
         width: 232px;
         height: 52px;
-        margin-right: 5px;
+        padding-left: 2px;
         margin-bottom: 4px;
     }
 }
