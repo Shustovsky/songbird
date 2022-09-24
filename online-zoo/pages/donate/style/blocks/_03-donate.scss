@@ -1,0 +1,112 @@
+.donate {
+    height: 1482px;
+    background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+    h3 {
+        padding-top: 40px;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 130%;
+        /* identical to box height, or 47px */
+        color: #FFFFFF;
+        text-transform: uppercase;
+    }
+    .orange {
+        padding-top: 45px;
+        color: #FE9013;
+        text-transform: none;
+    }
+    p {
+        padding-top: 10px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        color: #FFFFFF;
+    }
+    .pick {
+        margin-top: 60px;
+        height: 964px;
+        background: rgba(255, 255, 255, 0.52);
+        backdrop-filter: blur(2px);
+        border-radius: 20px;
+        h2 {
+            padding-top: 40px;
+            padding-right: 12px;
+            font-weight: 400;
+            font-size: 48px;
+            line-height: 120%;
+            text-align: center;
+            color: #FE9013;
+        }
+        p {
+            margin-top: 10px;
+            margin-left: 93px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 120%;
+            color: #333B41;
+        }
+        .illustration {
+            margin: 87px 0 0 25.8%;
+            width: 540px;
+            height: 250px;
+            display: grid;
+            justify-content: center;
+            grid-template-columns: 160px 80px 284px;
+            align-items: center;
+            .counter {
+                font-weight: 500;
+                font-size: 72px;
+                line-height: 80%;
+                text-align: center;
+                .text {
+                    margin: 0;
+                    padding: 12px 0 0 0;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 140%;
+                }
+            }
+            .divider {
+                padding-bottom: 22px;
+                padding-left: 10px;
+            }
+            .panda {
+                font-size: 196px;
+                padding-left: 7px;
+                padding-top: 20px;
+            }
+        }
+        .amount {
+            margin-top: 98px;
+            margin-left: 96px;
+            font-size: 16px;
+            line-height: 140%;
+            &_slider {
+                margin: 0 auto;
+                // margin-top: 21px;
+                display: block;
+                -webkit-appearance: none;
+                appearance: none;
+                width: 61vw;
+                height: 27px;
+                // background: #72828E;
+                // background-color: linear-gradient(to right, #404950 20%, #72828E 10%, #404950 80%);
+                background-image: linear-gradient(90deg, #404950 2%, #72828E 2%, #72828E 97.5%, #404950 97.5%);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                border-radius: 2px;
+                border: 12.5px solid #404950;
+                outline: none;
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 40px;
+                    height: 40px;
+                    border: 0;
+                    background: url('../../assets/icons/roller_icon.svg');
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
