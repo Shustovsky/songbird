@@ -177,6 +177,7 @@ a:hover {
   background: rgba(255, 255, 255, 0.52);
   backdrop-filter: blur(2px);
   border-radius: 20px;
+  position: relative;
 }
 .donate .pick h2 {
   padding-top: 40px;
@@ -227,17 +228,21 @@ a:hover {
   padding-top: 20px;
 }
 .donate .pick .amount {
-  margin-top: 98px;
+  margin-top: 17px;
+}
+.donate .pick .amount label {
+  padding-top: 7px;
   margin-left: 96px;
   font-size: 16px;
   line-height: 140%;
 }
-.donate .pick .amount_slider {
+.donate .pick .amount .range {
   margin: 0 auto;
+  margin-top: 17px;
   display: block;
   -webkit-appearance: none;
   appearance: none;
-  width: 61vw;
+  width: 84%;
   height: 27px;
   background-image: linear-gradient(90deg, #404950 2%, #72828E 2%, #72828E 97.5%, #404950 97.5%);
   background-size: 100% 100%;
@@ -246,14 +251,135 @@ a:hover {
   border: 12.5px solid #404950;
   outline: none;
 }
-.donate .pick .amount_slider::-webkit-slider-thumb {
+.donate .pick .amount .range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 40px;
   height: 40px;
   border: 0;
   background: url("../../assets/icons/roller_icon.svg");
+  margin-bottom: 20px;
   cursor: pointer;
+  transition: 1s all;
+}
+.donate .pick .amount .range::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+.donate .pick .amount .range_list {
+  margin: 11px 8.6% 0 7.7%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #333B41;
+}
+.donate .pick .amount .range_opt {
+  width: 60px;
+}
+.donate .pick .amount .dotContainer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: 66px;
+  pointer-events: none;
+  padding: 0 10.4%;
+}
+.donate .pick .amount .dot {
+  height: 10px;
+  width: 10px;
+  background: #FFEE2E;
+  border-radius: 50%;
+}
+.donate .pick .amount .dot:hover {
+  cursor: pointer;
+  background: red;
+}
+.donate .pick .amount .number {
+  margin: 41px auto 0;
+  position: relative;
+  width: 268px;
+  height: 54px;
+}
+.donate .pick .amount .number_input {
+  width: 268px;
+  height: 54px;
+  padding: 16px 22px 16px 9px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #929699;
+  border: 1px solid #929699;
+  border-radius: 2px;
+  background: transparent;
+}
+.donate .pick .amount .number_input::placeholder {
+  color: #929699;
+}
+.donate .pick .amount .number_input:focus {
+  outline: none;
+  border: 0.7px solid #4B9200;
+  color: #4B9200;
+}
+.donate .pick .amount .number_input:focus::placeholder {
+  color: #4B9200;
+}
+.donate .pick .amount .number::after {
+  content: "$";
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #929699;
+}
+.donate .pick .amount .radio {
+  margin-top: 27px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding-left: 0.6%;
+}
+.donate .pick .amount .radio label {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  line-height: 18px;
+}
+.donate .pick .amount .radio label:before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: 0;
+  border: 1px solid #FE9013;
+  border-radius: 100%;
+}
+.donate .pick .amount .radio_item {
+  width: 84px;
+}
+.donate .pick .amount .radio_input {
+  display: none;
+}
+.donate .pick .amount .radio_input:checked + label:before {
+  background: #4B9200;
+  border: 1px solid #4B9200;
+}
+.donate .pick .btn {
+  margin: 31px auto 0;
+  display: block;
+}
+.donate .pick .share {
+  margin-top: 30px;
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333B41;
+  text-align: center;
 }
 
 .footer {

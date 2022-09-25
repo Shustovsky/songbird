@@ -69,20 +69,46 @@
                     <div class="divider"><img src="../../assets/icons/x_icon.svg" alt="x"></div>
                     <div class="panda"><span class="icon-panda_icon"></span></div>
                 </div>
-                <p class="amount">Amount</p>
-                <input class="amount_slider" type="range" min="1" max="8" value="1" id="amount_slider">
-                <!-- list="tickmarks" -->
-                <datalist id="tickmarks">
-                    <option value="1"></option>
-                    <option value="2"></option>
-                    <option value="3"></option>
-                    <option value="4"></option>
-                    <option value="5"></option>
-                    <option value="6"></option>
-                    <option value="7"></option>
-                    <option value="8"></option>
-                
+                <form class="amount" action="">
+                    <label>Amount</label>
+                    <input class="range" type="range" min="1" max="8" value="1" id="range" list="range_list">
+                    <datalist id="range_list" class="range_list">
+                    <option class="range_opt" value="1">$5000</option>
+                    <option class="range_opt" value="2">$2000</option>
+                    <option class="range_opt" value="3">$1000</option>
+                    <option class="range_opt" value="4">$500</option>
+                    <option class="range_opt" value="5">$250</option>
+                    <option class="range_opt" value="6">$100</option>
+                    <option class="range_opt" value="7">$50</option>
+                    <option class="range_opt" value="8">$25</option>
                     </datalist>
+                    <div class="dotContainer">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="number">
+                        <input class="number_input" type="number" placeholder="Another amount" min="1" max="9999">
+                    </div>
+
+                    <div class="radio">
+                        <div class="radio_item">
+                            <input id="radio-1" type="radio" name="radio" value="1" class="radio_input">
+                            <label for="radio-1">Monthly</label>
+                        </div>
+                        <div class="radio_item">
+                            <input id="radio-2" type="radio" name="radio" value="2" class="radio_input" checked>
+                            <label for="radio-2">Once</label>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn">Feed a friend now</button>
+                <a class="share" href="#">Share with your friends on social networks </a>
             </div>
 
         </div>
