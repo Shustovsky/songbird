@@ -179,9 +179,9 @@ a:hover {
 }
 
 .backstage {
+  position: relative;
   min-height: 723px;
   padding-top: 140px;
-  background: url("../../assets/images/flower_foto1.jpg") 100.2% 6% no-repeat;
   background-size: 13%;
 }
 .backstage_container {
@@ -212,6 +212,12 @@ a:hover {
   line-height: 120%;
   padding-top: 54px;
   font-size: 24px;
+}
+.backstage .flower-foto {
+  position: absolute;
+  z-index: -1;
+  right: -97px;
+  top: 13px;
 }
 
 .pets {
@@ -496,7 +502,7 @@ a:hover {
   background: #111115;
 }
 .footer_container {
-  padding-top: 2.5vw;
+  padding-top: 40px;
   display: grid;
   grid-template-columns: 34.5% 33.1% 32.5%;
   grid-template-rows: 39% 26% 50%;
