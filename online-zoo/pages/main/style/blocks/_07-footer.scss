@@ -47,20 +47,25 @@
             border-radius: 2px;
             font-weight: 400;
             font-size: 16px;
+            color: #FFFFFF;
             line-height: 140%;
-            color: #BDBDBD;
             padding-left: 10px;
             margin-right: 5px;
+            &::placeholder {
+                color: #BDBDBD;
+            }
             &:focus {
                 outline: none;
                 border: 0.7px solid #4B9200;
             }
-            // &:invalid {
-            //     border: 0.7px solid red;
-            // }
-            // &:valid {
-            //     border: 0.7px solid #4B9200;
-            // }
+            &:invalid+.submit {
+                color: #D31414;
+                border: 1px solid #D31414;
+            }
+            &:valid+.submit {
+                color: #000000;
+                border: 1px solid #000000;
+            }
         }
     }
     &__social {

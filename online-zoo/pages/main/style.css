@@ -73,10 +73,6 @@ html {
   color: #4B9200;
   border-color: #4B9200;
 }
-.submit-mistake {
-  color: #D31414;
-  border-color: #D31414;
-}
 
 .header {
   background: #000000;
@@ -559,14 +555,25 @@ a:hover {
   border-radius: 2px;
   font-weight: 400;
   font-size: 16px;
+  color: #FFFFFF;
   line-height: 140%;
-  color: #BDBDBD;
   padding-left: 10px;
   margin-right: 5px;
+}
+.footer__subscribe .input::placeholder {
+  color: #BDBDBD;
 }
 .footer__subscribe .input:focus {
   outline: none;
   border: 0.7px solid #4B9200;
+}
+.footer__subscribe .input:invalid + .submit {
+  color: #D31414;
+  border: 1px solid #D31414;
+}
+.footer__subscribe .input:valid + .submit {
+  color: #000000;
+  border: 1px solid #000000;
 }
 .footer__social {
   grid-row: 3/4;
