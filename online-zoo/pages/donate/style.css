@@ -358,6 +358,12 @@ a:hover {
   border: 1px solid #FE9013;
   border-radius: 100%;
 }
+.donate .pick .amount .radio label:hover {
+  filter: brightness(120%);
+}
+.donate .pick .amount .radio label:hover:before {
+  border: 1px solid #4B9200;
+}
 .donate .pick .amount .radio_item {
   width: 84px;
 }
