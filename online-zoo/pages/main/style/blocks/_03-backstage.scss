@@ -5,6 +5,7 @@
     padding-top: 140px;
     // background: url('../../assets/images/flower_foto1.jpg') 100.2% 6% no-repeat;
     background-size: 13%;
+    overflow: hidden;
     &_container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

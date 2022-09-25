@@ -179,6 +179,7 @@ a:hover {
   min-height: 723px;
   padding-top: 140px;
   background-size: 13%;
+  overflow: hidden;
 }
 .backstage_container {
   display: grid;
