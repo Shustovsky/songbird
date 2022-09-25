@@ -231,52 +231,60 @@ a:hover {
   gap: 1.3vw 1.7vw;
 }
 .pets .item {
+  display: grid;
+  grid-template-rows: 86% 14%;
+  grid-template-columns: 1fr;
   width: 366px;
   height: 426px;
-  display: grid;
-  grid-template-rows: 86% 1fr 2fr;
-  grid-template-columns: 80% 1fr;
   border: 1px solid transparent;
-  /*Обводка нужной толщины, но прозрачная*/
   background: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
   /*Нужный градиент в качестве фона*/
   box-shadow: inset 0px 0px 0px 100vw #fff;
   /*Тень направленная внутрь контейнера, перекрывает ненужный фон и оставляет только рамку*/
   border-radius: 5px;
-  /*Скругляет углы*/
+  overflow: hidden;
 }
 .pets .item_img {
   grid-column: 1/3;
   transition: 1s;
 }
-.pets .item_img:hover {
-  transform: scale(1.05);
-}
-.pets .item img {
+.pets .item_img img {
   border-radius: 5px 5px 0 0;
   max-width: 100%;
   height: auto;
 }
-.pets .item_name {
-  grid-row: 2/3;
+.pets .item_img:hover {
+  transform: scale(1.1);
+}
+.pets .item_img:hover + .item_dscr {
+  transform: translateY(-70%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+.pets .item_dscr {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 19px 18px;
+  width: 100%;
+  padding: 11px 12px 0 16px;
+  transition: all 1s;
+}
+.pets .item_dscr .name {
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
-  padding: 11px 0 0 15px;
 }
-.pets .item_place {
-  grid-row: 3/4;
+.pets .item_dscr .place {
+  grid-row: 2/3;
   font-weight: 300;
   font-size: 15px;
   line-height: 100%;
-  padding: 3px 0 0 15px;
 }
-.pets .item_food {
-  grid-row: 2/4;
+.pets .item_dscr .food {
   justify-self: center;
   align-self: center;
-  padding-left: 14px;
+  padding-top: 19px;
 }
 .pets .btn {
   margin: 0 auto;
