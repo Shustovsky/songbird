@@ -13,6 +13,9 @@ html {
   font-family: "Roboto";
   font-style: normal;
 }
+html::-webkit-scrollbar {
+  width: 0;
+}
 
 .container {
   margin: 0 auto;
@@ -262,7 +265,7 @@ a:hover {
   transform: scale(1.1);
 }
 .donate .pick .amount .range_list {
-  margin: 11px 8.6% 0 7.7%;
+  margin: 12px 8.5% 0 7.9%;
   display: flex;
   justify-content: space-between;
   font-weight: 700;
@@ -273,27 +276,37 @@ a:hover {
 }
 .donate .pick .amount .range_opt {
   width: 60px;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 140%;
+}
+.donate .pick .amount .range_opt:nth-child(3) {
+  color: #FE9013;
+}
+.donate .pick .amount .range_opt::first-letter {
+  font-size: 21px;
+  font-weight: 900;
 }
 .donate .pick .amount .dotContainer {
   display: flex;
   justify-content: space-between;
   position: relative;
-  bottom: 66px;
+  bottom: 69px;
   pointer-events: none;
-  padding: 0 10.4%;
+  padding: 0 10.3%;
 }
-.donate .pick .amount .dot {
+.donate .pick .amount .dotContainer .dot {
   height: 10px;
   width: 10px;
   background: #FFEE2E;
   border-radius: 50%;
 }
-.donate .pick .amount .dot:hover {
+.donate .pick .amount .dotContainer .dot:hover {
   cursor: pointer;
   background: red;
 }
 .donate .pick .amount .number {
-  margin: 41px auto 0;
+  margin: 38px auto 0;
   position: relative;
   width: 268px;
   height: 54px;
@@ -321,6 +334,10 @@ a:hover {
 .donate .pick .amount .number_input:focus::placeholder {
   color: #4B9200;
 }
+.donate .pick .amount .number_input:invalid {
+  color: #D31414;
+  border: 1px solid #D31414;
+}
 .donate .pick .amount .number::after {
   content: "$";
   position: absolute;
@@ -329,6 +346,16 @@ a:hover {
   font-size: 20px;
   font-weight: bold;
   color: #929699;
+}
+.donate .pick .amount .number input[type=number]::-webkit-outer-spin-button,
+.donate .pick .amount .number input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.donate .pick .amount .number input[type=number],
+.donate .pick .amount .number input[type=number]:hover,
+.donate .pick .amount .number input[type=number]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
 }
 .donate .pick .amount .radio {
   margin-top: 27px;
@@ -371,8 +398,9 @@ a:hover {
   border: 1px solid #4B9200;
 }
 .donate .pick .btn {
-  margin: 31px auto 0;
+  margin: 31px 37.3% 0;
   display: block;
+  padding-left: 5px;
 }
 .donate .pick .share {
   margin-top: 30px;
@@ -389,7 +417,7 @@ a:hover {
   background: #111115;
 }
 .footer_container {
-  padding-top: 2.5vw;
+  padding-top: 42px;
   display: grid;
   grid-template-columns: 34.5% 33.1% 32.5%;
   grid-template-rows: 39% 26% 50%;
