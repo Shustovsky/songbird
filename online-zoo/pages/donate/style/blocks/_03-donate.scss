@@ -144,18 +144,34 @@
                 justify-content: space-between;
                 position: relative;
                 bottom: 69px;
-                pointer-events: none;
                 padding: 0 10.3%;
                 .dot {
+                    position: relative; // удалить
+                    z-index: 1; // удалить
                     height: 10px;
                     width: 10px;
                     background: #FFEE2E;
                     border-radius: 50%;
-                    // display: block;
-                    // transition: 1s all;
+                    transition: 1s all; // удалить
+                    &::after {
+                        // удалить
+                        content: ""; // удалить
+                        position: absolute; // удалить
+                        transform: translate(-35%, -35%); // удалить
+                        height: 30px; // удалить
+                        width: 30px; // удалить
+                        z-index: -1; // удалить
+                        border-radius: 100%; // удалить
+                    }
                     &:hover {
                         cursor: pointer;
                         background: red;
+                        &::after {
+                            // удалить
+                            content: url('../../assets/icons/roller_icon.svg'); // удалить
+                            position: absolute; // удалить
+                            transform: translate(-50%, -50%); // удалить
+                        }
                     }
                 }
             }
