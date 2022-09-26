@@ -13,6 +13,9 @@ html {
   font-family: "Roboto";
   font-style: normal;
 }
+html::-webkit-scrollbar {
+  width: 0;
+}
 
 .container {
   margin: 0 auto;

@@ -13,6 +13,9 @@ html {
   font-family: "Roboto";
   font-style: normal;
 }
+html::-webkit-scrollbar {
+  width: 0;
+}
 
 .container {
   margin: 0 auto;
@@ -320,6 +323,15 @@ a:hover {
 }
 .donate .pick .amount .number_input:focus::placeholder {
   color: #4B9200;
+}
+.donate .pick .amount .number_input:focus .number::after {
+  content: "$";
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
 }
 .donate .pick .amount .number::after {
   content: "$";
