@@ -276,6 +276,12 @@ a:hover {
 }
 .donate .pick .amount .range_opt {
   width: 60px;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 140%;
+}
+.donate .pick .amount .range_opt:nth-child(3) {
+  color: #FE9013;
 }
 .donate .pick .amount .dotContainer {
   display: flex;
@@ -323,15 +329,6 @@ a:hover {
 }
 .donate .pick .amount .number_input:focus::placeholder {
   color: #4B9200;
-}
-.donate .pick .amount .number_input:focus .number::after {
-  content: "$";
-  position: absolute;
-  right: 10px;
-  top: 17px;
-  font-size: 20px;
-  font-weight: bold;
-  color: red;
 }
 .donate .pick .amount .number::after {
   content: "$";
@@ -393,8 +390,9 @@ a:hover {
   border: 1px solid #4B9200;
 }
 .donate .pick .btn {
-  margin: 31px auto 0;
+  margin: 31px 37.3% 0;
   display: block;
+  padding-left: 5px;
 }
 .donate .pick .share {
   margin-top: 30px;
@@ -411,7 +409,7 @@ a:hover {
   background: #111115;
 }
 .footer_container {
-  padding-top: 2.5vw;
+  padding-top: 42px;
   display: grid;
   grid-template-columns: 34.5% 33.1% 32.5%;
   grid-template-rows: 39% 26% 50%;
