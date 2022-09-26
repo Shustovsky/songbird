@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* outline: 1px solid red; */
+    /* подчеркивает каждый элемент карсным */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* для плавной прокрутки */
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1160px;
+    position: relative;
+}
+
+@import 'base/variables';
+// @import 'base/fonts.scss';
+@import 'base/buttons.scss';
+@import 'blocks/01-header';
+@import 'blocks/02-watch';
+@import 'blocks/03-backstage';
+@import 'blocks/04-pets';
+@import 'blocks/05-pick';
+@import 'blocks/06-testimonials';
+@import 'blocks/07-footer';
