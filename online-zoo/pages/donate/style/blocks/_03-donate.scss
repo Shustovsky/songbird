@@ -186,6 +186,18 @@
                     font-weight: bold;
                     color: #929699;
                 }
+                //убрать стрелки в инпуте
+                input[type="number"]::-webkit-outer-spin-button,
+                input[type="number"]::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                }
+                //убрать стрелки в инпуте для мозилы
+                input[type='number'],
+                input[type="number"]:hover,
+                input[type="number"]:focus {
+                    appearance: none;
+                    -moz-appearance: textfield;
+                }
             }
             .radio {
                 margin-top: 27px;

@@ -330,6 +330,16 @@ a:hover {
   font-weight: bold;
   color: #929699;
 }
+.donate .pick .amount .number input[type=number]::-webkit-outer-spin-button,
+.donate .pick .amount .number input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.donate .pick .amount .number input[type=number],
+.donate .pick .amount .number input[type=number]:hover,
+.donate .pick .amount .number input[type=number]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
 .donate .pick .amount .radio {
   margin-top: 27px;
   display: flex;
