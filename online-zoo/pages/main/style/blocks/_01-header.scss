@@ -17,7 +17,7 @@
         border-radius: 2px;
         &_text {
             margin: 3.55px 4.75px;
-            font-weight: 400;
+            font-weight: 100;
             font-size: 19px;
             line-height: 120%;
             text-align: center;
@@ -31,6 +31,8 @@
     .designed {
         text-align: right;
         line-height: 140%;
+        padding-bottom: 1px;
+        padding-right: 1px;
     }
 }
 
@@ -42,7 +44,7 @@ nav {
         line-height: 140%;
         li:first-child {
             a {
-                font-weight: 500;
+                font-weight: 700;
                 pointer-events: none;
                 background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
                 -webkit-background-clip: text;
@@ -56,6 +58,9 @@ nav {
 a {
     text-decoration: none;
     color: #FFFFFF;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
     &:hover {
         transition: all 1s;
         background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
