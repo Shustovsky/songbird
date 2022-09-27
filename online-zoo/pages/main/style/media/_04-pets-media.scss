@@ -1,0 +1,46 @@
+@media(max-width: 1599px) {
+    .pets {
+        min-height: 1076px;
+        overflow: hidden;
+        &_wrapper {
+            grid-template-rows: repeat(2, 44%);
+            gap: 11.7% 3%;
+            height: 802px;
+            .item {
+                width: 294px;
+                height: 354px;
+                grid-template-rows: 83% 14%;
+                &_img {
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                &_dscr {
+                    grid-template-columns: 88% 10%;
+                }
+            }
+        }
+        .btn-left {
+            top: 39.4%;
+            left: 34.3%;
+            padding: 0 2px 0 0;
+        }
+        .btn-right {
+            top: 39.4%;
+            right: 34.3%;
+            padding: 0 0 1px 0;
+        }
+        .palm {
+            bottom: -129px;
+            left: -441px;
+            transform: scale(0.45);
+        }
+        .strelitzia {
+            bottom: -44px;
+            right: -60px;
+            transform: scale(0.7);
+        }
+    }
+}

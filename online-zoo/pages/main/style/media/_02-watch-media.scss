@@ -1,0 +1,24 @@
+@media(max-width: 1599px) {
+    .watch {
+        height: 504px;
+        background-image: url(../../assets/images/giant-panda.jpg);
+        background-position: center 64%;
+        background-size: 120%;
+        overflow: hidden;
+        padding-top: 4.3%;
+        &_container {
+            margin-left: 45.5%;
+            h2 {
+                font-size: 85px;
+                &::before {
+                    width: 367px;
+                    height: 367px;
+                    transform: translate(-30.4%, -15%);
+                }
+            }
+            .btn {
+                margin-top: 8%;
+            }
+        }
+    }
+}

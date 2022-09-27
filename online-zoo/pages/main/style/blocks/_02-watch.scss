@@ -1,5 +1,5 @@
 .watch {
-    min-height: 700px;
+    height: 700px;
     background: url(../../assets/images/giant-panda.jpg) 0 -223px /100% no-repeat;
     // padding-top: 5.4vw;
     padding-top: 86px;
@@ -15,6 +15,18 @@
         span {
             color: #FFEE2E
         }
+        &::before {
+            content: '';
+            // width: 29vw;
+            // height: 29vw;
+            width: 465px;
+            height: 465px;
+            position: absolute;
+            z-index: -1;
+            border-radius: 100%;
+            background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+            transform: translate(-30%, -16%);
+        }
     }
     &_container {
         margin-left: 57%;
@@ -23,18 +35,6 @@
             // margin-top: 3.8vw;
             margin-top: 12%;
             padding-left: 6px;
-        }
-        &::before {
-            content: '';
-            // width: 29vw;
-            // height: 29vw;
-            width: 465px;
-            height: 465px;
-            position: absolute;
-            z-index: 0;
-            border-radius: 100%;
-            background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
-            transform: translate(-16%, -16%);
         }
     }
 }

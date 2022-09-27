@@ -519,3 +519,71 @@ a:hover {
   padding-left: 2px;
   margin-bottom: 4px;
 }
+
+@media (max-width: 1599px) {
+  .container {
+    max-width: 940px;
+  }
+}
+@media (max-width: 1599px) {
+  .header_wrapper nav {
+    margin-left: 4%;
+  }
+  .header_wrapper nav ul {
+    gap: 7.1%;
+  }
+  .header_wrapper .designed {
+    padding-top: 2px;
+  }
+}
+@media (max-width: 1599px) {
+  .watch {
+    height: 390px;
+    background-image: url(../../assets/images/giant-panda.jpg);
+    background-position: 29% center;
+    background-size: 160%;
+  }
+}
+@media (max-width: 1599px) {
+  .donate h3 {
+    padding-right: 10%;
+  }
+  .donate p {
+    padding-top: 3.2%;
+  }
+  .donate .pick {
+    margin-top: 4.2%;
+  }
+  .donate .pick h2 {
+    padding-top: 2.1%;
+    padding-right: 1.5%;
+  }
+  .donate .pick p {
+    margin: 1.2% 0 0 5%;
+    padding: 0;
+  }
+  .donate .pick .illustration {
+    margin: 9.2% 0 0 20%;
+  }
+}
+@media (max-width: 1599px) {
+  .footer_container {
+    grid-template-columns: 32.5% 25.5% 43.4%;
+    grid-template-rows: 39.4% 26% 50%;
+  }
+  .footer .btn {
+    margin-left: 5%;
+  }
+  .footer__logo {
+    margin-left: 5%;
+  }
+  .footer__social {
+    margin-left: 5%;
+  }
+  .footer nav ul {
+    gap: 47px;
+  }
+  .footer nav ul li {
+    flex-shrink: 0;
+  }
+}

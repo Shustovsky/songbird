@@ -1,0 +1,35 @@
+@media(max-width: 1599px) {
+    .testimonials {
+        min-height: 842px;
+        overflow: hidden;
+        h3 {
+            padding-top: 10.7%;
+        }
+        &_wrapper {
+            padding-top: 31px;
+            gap: 3vw;
+        }
+        &__item {
+            width: 293px;
+            &__user {
+                grid-template-columns: 18% 35% 4% 39%;
+            }
+            &_feedback {
+                margin-right: 3%;
+            }
+        }
+        .slider {
+            margin-top: 20px;
+            margin-right: 29.8%;
+            width: 39.2vw;
+        }
+        .btn {
+            margin-top: 5.4%;
+        }
+        .leav {
+            transform: scale(0.8);
+            bottom: -15%;
+            right: -17%;
+        }
+    }
+}
