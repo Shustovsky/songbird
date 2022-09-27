@@ -113,14 +113,16 @@
                             content: url('../../assets/icons/roller_icon.svg');
                             position: absolute;
                             top: -119%;
-                            left: 17%;
+                            left: 16%;
                             cursor: pointer;
                             // transition: 1s all;
                         }
-                        // &:hover+.item_label:before {
-                        //     background: #4B9200;
-                        //     border: 10px solid #4B9200;
-                        // }
+                        &:checked+.item_label {
+                            color: #FE9013;
+                        }
+                        &:hover+.item_label:before {
+                            background: #FE9013;
+                        }
                     }
                     &_label {
                         width: 72px;

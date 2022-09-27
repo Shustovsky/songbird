@@ -264,8 +264,14 @@ a:hover {
   content: url("../../assets/icons/roller_icon.svg");
   position: absolute;
   top: -119%;
-  left: 17%;
+  left: 16%;
   cursor: pointer;
+}
+.donate .pick .amount .radio_money .item_input:checked + .item_label {
+  color: #FE9013;
+}
+.donate .pick .amount .radio_money .item_input:hover + .item_label:before {
+  background: #FE9013;
 }
 .donate .pick .amount .radio_money .item_label {
   width: 72px;
