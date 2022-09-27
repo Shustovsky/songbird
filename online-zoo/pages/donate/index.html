@@ -57,13 +57,13 @@
     <section class="donate">
         <div class="container">
             <h3>THE ZOO HAS OFFICIALLY REOPENED BUT WE STILL NEED YOUR HELP!</h3>
-            <p>Even though the Zoo has been able to reopen, we are at a greatly reduced capacity with educational programs and public and private events cancelled or postponed for additional months. We need you now more than ever to help ensure that we overcome
+            <p class="donate_p">Even though the Zoo has been able to reopen, we are at a greatly reduced capacity with educational programs and public and private events cancelled or postponed for additional months. We need you now more than ever to help ensure that we overcome
                 these challenges. We have been actively raising funds in the community, and we are grateful for the generosity. But much more support is still needed, and we need your help! Please consider a gift today – no matter what size – to help
                 us sustain our mission.</p>
             <h3 class="orange">Donation Information</h3>
             <div class="pick">
                 <h2>Pick and feed a friend</h2>
-                <p>We know the animals bring you joy, and in these extraordinary times, we’re glad.</p>
+                <p class="subtitle">We know the animals bring you joy, and in these extraordinary times, we’re glad.</p>
                 <div class="illustration">
                     <div class="counter">
                         <div class="counter_numb"> 4 </div>
@@ -74,40 +74,55 @@
                     <div class="panda"><span class="icon-panda_icon"></span></div>
                 </div>
                 <form class="amount" action="#">
-                    <label>Amount</label>
-                    <input class="range" type="range" min="1" max="8" value="3" id="range" list="range_list">
-                    <datalist id="range_list" class="range_list">
-                    <option class="range_opt" value="1">$5000</option>
-                    <option class="range_opt" value="2">$2000</option>
-                    <option class="range_opt" value="3">$1000</option>
-                    <option class="range_opt" value="4">$500</option>
-                    <option class="range_opt" value="5">$250</option>
-                    <option class="range_opt" value="6">$100</option>
-                    <option class="range_opt" value="7">$50</option>
-                    <option class="range_opt" value="8">$25</option>
-                    </datalist>
-                    <div class="dotContainer">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                    <p class="amount_p">Amount</p>
+                    <div class="radio_money">
+                        <div class="wrapper"></div>
+                        <div class="item">
+                            <input id="radio-1" type="radio" name="item_input" value="1" class="item_input">
+                            <label class="item_label" for="radio-1">$5000</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-2" type="radio" name="item_input" value="2" class="item_input">
+                            <label class="item_label" for="radio-2">$2000</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-3" type="radio" name="item_input" value="3" class="item_input" checked>
+                            <label class="item_label" for="radio-3">$1000</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-4" type="radio" name="item_input" value="4" class="item_input">
+                            <label class="item_label" for="radio-4">$500</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-5" type="radio" name="item_input" value="5" class="item_input">
+                            <label class="item_label" for="radio-5">$250</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-6" type="radio" name="item_input" value="6" class="item_input">
+                            <label class="item_label" for="radio-6">$100</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-7" type="radio" name="item_input" value="7" class="item_input">
+                            <label class="item_label" for="radio-7">$50</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-8" type="radio" name="item_input" value="8" class="item_input">
+                            <label class="item_label" for="radio-8">$25</label>
+                        </div>
+
                     </div>
                     <div class="number">
-                        <input class="number_input" type="number" placeholder="Another amount" min="1" max="9999">
+                        <input class="number_input" type="number" placeholder="Another amount" onkeypress="this.value=this.value.substring(0,3)">
                     </div>
 
-                    <div class="radio">
-                        <div class="radio_item">
-                            <input id="radio-1" type="radio" name="radio" value="1" class="radio_input">
-                            <label for="radio-1">Monthly</label>
+                    <div class="periodicity">
+                        <div class="periodicity_item">
+                            <input id="radio-10" type="radio" name="periodicity_name" class="periodicity_input">
+                            <label class="periodicity_label" for="radio-10">Monthly</label>
                         </div>
-                        <div class="radio_item">
-                            <input id="radio-2" type="radio" name="radio" value="2" class="radio_input" checked>
-                            <label for="radio-2">Once</label>
+                        <div class="periodicity_item">
+                            <input id="radio-11" type="radio" name="periodicity_name" class="periodicity_input" checked>
+                            <label class="periodicity_label" for="radio-11">Once</label>
                         </div>
                     </div>
                     <button class="btn">Feed a friend now</button>

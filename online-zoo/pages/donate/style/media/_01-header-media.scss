@@ -1,0 +1,15 @@
+@media(max-width: 1599px) {
+    .header {
+        &_wrapper {
+            nav {
+                margin-left: 4%;
+                ul {
+                    gap: 7.1%;
+                }
+            }
+            .designed {
+                padding-top: 2px;
+            }
+        }
+    }
+}
