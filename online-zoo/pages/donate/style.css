@@ -163,7 +163,7 @@ a:hover {
   color: #FE9013;
   text-transform: none;
 }
-.donate p {
+.donate .donate_p {
   padding-top: 10px;
   font-weight: 500;
   font-size: 16px;
@@ -187,8 +187,8 @@ a:hover {
   text-align: center;
   color: #FE9013;
 }
-.donate .pick p {
-  margin-top: 10px;
+.donate .pick .subtitle {
+  margin-top: 1.8%;
   margin-left: 93px;
   font-weight: 400;
   font-size: 24px;
@@ -229,81 +229,79 @@ a:hover {
 .donate .pick .amount {
   margin-top: 17px;
 }
-.donate .pick .amount label {
-  padding-top: 7px;
-  margin-left: 96px;
-  font-size: 16px;
-  line-height: 140%;
+.donate .pick .amount_p {
+  margin-top: 1.6%;
+  margin-left: 8.3%;
 }
-.donate .pick .amount .range {
-  margin: 0 auto;
-  margin-top: 17px;
-  display: block;
-  -webkit-appearance: none;
-  appearance: none;
-  width: 84%;
+.donate .pick .amount .radio_money {
+  position: relative;
+  margin: 5% 7.4% 0% 7.9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.donate .pick .amount .radio_money .wrapper {
+  position: absolute;
+  top: -100%;
+  width: 99.4%;
   height: 27px;
   background-image: linear-gradient(90deg, #404950 2%, #72828E 2%, #72828E 97.5%, #404950 97.5%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 2px;
-  border: 12.5px solid #404950;
-  outline: none;
+  border: 12px solid #404950;
 }
-.donate .pick .amount .range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 40px;
-  height: 40px;
-  border: 0;
-  background: url("../../assets/icons/roller_icon.svg");
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: 1s all;
-}
-.donate .pick .amount .range::-webkit-slider-thumb:hover {
-  transform: scale(1.1);
-}
-.donate .pick .amount .range_list {
-  margin: 12px 8.5% 0 7.9%;
+.donate .pick .amount .radio_money .item {
   display: flex;
-  justify-content: space-between;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 140%;
-  text-transform: uppercase;
-  color: #333B41;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.donate .pick .amount .range_opt {
-  width: 60px;
+.donate .pick .amount .radio_money .item_input {
+  display: none;
+}
+.donate .pick .amount .radio_money .item_input:checked + .item_label:after {
+  content: url("../../assets/icons/roller_icon.svg");
+  position: absolute;
+  top: -119%;
+  left: 17%;
+  cursor: pointer;
+}
+.donate .pick .amount .radio_money .item_label {
+  width: 72px;
+  cursor: pointer;
+  position: relative;
   font-weight: 500;
   font-size: 26px;
   line-height: 140%;
+  color: #333B41;
 }
-.donate .pick .amount .range_opt::first-letter {
+.donate .pick .amount .radio_money .item_label::first-letter {
   font-size: 21px;
   font-weight: 900;
 }
-.donate .pick .amount .dotContainer {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  bottom: 69px;
-  padding: 0 10.3%;
-  pointer-events: none;
-}
-.donate .pick .amount .dotContainer .dot {
+.donate .pick .amount .radio_money .item_label:before {
+  content: "";
   height: 10px;
   width: 10px;
+  position: absolute;
+  top: -79%;
+  left: 37%;
   background: #FFEE2E;
   border-radius: 50%;
 }
-.donate .pick .amount .dotContainer .dot:hover {
-  cursor: pointer;
-  background: red;
+.donate .pick .amount .radio_money .item_label::after {
+  content: "";
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: -103%;
+  left: 23%;
+  background: inherit;
+  border-radius: 50%;
 }
 .donate .pick .amount .number {
-  margin: 38px auto 0;
+  margin: 4.1% auto 0;
   position: relative;
   width: 268px;
   height: 54px;
@@ -354,14 +352,14 @@ a:hover {
   appearance: none;
   -moz-appearance: textfield;
 }
-.donate .pick .amount .radio {
+.donate .pick .amount .periodicity {
   margin-top: 27px;
   display: flex;
   justify-content: center;
   gap: 50px;
   padding-left: 0.6%;
 }
-.donate .pick .amount .radio label {
+.donate .pick .amount .periodicity_label {
   margin: 0;
   padding: 0;
   cursor: pointer;
@@ -369,7 +367,7 @@ a:hover {
   padding-left: 25px;
   line-height: 18px;
 }
-.donate .pick .amount .radio label:before {
+.donate .pick .amount .periodicity_label:before {
   content: "";
   width: 14px;
   height: 14px;
@@ -378,19 +376,19 @@ a:hover {
   border: 1px solid #FE9013;
   border-radius: 100%;
 }
-.donate .pick .amount .radio label:hover {
+.donate .pick .amount .periodicity_label:hover {
   filter: brightness(120%);
 }
-.donate .pick .amount .radio label:hover:before {
+.donate .pick .amount .periodicity_label:hover:before {
   border: 1px solid #4B9200;
 }
-.donate .pick .amount .radio_item {
+.donate .pick .amount .periodicity_item {
   width: 84px;
 }
-.donate .pick .amount .radio_input {
+.donate .pick .amount .periodicity_input {
   display: none;
 }
-.donate .pick .amount .radio_input:checked + label:before {
+.donate .pick .amount .periodicity_input:checked + label:before {
   background: #4B9200;
   border: 1px solid #4B9200;
 }

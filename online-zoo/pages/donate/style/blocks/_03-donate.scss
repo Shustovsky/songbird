@@ -15,7 +15,7 @@
         color: #FE9013;
         text-transform: none;
     }
-    p {
+    .donate_p {
         padding-top: 10px;
         font-weight: 500;
         font-size: 16px;
@@ -38,8 +38,8 @@
             text-align: center;
             color: #FE9013;
         }
-        p {
-            margin-top: 10px;
+        .subtitle {
+            margin-top: 1.8%;
             margin-left: 93px;
             font-weight: 400;
             font-size: 24px;
@@ -79,83 +79,93 @@
         }
         .amount {
             margin-top: 17px;
-            label {
-                padding-top: 7px;
-                margin-left: 96px;
-                font-size: 16px;
-                line-height: 140%;
+            &_p {
+                margin-top: 1.6%;
+                margin-left: 8.3%;
             }
-            .range {
-                margin: 0 auto;
-                margin-top: 17px;
-                display: block;
-                -webkit-appearance: none;
-                appearance: none;
-                width: 84%;
-                height: 27px;
-                // background: #72828E;
-                // background-color: linear-gradient(to right, #404950 20%, #72828E 10%, #404950 80%);
-                background-image: linear-gradient(90deg, #404950 2%, #72828E 2%, #72828E 97.5%, #404950 97.5%);
-                background-size: 100% 100%;
-                background-repeat: no-repeat;
-                border-radius: 2px;
-                border: 12.5px solid #404950;
-                outline: none;
-                &::-webkit-slider-thumb {
-                    -webkit-appearance: none;
-                    appearance: none;
-                    width: 40px;
-                    height: 40px;
-                    border: 0;
-                    background: url('../../assets/icons/roller_icon.svg');
-                    margin-bottom: 20px;
-                    cursor: pointer;
-                    transition: 1s all;
-                    &:hover {
-                        transform: scale(1.1);
-                    }
-                }
-                &_list {
-                    margin: 12px 8.5% 0 7.9%;
-                    display: flex;
-                    justify-content: space-between;
-                    font-weight: 700;
-                    font-size: 26px;
-                    line-height: 140%;
-                    text-transform: uppercase;
-                    color: #333B41;
-                }
-                &_opt {
-                    width: 60px;
-                    font-weight: 500;
-                    font-size: 26px;
-                    line-height: 140%;
-                    &::first-letter {
-                        font-size: 21px;
-                        font-weight: 900;
-                    }
-                }
-            }
-            .dotContainer {
+            .radio_money {
+                position: relative;
+                margin: 5% 7.4% 0% 7.9%;
                 display: flex;
                 justify-content: space-between;
-                position: relative;
-                bottom: 69px;
-                padding: 0 10.3%;
-                pointer-events: none;
-                .dot {
-                    height: 10px;
-                    width: 10px;
-                    background: #FFEE2E;
-                    border-radius: 50%;
-                    &:hover {
+                align-items: center;
+                .wrapper {
+                    position: absolute;
+                    top: -100%;
+                    width: 99.4%;
+                    height: 27px;
+                    // background: #72828E;
+                    // background-color: linear-gradient(to right, #404950 20%, #72828E 10%, #404950 80%);
+                    background-image: linear-gradient(90deg, #404950 2%, #72828E 2%, #72828E 97.5%, #404950 97.5%);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    border-radius: 2px;
+                    border: 12px solid #404950;
+                }
+                .item {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    &_input {
+                        display: none;
+                        &:checked+.item_label:after {
+                            content: url('../../assets/icons/roller_icon.svg');
+                            position: absolute;
+                            top: -119%;
+                            left: 17%;
+                            cursor: pointer;
+                            // transition: 1s all;
+                        }
+                        // &:hover+.item_label:before {
+                        //     background: #4B9200;
+                        //     border: 10px solid #4B9200;
+                        // }
+                    }
+                    &_label {
+                        width: 72px;
                         cursor: pointer;
-                        background: red;
+                        position: relative;
+                        // user-select: none;   
+                        font-weight: 500;
+                        font-size: 26px;
+                        line-height: 140%;
+                        color: #333B41;
+                        &::first-letter {
+                            font-size: 21px;
+                            font-weight: 900;
+                        }
+                        &:before {
+                            content: "";
+                            height: 10px;
+                            width: 10px;
+                            position: absolute;
+                            top: -79%;
+                            left: 37%;
+                            background: #FFEE2E;
+                            border-radius: 50%;
+                            // z-index: 1;
+                            // &:hover {
+                            //     cursor: pointer;
+                            //     background: red;
+                            // }
+                        }
+                        &::after {
+                            content: "";
+                            height: 30px;
+                            width: 30px;
+                            position: absolute;
+                            top: -103%;
+                            left: 23%;
+                            background: inherit;
+                            border-radius: 50%;
+                            // z-index: 0;
+                        }
                     }
                 }
             }
             .number {
-                margin: 38px auto 0;
+                margin: 4.1% auto 0;
                 position: relative;
                 width: 268px;
                 height: 54px;
@@ -208,13 +218,13 @@
                     -moz-appearance: textfield;
                 }
             }
-            .radio {
+            .periodicity {
                 margin-top: 27px;
                 display: flex;
                 justify-content: center;
                 gap: 50px;
                 padding-left: 0.6%;
-                label {
+                &_label {
                     margin: 0;
                     padding: 0;
                     cursor: pointer;
