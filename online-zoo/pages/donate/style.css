@@ -549,40 +549,77 @@ a:hover {
   }
 }
 @media (max-width: 1599px) {
+  .donate {
+    height: 1333px;
+  }
   .donate h3 {
     padding-right: 10%;
   }
-  .donate p {
+  .donate .donate_p {
     padding-top: 3.2%;
   }
   .donate .pick {
     margin-top: 4.2%;
+    height: 917px;
   }
   .donate .pick h2 {
     padding-top: 2.1%;
     padding-right: 1.5%;
   }
-  .donate .pick p {
+  .donate .pick .subtitle {
     margin: 1.2% 0 0 5%;
     padding: 0;
   }
   .donate .pick .illustration {
     margin: 9.2% 0 0 20%;
   }
+  .donate .pick .amount_p {
+    margin-top: 2%;
+    margin-left: 7%;
+  }
+  .donate .pick .amount .radio_money {
+    margin: 6.2% 2.4% 0% 7%;
+  }
+  .donate .pick .amount .radio_money .wrapper {
+    width: 95%;
+    background: #72828E;
+  }
+  .donate .pick .amount .radio_money .item:nth-child(2) {
+    display: none;
+  }
+  .donate .pick .amount .radio_money .item_input:checked + .item_label:after {
+    top: -119%;
+    left: -5%;
+  }
+  .donate .pick .amount .radio_money .item_label:before {
+    top: -79%;
+    left: 15%;
+  }
+  .donate .pick .amount .radio_money .item_label:after {
+    top: -110%;
+    left: 10%;
+  }
+  .donate .pick .amount .number {
+    margin: 5.1% auto 0;
+  }
+  .donate .pick .amount .btn {
+    margin: 31px 34.3% 0;
+  }
 }
 @media (max-width: 1599px) {
   .footer_container {
-    grid-template-columns: 32.5% 25.5% 43.4%;
+    padding-top: 41px;
+    grid-template-columns: 32.5% 24% 43.4%;
     grid-template-rows: 39.4% 26% 50%;
   }
   .footer .btn {
-    margin-left: 5%;
+    margin-left: 0%;
   }
   .footer__logo {
-    margin-left: 5%;
+    margin-left: 0%;
   }
   .footer__social {
-    margin-left: 5%;
+    margin-left: 0%;
   }
   .footer nav ul {
     gap: 47px;

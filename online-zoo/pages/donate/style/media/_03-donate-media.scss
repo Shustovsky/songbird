@@ -1,23 +1,65 @@
 @media(max-width: 1599px) {
     .donate {
+        height: 1333px;
         h3 {
             padding-right: 10%;
         }
-        p {
+        .donate_p {
             padding-top: 3.2%;
         }
         .pick {
             margin-top: 4.2%;
+            height: 917px;
             h2 {
                 padding-top: 2.1%;
                 padding-right: 1.5%;
             }
-            p {
+            .subtitle {
                 margin: 1.2% 0 0 5%;
                 padding: 0;
             }
             .illustration {
                 margin: 9.2% 0 0 20%;
+            }
+            .amount {
+                &_p {
+                    margin-top: 2%;
+                    margin-left: 7%;
+                }
+                .radio_money {
+                    margin: 6.2% 2.4% 0% 7%;
+                    .wrapper {
+                        width: 95%;
+                        background: #72828E;
+                    }
+                    .item {
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                        &_input {
+                            &:checked+.item_label:after {
+                                top: -119%;
+                                left: -5%;
+                            }
+                        }
+                        &_label {
+                            &:before {
+                                top: -79%;
+                                left: 15%;
+                            }
+                            &:after {
+                                top: -110%;
+                                left: 10%;
+                            }
+                        }
+                    }
+                }
+                .number {
+                    margin: 5.1% auto 0;
+                }
+                .btn {
+                    margin: 31px 34.3% 0;
+                }
             }
         }
     }
