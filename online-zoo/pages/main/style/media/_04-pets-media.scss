@@ -44,3 +44,60 @@
         }
     }
 }
+
+@media(max-width: 999px) {
+    .pets {
+        min-height: 972px;
+        &_wrapper {
+            gap: 8.9% 5%;
+            width: 600px;
+            overflow: hidden;
+            .item {
+                width: 285px;
+                height: 333px;
+                grid-template-rows: 86% 14%;
+                &_dscr {
+                    padding: 2.4% 0% 0% 4%;
+                    grid-template-rows: 16px 18px;
+                    grid-template-columns: 87% 10%;
+                    .name {
+                        font-size: 12.4695px;
+                        line-height: 140%;
+                    }
+                    .place {
+                        font-size: 11.6901px;
+                        line-height: 120%;
+                    }
+                    .food {
+                        img {
+                            transform: scale(0.8);
+                        }
+                    }
+                }
+            }
+        }
+        .btn-left {
+            top: 37.8%;
+            left: 37.2%;
+            padding: 0 2px 0 0;
+        }
+        .btn-right {
+            top: 37.8%;
+            right: 37.2%;
+            padding: 0 0 1px 0;
+        }
+        .btn {
+            margin-top: 2.5%;
+        }
+        .palm {
+            bottom: -131px;
+            left: -499px;
+            transform: scale(0.44);
+        }
+        .strelitzia {
+            bottom: -72px;
+            right: -95px;
+            transform: scale(0.5);
+        }
+    }
+}

@@ -29,3 +29,34 @@
         }
     }
 }
+
+@media(max-width: 999px) {
+    .backstage {
+        padding-top: 10.7%;
+        min-height: 506px;
+        &_container {
+            grid-template-columns: 85%;
+        }
+        &_img {
+            display: none;
+        }
+        &__text {
+            h2 {
+                margin-left: 0.6%;
+            }
+            h3 {
+                padding-top: 5.7%;
+                margin-left: 0.7%;
+            }
+            p {
+                padding-top: 4%;
+            }
+        }
+        .flower-foto {
+            display: block;
+            transform: scale(0.8);
+            right: -21.9%;
+            top: -14%;
+        }
+    }
+}

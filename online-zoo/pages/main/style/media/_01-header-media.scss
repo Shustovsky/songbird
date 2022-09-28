@@ -13,3 +13,53 @@
         }
     }
 }
+
+@media(max-width: 999px) {
+    .header {
+        &_wrapper {
+            height: 34px;
+            grid-template-columns: 8% 6fr 1fr;
+        }
+        &__logo {
+            border: none;
+            width: auto;
+            height: auto;
+            &_text {
+                margin: 5% 0 0;
+                font-weight: 400;
+                font-size: 12.2899px;
+                // border: 0.768116px solid #FFFFFF;
+            }
+            &_bamboo {
+                transform: scale(0.6);
+                left: 0.4%;
+                bottom: 1.4%;
+            }
+        }
+        nav,
+        .designed {
+            display: none;
+        }
+        .burger {
+            width: 18px;
+            height: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            grid-column: 3/4;
+            justify-self: end;
+            margin-bottom: 3%;
+            &_line {
+                width: 100%;
+                height: 2px;
+                background: #FFFFFF;
+                border-radius: 2px;
+            }
+        }
+        // .burger_menu {
+        //     width: 100%;
+        //     height: 329px;
+        //     background: #FFFFFF;
+        // }
+    }
+}

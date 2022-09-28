@@ -33,3 +33,45 @@
         }
     }
 }
+
+@media(max-width: 999px) {
+    .testimonials {
+        min-height: 668px;
+        h3 {
+            padding-top: 10%;
+            padding-right: 1%;
+        }
+        &_wrapper {
+            height: 394px;
+            grid-template-columns: none;
+            grid-template-rows: repeat(3, 109px);
+            gap: 15px;
+        }
+        &__item {
+            width: 600px;
+            height: 107px;
+            padding: 2.5% 1% 0% 1.9%;
+            &__user {
+                grid-template-columns: 8% 15.7% 1.7%;
+            }
+            &_feedback {
+                padding-top: 9px;
+                padding-left: 1%;
+                height: 51%;
+            }
+        }
+        .slider {
+            display: none;
+        }
+        .btn {
+            margin: 5.4% auto;
+            padding: 0;
+            width: 240px;
+        }
+        .leav {
+            transform: scale(0.5);
+            bottom: -25.6%;
+            right: -29.8%;
+        }
+    }
+}

@@ -1,8 +1,15 @@
 @media(max-width: 1599px) {
     .watch {
         height: 390px;
-        background-image: url(../../assets/images/giant-panda.jpg);
         background-position: 29% center;
         background-size: 160%;
+    }
+}
+
+@media(max-width: 999px) {
+    .watch {
+        height: 335px;
+        background-position: 37% center;
+        background-size: 214%;
     }
 }

@@ -64,3 +64,82 @@
         }
     }
 }
+
+@media(max-width: 999px) {
+    .donate {
+        h3 {
+            padding-top: 5%;
+            padding-right: 0%;
+            font-size: 24px;
+            line-height: 120%;
+        }
+        .orange {
+            padding-top: 5%;
+            font-size: 36px;
+            line-height: 130%;
+        }
+        .pick {
+            margin-top: 5%;
+            h2 {
+                padding-top: 4.8%;
+                padding-right: 0.2%;
+            }
+            .subtitle {
+                margin: 3.5% 0 0 0%;
+                text-align: center;
+            }
+            .illustration {
+                margin: 12.7% 0 0 3%;
+            }
+            .amount {
+                p {
+                    margin: -0.7% 0 0 1.7%;
+                }
+                .radio_money {
+                    margin: 7.9% -1.6% 0% 2.9%;
+                    .wrapper {
+                        width: 101.3%;
+                        margin-left: -3%;
+                        background-image: linear-gradient(90deg, #404950 5%, #72828E 2%, #72828E 95.5%, #404950 36%);
+                    }
+                    .item {
+                        &:nth-child(-n+4) {
+                            display: none;
+                        }
+                        &_input {
+                            &:checked+.item_label:after {
+                                top: -118%;
+                                left: 3%;
+                            }
+                        }
+                        &_label {
+                            &:before {
+                                top: -79%;
+                                left: 24%;
+                            }
+                        }
+                    }
+                }
+                .number {
+                    margin: 8% auto 0;
+                    width: 180px;
+                    height: 42px;
+                    &_input {
+                        width: 180px;
+                        height: 42px;
+                        padding: 14px 22px 16px 5px;
+                    }
+                    &::after {
+                        top: 10px;
+                    }
+                }
+                .periodicity {
+                    margin-top: 5.4%;
+                }
+                .btn {
+                    margin: 31px auto 0;
+                }
+            }
+        }
+    }
+}

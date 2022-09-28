@@ -529,6 +529,11 @@ a:hover {
     max-width: 940px;
   }
 }
+@media (max-width: 999px) {
+  .container {
+    max-width: 600px;
+  }
+}
 @media (max-width: 1599px) {
   .header_wrapper nav {
     margin-left: 4%;
@@ -540,12 +545,59 @@ a:hover {
     padding-top: 2px;
   }
 }
+@media (max-width: 999px) {
+  .header_wrapper {
+    height: 34px;
+    grid-template-columns: 8% 6fr 1fr;
+  }
+  .header__logo {
+    border: none;
+    width: auto;
+    height: auto;
+  }
+  .header__logo_text {
+    margin: 5% 0 0;
+    font-weight: 400;
+    font-size: 12.2899px;
+  }
+  .header__logo_bamboo {
+    transform: scale(0.6);
+    left: 0.4%;
+    bottom: 1.4%;
+  }
+  .header nav,
+.header .designed {
+    display: none;
+  }
+  .header .burger {
+    width: 18px;
+    height: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    grid-column: 3/4;
+    justify-self: end;
+    margin-bottom: 3%;
+  }
+  .header .burger_line {
+    width: 100%;
+    height: 2px;
+    background: #FFFFFF;
+    border-radius: 2px;
+  }
+}
 @media (max-width: 1599px) {
   .watch {
     height: 390px;
-    background-image: url(../../assets/images/giant-panda.jpg);
     background-position: 29% center;
     background-size: 160%;
+  }
+}
+@media (max-width: 999px) {
+  .watch {
+    height: 335px;
+    background-position: 37% center;
+    background-size: 214%;
   }
 }
 @media (max-width: 1599px) {
@@ -606,6 +658,74 @@ a:hover {
     margin: 31px 34.3% 0;
   }
 }
+@media (max-width: 999px) {
+  .donate h3 {
+    padding-top: 5%;
+    padding-right: 0%;
+    font-size: 24px;
+    line-height: 120%;
+  }
+  .donate .orange {
+    padding-top: 5%;
+    font-size: 36px;
+    line-height: 130%;
+  }
+  .donate .pick {
+    margin-top: 5%;
+  }
+  .donate .pick h2 {
+    padding-top: 4.8%;
+    padding-right: 0.2%;
+  }
+  .donate .pick .subtitle {
+    margin: 3.5% 0 0 0%;
+    text-align: center;
+  }
+  .donate .pick .illustration {
+    margin: 12.7% 0 0 3%;
+  }
+  .donate .pick .amount p {
+    margin: -0.7% 0 0 1.7%;
+  }
+  .donate .pick .amount .radio_money {
+    margin: 7.9% -1.6% 0% 2.9%;
+  }
+  .donate .pick .amount .radio_money .wrapper {
+    width: 101.3%;
+    margin-left: -3%;
+    background-image: linear-gradient(90deg, #404950 5%, #72828E 2%, #72828E 95.5%, #404950 36%);
+  }
+  .donate .pick .amount .radio_money .item:nth-child(-n+4) {
+    display: none;
+  }
+  .donate .pick .amount .radio_money .item_input:checked + .item_label:after {
+    top: -118%;
+    left: 3%;
+  }
+  .donate .pick .amount .radio_money .item_label:before {
+    top: -79%;
+    left: 24%;
+  }
+  .donate .pick .amount .number {
+    margin: 8% auto 0;
+    width: 180px;
+    height: 42px;
+  }
+  .donate .pick .amount .number_input {
+    width: 180px;
+    height: 42px;
+    padding: 14px 22px 16px 5px;
+  }
+  .donate .pick .amount .number::after {
+    top: 10px;
+  }
+  .donate .pick .amount .periodicity {
+    margin-top: 5.4%;
+  }
+  .donate .pick .amount .btn {
+    margin: 31px auto 0;
+  }
+}
 @media (max-width: 1599px) {
   .footer_container {
     padding-top: 41px;
@@ -626,5 +746,46 @@ a:hover {
   }
   .footer nav ul li {
     flex-shrink: 0;
+  }
+}
+@media (max-width: 999px) {
+  .footer {
+    height: 282px;
+  }
+  .footer_container {
+    padding-top: 2.1%;
+    grid-template-columns: 32.5% 25.5% 44%;
+    grid-template-rows: 29% 28% 31%;
+  }
+  .footer__logo {
+    margin-left: 0.4%;
+  }
+  .footer__subscribe {
+    display: none;
+  }
+  .footer form {
+    grid-row: 2/3;
+  }
+  .footer form .btn {
+    margin-left: 0%;
+  }
+  .footer__social {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    margin-top: -2px;
+    justify-self: end;
+  }
+  .footer__social_name {
+    display: none;
+  }
+  .footer__social ul li {
+    margin-bottom: 20px;
+  }
+  .footer nav ul {
+    gap: 19%;
+  }
+  .footer .footer_design {
+    grid-column: 3/4;
+    margin-right: 4.5%;
   }
 }

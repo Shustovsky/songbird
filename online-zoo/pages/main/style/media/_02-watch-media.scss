@@ -22,3 +22,26 @@
         }
     }
 }
+
+@media(max-width: 999px) {
+    .watch {
+        height: 339px;
+        padding-top: 7.5%;
+        background-position: center 60%;
+        &_container {
+            margin-left: 0%;
+            h2 {
+                margin-left: 58.5%;
+                font-size: 54.2894px;
+                &::before {
+                    width: 237.6px;
+                    height: 237.6px;
+                    transform: translate(-30%, -16%);
+                }
+            }
+            .btn {
+                margin: -1.1% 0 0;
+            }
+        }
+    }
+}

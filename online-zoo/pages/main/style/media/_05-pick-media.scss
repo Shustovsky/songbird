@@ -30,3 +30,53 @@
         }
     }
 }
+
+@media(max-width: 999px) {
+    .pick {
+        min-height: 780px;
+        &_wrapper {
+            min-height: 741px;
+            margin-left: -3.3%;
+            width: 106.6%;
+            padding-top: 1.5%;
+            h2 {
+                font-size: 42px;
+            }
+            .subtitle {
+                padding-top: 3.3%;
+                padding-left: 3.1%;
+                font-size: 22px;
+            }
+            .text {
+                padding: 1.4% 3% 0 3%;
+                &-bold {
+                    padding: 3.2% 3% 0 3%;
+                }
+            }
+            h3 {
+                padding-top: 5%;
+            }
+        }
+        &__instruction {
+            padding-top: 3%;
+            gap: 6.7%;
+            margin-right: 2%;
+            &__item {
+                &:nth-child(-n+2) {
+                    &:before {
+                        content: url('../../assets/icons/arow-right-green.svg');
+                        top: -17px;
+                        right: -57px;
+                        z-index: 1;
+                    }
+                }
+                &_text {
+                    padding-top: 17%;
+                }
+            }
+        }
+        .btn {
+            margin-top: 6%;
+        }
+    }
+}

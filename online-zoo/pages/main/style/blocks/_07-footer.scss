@@ -86,10 +86,13 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            margin-right: 12px;
+            margin-right: 8px;
             span {
                 font-size: 14px;
             }
+        }
+        &_name {
+            display: inline-flex;
         }
         a:hover {
             color: #4B9200;
