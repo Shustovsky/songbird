@@ -62,10 +62,10 @@
                 color: #D31414;
                 border: 1px solid #D31414;
             }
-            &:valid+.submit {
-                color: #000000;
-                border: 1px solid #000000;
-            }
+            // &:valid+.submit {
+            //     color: #000000;
+            //     border: 1px solid #000000;
+            // }
         }
     }
     &__social {

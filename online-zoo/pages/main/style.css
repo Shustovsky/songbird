@@ -580,10 +580,6 @@ a:hover {
   color: #D31414;
   border: 1px solid #D31414;
 }
-.footer__subscribe .input:valid + .submit {
-  color: #000000;
-  border: 1px solid #000000;
-}
 .footer__social {
   grid-row: 3/4;
   margin-top: 18px;
