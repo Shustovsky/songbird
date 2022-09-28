@@ -784,12 +784,12 @@ a:hover {
 @media (max-width: 1599px) {
   .testimonials {
     min-height: 842px;
-    overflow: hidden;
   }
   .testimonials h3 {
     padding-top: 10.7%;
   }
   .testimonials_wrapper {
+    overflow: hidden;
     padding-top: 31px;
     gap: 3vw;
   }
