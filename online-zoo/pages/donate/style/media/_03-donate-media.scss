@@ -143,3 +143,109 @@
         }
     }
 }
+
+@media(max-width: 639px) {
+    .donate {
+        height: 1145px;
+        h3 {
+            padding-top: 10%;
+        }
+        .donate_p {
+            padding-top: 7%;
+            line-height: 137%;
+        }
+        .orange {
+            padding-top: 11%;
+            font-size: 24px;
+            line-height: 120%;
+        }
+        .pick {
+            height: 592px;
+            margin-top: 9%;
+            h2 {
+                padding-top: 7%;
+                font-size: 24px;
+            }
+            .subtitle {
+                font-size: 16px;
+                line-height: 135%;
+            }
+            .illustration {
+                width: 300px;
+                height: 138.72px;
+                margin: 8% 0 0 0%;
+                grid-template-columns: 30% 4.7% 65.3%;
+                height: 116px;
+                .counter {
+                    font-size: 40.6px;
+                    .text {
+                        padding: 8px 0 0 0;
+                        font-size: 9px;
+                    }
+                }
+                .divider {
+                    padding-bottom: 11px;
+                    padding-left: 3px;
+                    img {
+                        transform: scale(0.6);
+                    }
+                }
+                .panda {
+                    font-size: 111px;
+                    padding-left: 35px;
+                    padding-top: 14px;
+                }
+            }
+            .amount {
+                margin-top: 16px;
+                .amount_p {
+                    margin: 0;
+                }
+                .radio_money {
+                    margin: 9.9% 1.4% 0% 2.9%;
+                    .wrapper {
+                        width: 104.3%;
+                        height: 13.5px;
+                        border: 6px solid #404950;
+                    }
+                    .item {
+                        &_input {
+                            &:checked+.item_label:after {
+                                position: absolute;
+                                top: -139%;
+                                left: -6%;
+                                transform: scale(0.5);
+                            }
+                        }
+                        &_label {
+                            width: 28.5px;
+                            font-size: 13px;
+                            &::first-letter {
+                                font-size: 11px;
+                                font-weight: 900;
+                            }
+                            &::before {
+                                height: 5px;
+                                width: 5px;
+                                left: 33%;
+                            }
+                            &::after {
+                                height: 15px;
+                                width: 15px;
+                                left: 15%;
+                            }
+                        }
+                    }
+                }
+                .periodicity {
+                    margin-top: 8.4%;
+                }
+            }
+            .share {
+                margin-top: 29px;
+                width: 101%;
+                padding-right: 0.5%;
+            }
+        }
+    }
+}

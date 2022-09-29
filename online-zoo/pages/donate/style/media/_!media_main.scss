@@ -10,6 +10,12 @@
     }
 }
 
+@media(max-width: 639px) {
+    .container {
+        max-width: 300px;
+    }
+}
+
 @import '01-header-media';
 @import '02-watch-media';
 @import '03-donate-media';

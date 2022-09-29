@@ -60,3 +60,33 @@
         }
     }
 }
+
+@media(max-width: 639px) {
+    .backstage {
+        padding-top: 32.7%;
+        &_container {
+            grid-template-columns: 100%;
+        }
+        &__text {
+            h2 {
+                margin: 0;
+                font-size: 24px;
+            }
+            h3 {
+                font-weight: 400;
+            }
+            p {
+                padding-right: 0;
+                &:nth-child(2) {
+                    padding: 9.2px 0 0 2px;
+                }
+            }
+        }
+        .flower-foto {
+            transform: scale(0.35);
+            // right: -53.5%;
+            right: -171px;
+            top: -31%;
+        }
+    }
+}

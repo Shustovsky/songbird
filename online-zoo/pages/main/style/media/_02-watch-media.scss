@@ -45,3 +45,25 @@
         }
     }
 }
+
+@media(max-width: 639px) {
+    .watch {
+        height: 187px;
+        padding-top: 12.7%;
+        background-position: center 50%;
+        overflow: visible;
+        &_container {
+            h2 {
+                font-size: 28px;
+                margin-left: 57.5%;
+                &::before {
+                    width: 119.09px;
+                    height: 119.09px;
+                }
+            }
+            .btn {
+                margin: 20.6% 0 0 0.2%;
+            }
+        }
+    }
+}

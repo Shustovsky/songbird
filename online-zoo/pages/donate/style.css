@@ -534,6 +534,11 @@ a:hover {
     max-width: 600px;
   }
 }
+@media (max-width: 639px) {
+  .container {
+    max-width: 300px;
+  }
+}
 @media (max-width: 1599px) {
   .header_wrapper nav {
     margin-left: 4%;
@@ -586,6 +591,14 @@ a:hover {
     border-radius: 2px;
   }
 }
+@media (max-width: 639px) {
+  .header_wrapper {
+    grid-template-columns: 16% 6fr 1fr;
+  }
+  .header_wrapper .burger {
+    margin-top: 5%;
+  }
+}
 @media (max-width: 1599px) {
   .watch {
     height: 390px;
@@ -598,6 +611,13 @@ a:hover {
     height: 335px;
     background-position: 37% center;
     background-size: 214%;
+  }
+}
+@media (max-width: 639px) {
+  .watch {
+    height: 187px;
+    background-position: 33% center;
+    background-size: 237%;
   }
 }
 @media (max-width: 1599px) {
@@ -726,6 +746,107 @@ a:hover {
     margin: 31px auto 0;
   }
 }
+@media (max-width: 639px) {
+  .donate {
+    height: 1145px;
+  }
+  .donate h3 {
+    padding-top: 10%;
+  }
+  .donate .donate_p {
+    padding-top: 7%;
+    line-height: 137%;
+  }
+  .donate .orange {
+    padding-top: 11%;
+    font-size: 24px;
+    line-height: 120%;
+  }
+  .donate .pick {
+    height: 592px;
+    margin-top: 9%;
+  }
+  .donate .pick h2 {
+    padding-top: 7%;
+    font-size: 24px;
+  }
+  .donate .pick .subtitle {
+    font-size: 16px;
+    line-height: 135%;
+  }
+  .donate .pick .illustration {
+    width: 300px;
+    height: 138.72px;
+    margin: 8% 0 0 0%;
+    grid-template-columns: 30% 4.7% 65.3%;
+    height: 116px;
+  }
+  .donate .pick .illustration .counter {
+    font-size: 40.6px;
+  }
+  .donate .pick .illustration .counter .text {
+    padding: 8px 0 0 0;
+    font-size: 9px;
+  }
+  .donate .pick .illustration .divider {
+    padding-bottom: 11px;
+    padding-left: 3px;
+  }
+  .donate .pick .illustration .divider img {
+    transform: scale(0.6);
+  }
+  .donate .pick .illustration .panda {
+    font-size: 111px;
+    padding-left: 35px;
+    padding-top: 14px;
+  }
+  .donate .pick .amount {
+    margin-top: 16px;
+  }
+  .donate .pick .amount .amount_p {
+    margin: 0;
+  }
+  .donate .pick .amount .radio_money {
+    margin: 9.9% 1.4% 0% 2.9%;
+  }
+  .donate .pick .amount .radio_money .wrapper {
+    width: 104.3%;
+    height: 13.5px;
+    border: 6px solid #404950;
+  }
+  .donate .pick .amount .radio_money .item_input:checked + .item_label:after {
+    position: absolute;
+    top: -139%;
+    left: -6%;
+    transform: scale(0.5);
+  }
+  .donate .pick .amount .radio_money .item_label {
+    width: 28.5px;
+    font-size: 13px;
+  }
+  .donate .pick .amount .radio_money .item_label::first-letter {
+    font-size: 11px;
+    font-weight: 900;
+  }
+  .donate .pick .amount .radio_money .item_label::before {
+    height: 5px;
+    width: 5px;
+    left: 33%;
+  }
+  .donate .pick .amount .radio_money .item_label::after {
+    height: 15px;
+    width: 15px;
+    left: 15%;
+  }
+  .donate .pick .amount .periodicity {
+    margin-top: 8.4%;
+  }
+  .donate .pick .share {
+    margin-top: 29px;
+    width: 101%;
+    padding-right: 0.5%;
+  }
+}
 @media (max-width: 1599px) {
   .footer_container {
     padding-top: 41px;
@@ -787,5 +908,65 @@ a:hover {
   .footer .footer_design {
     grid-column: 3/4;
     margin-right: 4.5%;
+  }
+}
+@media (max-width: 639px) {
+  .footer {
+    height: 334px;
+  }
+  .footer_container {
+    padding-top: 7.5%;
+    grid-template-columns: 100%;
+    grid-template-rows: 23px 22px 59px 44px 25px;
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+  }
+  .footer__logo {
+    width: 128px;
+    height: 23px;
+    border: none;
+  }
+  .footer__logo img {
+    left: 56%;
+    bottom: 6px;
+  }
+  .footer form {
+    grid-row: 3/4;
+    margin-right: 2%;
+  }
+  .footer__social {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    justify-self: center;
+    margin: 0;
+  }
+  .footer__social ul {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+  .footer__social ul li {
+    margin-bottom: 0;
+  }
+  .footer__social_icon {
+    margin: 0;
+  }
+  .footer nav {
+    grid-row: 5/6;
+    justify-self: start;
+    margin-left: 3.4%;
+  }
+  .footer nav ul {
+    gap: 16%;
+  }
+  .footer .footer_design {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    align-items: end;
+    font-size: 15px;
+    margin: 0;
+    padding: 0 0 0 2px;
+    width: 218px;
   }
 }

@@ -63,3 +63,14 @@
         // }
     }
 }
+
+@media(max-width: 639px) {
+    .header {
+        &_wrapper {
+            grid-template-columns: 16% 6fr 1fr;
+            .burger {
+                margin-top: 1%;
+            }
+        }
+    }
+}
