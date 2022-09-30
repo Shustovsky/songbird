@@ -25,9 +25,9 @@
 
 @media(max-width: 999px) {
     .watch {
-        height: 339px;
-        padding-top: 7.5%;
-        background-position: center 60%;
+        height: 373px;
+        padding-top: 13%;
+        background-position: center center;
         &_container {
             margin-left: 0%;
             h2 {
@@ -48,9 +48,9 @@
 
 @media(max-width: 639px) {
     .watch {
-        height: 187px;
-        padding-top: 12.7%;
-        background-position: center 50%;
+        height: 221px;
+        padding-top: 75px;
+        background-position: center top;
         overflow: visible;
         &_container {
             h2 {

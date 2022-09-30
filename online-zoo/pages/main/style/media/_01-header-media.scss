@@ -16,6 +16,9 @@
 
 @media(max-width: 999px) {
     .header {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
         &_wrapper {
             height: 34px;
             grid-template-columns: 8% 6fr 1fr;
@@ -49,6 +52,7 @@
             grid-column: 3/4;
             justify-self: end;
             margin-bottom: 3%;
+            cursor: pointer;
             &_line {
                 width: 100%;
                 height: 2px;

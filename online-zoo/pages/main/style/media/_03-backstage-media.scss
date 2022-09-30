@@ -55,15 +55,15 @@
         .flower-foto {
             display: block;
             transform: scale(0.8);
-            right: -21.9%;
-            top: -14%;
+            right: -139px;
+            top: -70px;
         }
     }
 }
 
 @media(max-width: 639px) {
     .backstage {
-        padding-top: 32.7%;
+        padding-top: 104px;
         &_container {
             grid-template-columns: 100%;
         }

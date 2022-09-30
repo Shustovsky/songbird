@@ -237,7 +237,7 @@ a:hover {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.3vw 1.7vw;
+  gap: 20px 28px;
 }
 .pets .item {
   display: grid;
@@ -666,6 +666,11 @@ a:hover {
   }
 }
 @media (max-width: 999px) {
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
   .header_wrapper {
     height: 34px;
     grid-template-columns: 8% 6fr 1fr;
@@ -698,6 +703,7 @@ a:hover {
     grid-column: 3/4;
     justify-self: end;
     margin-bottom: 3%;
+    cursor: pointer;
   }
   .header .burger_line {
     width: 100%;
@@ -740,9 +746,9 @@ a:hover {
 }
 @media (max-width: 999px) {
   .watch {
-    height: 339px;
-    padding-top: 7.5%;
-    background-position: center 60%;
+    height: 373px;
+    padding-top: 13%;
+    background-position: center center;
   }
   .watch_container {
     margin-left: 0%;
@@ -762,9 +768,9 @@ a:hover {
 }
 @media (max-width: 639px) {
   .watch {
-    height: 187px;
-    padding-top: 12.7%;
-    background-position: center 50%;
+    height: 221px;
+    padding-top: 75px;
+    background-position: center top;
     overflow: visible;
   }
   .watch_container h2 {
@@ -832,13 +838,13 @@ a:hover {
   .backstage .flower-foto {
     display: block;
     transform: scale(0.8);
-    right: -21.9%;
-    top: -14%;
+    right: -139px;
+    top: -70px;
   }
 }
 @media (max-width: 639px) {
   .backstage {
-    padding-top: 32.7%;
+    padding-top: 104px;
   }
   .backstage_container {
     grid-template-columns: 100%;
@@ -1145,8 +1151,8 @@ a:hover {
   }
   .testimonials .leav {
     transform: scale(0.8);
-    bottom: -15%;
-    right: -17%;
+    bottom: -127px;
+    right: -170px;
   }
 }
 @media (max-width: 999px) {
@@ -1186,8 +1192,8 @@ a:hover {
   }
   .testimonials .leav {
     transform: scale(0.5);
-    bottom: -25.6%;
-    right: -29.8%;
+    bottom: -171px;
+    right: -190px;
   }
 }
 @media (max-width: 639px) {
@@ -1215,8 +1221,8 @@ a:hover {
   }
   .testimonials .leav {
     transform: scale(0.26) rotate(0.96turn);
-    bottom: -32.7%;
-    right: -62.8%;
+    bottom: -189px;
+    right: -201px;
   }
 }
 @media (max-width: 1599px) {

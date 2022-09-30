@@ -51,7 +51,9 @@
             grid-row: 1/2;
             margin-top: -2px;
             justify-self: end;
-            // align-self: start;
+            &_icon {
+                margin-right: 12px;
+            }
             &_name {
                 display: none;
             }

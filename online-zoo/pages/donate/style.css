@@ -472,6 +472,10 @@ a:hover {
   outline: none;
   border: 0.7px solid #4B9200;
 }
+.footer__subscribe .input:invalid + .submit {
+  color: #D31414;
+  border: 1px solid #D31414;
+}
 .footer__social {
   grid-row: 3/4;
   margin-top: 18px;
@@ -491,10 +495,13 @@ a:hover {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin-right: 12px;
+  margin-right: 10px;
 }
 .footer__social_icon span {
   font-size: 14px;
+}
+.footer__social_name {
+  display: inline-flex;
 }
 .footer__social a:hover {
   color: #4B9200;
@@ -540,6 +547,9 @@ a:hover {
   }
 }
 @media (max-width: 1599px) {
+  .header_wrapper {
+    grid-template-rows: 1fr;
+  }
   .header_wrapper nav {
     margin-left: 4%;
   }
@@ -551,6 +561,11 @@ a:hover {
   }
 }
 @media (max-width: 999px) {
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
   .header_wrapper {
     height: 34px;
     grid-template-columns: 8% 6fr 1fr;
@@ -583,6 +598,7 @@ a:hover {
     grid-column: 3/4;
     justify-self: end;
     margin-bottom: 3%;
+    cursor: pointer;
   }
   .header .burger_line {
     width: 100%;
@@ -608,15 +624,15 @@ a:hover {
 }
 @media (max-width: 999px) {
   .watch {
-    height: 335px;
-    background-position: 37% center;
+    height: 369px;
+    background-position: 37% 47%;
     background-size: 214%;
   }
 }
 @media (max-width: 639px) {
   .watch {
-    height: 187px;
-    background-position: 33% center;
+    height: 221px;
+    background-position: 33% 44%;
     background-size: 237%;
   }
 }
@@ -895,6 +911,9 @@ a:hover {
     grid-row: 1/2;
     margin-top: -2px;
     justify-self: end;
+  }
+  .footer__social_icon {
+    margin-right: 12px;
   }
   .footer__social_name {
     display: none;
