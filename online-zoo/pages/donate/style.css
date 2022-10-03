@@ -548,9 +548,6 @@ a:hover {
   }
 }
 @media (max-width: 1599px) {
-  .header_wrapper {
-    grid-template-rows: 1fr;
-  }
   .header_wrapper nav {
     margin-left: 4%;
   }
