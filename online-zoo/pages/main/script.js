@@ -11,7 +11,6 @@ burgerMenu.addEventListener('click', (e) => {
     const withinWrapper = e.composedPath().includes(wrapper);
 
     if (!withinWrapper) {
-        console.log('!!!!!!!!!!')
         burger.classList.toggle('burger-active');
         burgerMenu.classList.toggle('burger_menu-active');
     }

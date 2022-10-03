@@ -113,6 +113,10 @@ html::-webkit-scrollbar {
   text-align: right;
   line-height: 140%;
 }
+.header .burger,
+.header .burger_menu {
+  display: none;
+}
 .header nav ul li:nth-child(4) a {
   font-weight: 500;
   pointer-events: none;
