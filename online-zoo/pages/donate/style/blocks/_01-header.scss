@@ -33,6 +33,10 @@
         text-align: right;
         line-height: 140%;
     }
+    .burger,
+    .burger_menu {
+        display: none;
+    }
     nav {
         ul {
             li:nth-child(4) {
