@@ -88,6 +88,7 @@ html::-webkit-scrollbar {
   height: 80px;
   display: grid;
   grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 1fr;
   align-items: center;
 }
 .header__logo {
