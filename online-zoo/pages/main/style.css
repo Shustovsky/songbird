@@ -88,6 +88,7 @@ html::-webkit-scrollbar {
   height: 80px;
   display: grid;
   grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 1fr;
   align-items: center;
 }
 .header__logo {
@@ -875,7 +876,7 @@ a:hover {
   }
   .pets_wrapper {
     grid-template-rows: repeat(2, 44%);
-    gap: 11.7% 3%;
+    gap: 11.7% 3.1%;
     height: 802px;
   }
   .pets_wrapper .item {
