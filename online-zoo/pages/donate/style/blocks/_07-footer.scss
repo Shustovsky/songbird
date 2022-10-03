@@ -54,9 +54,10 @@
                 outline: none;
                 border: 0.7px solid #4B9200;
             }
-            // &:invalid {
-            //     border: 0.7px solid red;
-            // }
+            &:invalid+.submit {
+                color: #D31414;
+                border: 1px solid #D31414;
+            }
             // &:valid {
             //     border: 0.7px solid #4B9200;
             // }
@@ -80,10 +81,13 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            margin-right: 12px;
+            margin-right: 10px;
             span {
                 font-size: 14px;
             }
+        }
+        &_name {
+            display: inline-flex;
         }
         a:hover {
             color: #4B9200;
@@ -97,7 +101,6 @@
         grid-row: 3/4;
         align-self: end;
         ul {
-            // gap: 3.6vw;
             gap: 58px;
         }
     }
