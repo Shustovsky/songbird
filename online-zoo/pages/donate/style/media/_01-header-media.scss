@@ -59,12 +59,75 @@
                 background: #FFFFFF;
                 border-radius: 2px;
             }
+            &-active {
+                z-index: 1;
+                position: relative;
+                .burger_line {
+                    background-color: #333B41;
+                    transition: all 1s;
+                    &:nth-child(1) {
+                        transform: rotate(45deg) translateX(32%);
+                    }
+                    &:nth-child(2) {
+                        background: #FFFFFF;
+                    }
+                    &:nth-child(3) {
+                        transform: rotate(-45deg) translateX(32%);
+                    }
+                }
+            }
         }
-        // .burger_menu {
-        //     width: 100%;
-        //     height: 329px;
-        //     background: #FFFFFF;
-        // }
+        .burger_menu {
+            transform: translateX(100%);
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: all .5s;
+            .wrapper {
+                width: 100%;
+                height: 329px;
+                padding: 10px;
+                background: #FFFFFF;
+                .burger__logo {
+                    position: relative;
+                    display: block;
+                    width: 65.6px;
+                    height: 41.6px;
+                    padding-top: 2px;
+                    border: 0.8px solid #FE9013;
+                    border-radius: 2px;
+                    font-weight: 400;
+                    font-size: 15.2116px;
+                    line-height: 120%;
+                    text-align: center;
+                    color: #FE9013;
+                    cursor: pointer;
+                    img {
+                        position: absolute;
+                        left: 7px;
+                        bottom: 6px;
+                    }
+                }
+                ul {
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    list-style-type: none;
+                    gap: 14.5px;
+                    a {
+                        text-decoration: none;
+                        color: #333B41;
+                    }
+                }
+            }
+            &-active {
+                transform: translateX(0);
+            }
+        }
     }
 }
 
