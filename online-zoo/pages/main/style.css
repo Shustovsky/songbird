@@ -432,11 +432,17 @@ a:hover {
   text-align: center;
   color: #333B41;
 }
+.testimonials .container {
+  overflow: hidden;
+}
 .testimonials_wrapper {
   padding-top: 46px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.85vw;
+  gap: 2.3%;
+  grid-auto-flow: column;
+  width: 102%;
+  transition: all 0.5s;
 }
 .testimonials__item {
   padding: 14px 14px 0 15px;
@@ -462,6 +468,10 @@ a:hover {
 }
 .testimonials__item__user_icon {
   grid-row: 1/3;
+}
+.testimonials__item__user_icon img {
+  width: 37px;
+  height: 37px;
 }
 .testimonials__item__user_name {
   grid-column: 2/5;
@@ -1197,9 +1207,8 @@ a:hover {
     padding-top: 10.7%;
   }
   .testimonials_wrapper {
-    overflow: hidden;
     padding-top: 31px;
-    gap: 3vw;
+    gap: 3.2%;
   }
   .testimonials__item {
     width: 293px;
@@ -1237,11 +1246,14 @@ a:hover {
     grid-template-columns: none;
     grid-template-rows: repeat(3, 109px);
     gap: 15px;
+    grid-auto-flow: row;
+    overflow: hidden;
   }
   .testimonials__item {
-    width: 100%;
+    width: 98%;
     height: 107px;
     padding: 2.5% 1% 0% 1.9%;
+    cursor: pointer;
   }
   .testimonials__item__user {
     grid-template-columns: 8% 15.7% 1.7%;
@@ -1294,6 +1306,53 @@ a:hover {
     right: -201px;
   }
 }
+.popup_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 200vw;
+  width: 100vw;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popup_wrapper .testimonials__item {
+  width: 267px;
+  height: 391px;
+  margin: 10% auto 0;
+  overflow: auto;
+  cursor: default;
+}
+.popup_wrapper .testimonials__item__user {
+  grid-template-columns: 20% 35.7% 5.7%;
+}
+.popup_wrapper .testimonials__item_feedback {
+  height: 85%;
+  text-overflow: clip;
+  overflow: auto;
+}
+.popup_close {
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  transform: translate(892%, -2581%);
+}
+.popup_close_line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  display: inline-block;
+  border-radius: 2px;
+}
+.popup_close_line:first-child {
+  transform: rotate(45deg) translateX(77%);
+}
+.popup_close_line:last-child {
+  transform: rotate(-45deg) translateX(81%);
+}
+
 @media (max-width: 1599px) {
   .footer_container {
     grid-template-columns: 32.5% 25.5% 43.4%;
