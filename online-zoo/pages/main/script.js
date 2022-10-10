@@ -194,7 +194,7 @@ const createBlock = () => {
     return petsWrapper.append(block);
 }
 
-const numBlocks = 5;
+const numBlocks = 10;
 for (let i = 0; i < numBlocks; i++) {
     createBlock();
 }
@@ -208,7 +208,6 @@ let num = 1;
 
 
 btnRight.onmousedown = function() {
-    // console.log(num);
     if (num == length - 1) {
         petsWrapper.style.transition = '0s';
         num = 0;
@@ -225,7 +224,7 @@ btnRight.onmousedown = function() {
 }
 btnRight.onmouseup = function() {
     num++;
-    console.log(num);
+    // console.log(num);
     let transformValue = num * -100;
     petsWrapper.style.transform = `translate(${transformValue}%)`
     petsWrapper.style.transition = '0.8s';
@@ -255,7 +254,7 @@ btnLeft.onmousedown = function() {
 
 btnLeft.onmouseup = function() {
     num--;
-    console.log(num);
+    // console.log(num);
     let transformValue = num * -100;
     petsWrapper.style.transform = `translate(${transformValue}%)`
     petsWrapper.style.transition = '0.8s';
