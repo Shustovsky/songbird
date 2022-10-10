@@ -28,11 +28,9 @@ let workTransformSlider = (numberStartItems = 4, valueTransform = 24.9) => {
 
     inputSlider.max = numberFeedback - numberStartItems; //меняет max input
     inputSlider.addEventListener('input', () => {
-        console.log(inputSlider.value);
 
         let num = inputSlider.value * -valueTransform;
         testimonialsWrapper.style.transform = `translateX(${num}%)`
-
     })
 }
 workTransformSlider();
@@ -50,16 +48,13 @@ if (document.documentElement.clientWidth < 1600) {
     workTransformSlider(3, 33.76);
 }
 
-const copyFeedback = () => {
-    const arr = feedback.slice(); //копирую массив
+const shuffleArray = (array, number) => {
+    const arr = array.slice(); //копирую массив
     arr.sort(() => Math.random() - 0.5) //перемешиваю
-    arr.sort((prev, next) => prev.time - next.time);
-
-    console.log(arr);
-    return arr.splice(0, numberFeedback); // возвращаю нужное количество отзывов
+    return arr.splice(0, number); // возвращаю нужное количество отзывов
 }
 
-let arrayOfFeedback = copyFeedback();
+let arrayOfFeedback = shuffleArray(feedback, numberFeedback);
 
 function createItem(feedback, i) {
     const item = document.createElement('div')
@@ -129,15 +124,15 @@ let popup = () => {
             popupClose.append(popupCloseLine1);
             popupClose.append(popupCloseLine2);
 
-            popupClose.addEventListener('click', () => { document.getElementById("popup_wrapper").remove() })
+            // popupClose.addEventListener('click', () => { document.getElementById("popup_wrapper").remove() })
             popupWrapper.addEventListener('click', (e) => {
                 const withinWrapper = e.composedPath().includes(document.querySelector('.popup_wrapper .testimonials__item'));
 
                 if (!withinWrapper) {
-                    document.getElementById("popup_wrapper").remove()
+                    if (document.getElementById("popup_wrapper"));
+                    document.getElementById("popup_wrapper").remove();
                 }
             })
-
             return testimonialsWrapper.append(popupWrapper);
         })
 
@@ -153,4 +148,151 @@ width999.addEventListener('change', function(mm) {
 
 if (document.documentElement.clientWidth < 1000) {
     popup();
+}
+
+
+// A carousel in the Pets block.
+import animals from './js/animals.js';
+
+const numberStartItems = 6;
+
+const createBlock = () => {
+
+    const petsWrapper = document.querySelector('.pets_wrapper');
+
+    const block = document.createElement('div');
+    block.classList.add('pets__block');
+
+    for (let i = 0; i < numberStartItems; i++) {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        block.append(item);
+
+        const itemImg = document.createElement('div');
+        itemImg.classList.add('item_img');
+        item.append(itemImg);
+
+        const itemImgIMG = document.createElement('img');
+        itemImg.append(itemImgIMG);
+
+        const itemDscr = document.createElement('div');
+        itemDscr.classList.add('item_dscr');
+        item.append(itemDscr);
+
+        const name = document.createElement('div');
+        name.classList.add('name');
+        itemDscr.append(name);
+
+        const place = document.createElement('div');
+        place.classList.add('place');
+        itemDscr.append(place);
+
+        const food = document.createElement('div');
+        food.classList.add('food');
+        itemDscr.append(food);
+    }
+    return petsWrapper.append(block);
+}
+
+const numBlocks = 5;
+for (let i = 0; i < numBlocks; i++) {
+    createBlock();
+}
+
+const petsWrapper = document.querySelector('.pets_wrapper');
+const petsChild = petsWrapper.children;
+const length = petsChild.length;
+const btnLeft = document.querySelector('.btn-left');
+const btnRight = document.querySelector('.btn-right');
+let num = 1;
+
+
+btnRight.onmousedown = function() {
+    // console.log(num);
+    if (num == length - 1) {
+        petsWrapper.style.transition = '0s';
+        num = 0;
+        let transformValue = num * -100;
+        petsWrapper.style.transform = `translate(${transformValue}%)`
+    }
+    // if (num !== 0) {
+    for (let i = 0; i < petsChild.length; i++) {
+        if (i === num) { continue };
+        itemFill(i);
+    }
+    // }
+
+}
+btnRight.onmouseup = function() {
+    num++;
+    console.log(num);
+    let transformValue = num * -100;
+    petsWrapper.style.transform = `translate(${transformValue}%)`
+    petsWrapper.style.transition = '0.8s';
+    btnRight.disabled = true;
+    setTimeout(function() {
+        btnRight.disabled = false;
+    }, 801);
+    if (num === length - 1) {
+        num = 0;
+    }
+}
+
+btnLeft.onmousedown = function() {
+    if (num == 0) {
+        petsWrapper.style.transition = '0s';
+        num = length - 1;
+        let transformValue = num * -100;
+        petsWrapper.style.transform = `translate(${transformValue}%)`
+    }
+    // if (num !== length - 1) {
+    for (let i = 0; i < petsChild.length; i++) {
+        if (i === num) { continue };
+        itemFill(i);
+    }
+    // }
+}
+
+btnLeft.onmouseup = function() {
+    num--;
+    console.log(num);
+    let transformValue = num * -100;
+    petsWrapper.style.transform = `translate(${transformValue}%)`
+    petsWrapper.style.transition = '0.8s';
+    btnLeft.disabled = true;
+    setTimeout(function() {
+        btnLeft.disabled = false;
+    }, 801);
+    if (num < 1) {
+        num = length - 1;
+    }
+}
+
+const itemFill = (i) => {
+    let arrayOfAnimals = shuffleArray(animals, numberStartItems);
+
+    const itemImg = petsWrapper.children[i].querySelectorAll('.item_img img');
+
+    itemImg.forEach((item, index) => {
+        item.src = arrayOfAnimals[index].image;
+        item.alt = arrayOfAnimals[index].name;
+    });
+
+    const itemName = petsWrapper.children[i].querySelectorAll('.item_dscr .name');
+    itemName.forEach((item, index) => {
+        item.textContent = arrayOfAnimals[index].name;
+    });
+    const itemPlace = petsWrapper.children[i].querySelectorAll('.item_dscr .place');
+    itemPlace.forEach((item, index) => {
+        item.textContent = arrayOfAnimals[index].location;
+    });
+    const itemFood = petsWrapper.children[i].querySelectorAll('.item_dscr .food img');
+    itemFood.forEach((item, index) => {
+        item.src = arrayOfAnimals[index].meal;
+        item.alt = arrayOfAnimals[index].meal;
+    });
+}
+
+for (let i = 0; i < petsChild.length; i++) {
+    itemFill(i);
 }
