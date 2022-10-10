@@ -194,7 +194,7 @@ const createBlock = () => {
     return petsWrapper.append(block);
 }
 
-const numBlocks = 5;
+const numBlocks = 10;
 for (let i = 0; i < numBlocks; i++) {
     createBlock();
 }
