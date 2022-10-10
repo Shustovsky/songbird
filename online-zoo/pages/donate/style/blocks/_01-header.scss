@@ -8,6 +8,7 @@
         height: 80px;
         display: grid;
         grid-template-columns: 1fr 6fr 1fr;
+        grid-template-rows: 1fr;
         align-items: center;
     }
     &__logo {
@@ -31,6 +32,10 @@
     .designed {
         text-align: right;
         line-height: 140%;
+    }
+    .burger,
+    .burger_menu {
+        display: none;
     }
     nav {
         ul {

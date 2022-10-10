@@ -32,21 +32,54 @@
                             <a href="../main/index.html">About</a>
                         </li>
                         <li>
-                            <a href="#">Map</a>
+                            <a href="../map/index.html">Map</a>
                         </li>
                         <li>
-                            <a href="#">Zoos</a>
+                            <a href="../zoos/index.html">Zoos</a>
                         </li>
                         <li>
                             <a href="../donate/index.html">Donate</a>
                         </li>
                         <li>
-                            <a href="#">Contact us</a>
+                            <a href="../contact/index.html">Contact us</a>
                         </li>
                     </ul>
                 </nav>
                 <div class="designed">
                     <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a>
+                </div>
+                <div class="burger">
+                    <div class="burger_line"></div>
+                    <div class="burger_line"></div>
+                    <div class="burger_line"></div>
+                </div>
+                <div class="burger_menu">
+                    <div class="wrapper">
+                        <a class="burger__logo" href="../main/index.html">
+                            <p>PetStory online</p>
+                            <img src="../../assets/icons/bamboo-orange.svg" alt="bamboo">
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="../main/index.html">About</a>
+                            </li>
+                            <li>
+                                <a href="../map/index.html">Map</a>
+                            </li>
+                            <li>
+                                <a href="../zoos/index.html">Zoos</a>
+                            </li>
+                            <li>
+                                <a href="../donate/index.html">Donate</a>
+                            </li>
+                            <li>
+                                <a href="../contact/index.html">Contact us</a>
+                            </li>
+                            <li>
+                                <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,13 +90,13 @@
     <section class="donate">
         <div class="container">
             <h3>THE ZOO HAS OFFICIALLY REOPENED BUT WE STILL NEED YOUR HELP!</h3>
-            <p>Even though the Zoo has been able to reopen, we are at a greatly reduced capacity with educational programs and public and private events cancelled or postponed for additional months. We need you now more than ever to help ensure that we overcome
+            <p class="donate_p">Even though the Zoo has been able to reopen, we are at a greatly reduced capacity with educational programs and public and private events cancelled or postponed for additional months. We need you now more than ever to help ensure that we overcome
                 these challenges. We have been actively raising funds in the community, and we are grateful for the generosity. But much more support is still needed, and we need your help! Please consider a gift today – no matter what size – to help
                 us sustain our mission.</p>
             <h3 class="orange">Donation Information</h3>
             <div class="pick">
                 <h2>Pick and feed a friend</h2>
-                <p>We know the animals bring you joy, and in these extraordinary times, we’re glad.</p>
+                <p class="subtitle">We know the animals bring you joy, and in these extraordinary times, we’re glad.</p>
                 <div class="illustration">
                     <div class="counter">
                         <div class="counter_numb"> 4 </div>
@@ -74,40 +107,55 @@
                     <div class="panda"><span class="icon-panda_icon"></span></div>
                 </div>
                 <form class="amount" action="#">
-                    <label>Amount</label>
-                    <input class="range" type="range" min="1" max="8" value="3" id="range" list="range_list">
-                    <datalist id="range_list" class="range_list">
-                    <option class="range_opt" value="1">$5000</option>
-                    <option class="range_opt" value="2">$2000</option>
-                    <option class="range_opt" value="3">$1000</option>
-                    <option class="range_opt" value="4">$500</option>
-                    <option class="range_opt" value="5">$250</option>
-                    <option class="range_opt" value="6">$100</option>
-                    <option class="range_opt" value="7">$50</option>
-                    <option class="range_opt" value="8">$25</option>
-                    </datalist>
-                    <div class="dotContainer">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                    <p class="amount_p">Amount</p>
+                    <div class="radio_money">
+                        <div class="wrapper"></div>
+                        <div class="item">
+                            <input id="radio-1" type="radio" name="item_input" value="5000" class="item_input">
+                            <label class="item_label" for="radio-1">$5000</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-2" type="radio" name="item_input" value="2000" class="item_input">
+                            <label class="item_label" for="radio-2">$2000</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-3" type="radio" name="item_input" value="1000" class="item_input">
+                            <label class="item_label" for="radio-3">$1000</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-4" type="radio" name="item_input" value="500" class="item_input">
+                            <label class="item_label" for="radio-4">$500</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-5" type="radio" name="item_input" value="250" class="item_input">
+                            <label class="item_label" for="radio-5">$250</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-6" type="radio" name="item_input" value="100" class="item_input" checked>
+                            <label class="item_label" for="radio-6">$100</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-7" type="radio" name="item_input" value="50" class="item_input">
+                            <label class="item_label" for="radio-7">$50</label>
+                        </div>
+                        <div class="item">
+                            <input id="radio-8" type="radio" name="item_input" value="25" class="item_input">
+                            <label class="item_label" for="radio-8">$25</label>
+                        </div>
+
                     </div>
                     <div class="number">
-                        <input class="number_input" type="number" placeholder="Another amount" min="1" max="9999">
+                        <input class="number_input" type="number" placeholder="Another amount" onkeypress="this.value=this.value.substring(0,3)">
                     </div>
 
-                    <div class="radio">
-                        <div class="radio_item">
-                            <input id="radio-1" type="radio" name="radio" value="1" class="radio_input">
-                            <label for="radio-1">Monthly</label>
+                    <div class="periodicity">
+                        <div class="periodicity_item">
+                            <input id="radio-10" type="radio" name="periodicity_name" class="periodicity_input">
+                            <label class="periodicity_label" for="radio-10">Monthly</label>
                         </div>
-                        <div class="radio_item">
-                            <input id="radio-2" type="radio" name="radio" value="2" class="radio_input" checked>
-                            <label for="radio-2">Once</label>
+                        <div class="periodicity_item">
+                            <input id="radio-11" type="radio" name="periodicity_name" class="periodicity_input" checked>
+                            <label class="periodicity_label" for="radio-11">Once</label>
                         </div>
                     </div>
                     <button class="btn">Feed a friend now</button>
@@ -120,7 +168,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer_container">
-                <a class="footer__logo" href="index.html">
+                <a class="footer__logo" href="../main/index.html">
                     <p>PetStory online</p>
                     <img src="../../assets/icons/bamboo.svg" alt="bamboo">
                 </a>
@@ -128,7 +176,7 @@
                     <div class="subtitle">Subscribe to our news</div>
                     <form action="#">
                         <input class="input" type="email" placeholder="Enter your email" required>
-                        <button class="submit submit-active">Submit</button>
+                        <button class="submit">Submit</button>
                     </form>
                 </div>
                 <form action="../donate/index.html" target="_blank">
@@ -138,36 +186,43 @@
                     <ul>
                         <li>
                             <a href="https://www.facebook.com/">
-                                <div class="footer__social_icon"><span class="icon-facebook"></span>
-                                </div>Facebook</a>
+                                <div class="footer__social_icon"><span class="icon-facebook"></span> </div>
+                                <div class="footer__social_name">Facebook</div>
+                            </a>
                         </li>
                         <li>
                             <a href="https://twitter.com/">
-                                <div class="footer__social_icon"><span class="icon-twitter"></span></div>Twitter</a>
+                                <div class="footer__social_icon"><span class="icon-twitter"></span></div>
+                                <div class="footer__social_name">Twitter</div>
+                            </a>
                         </li>
                         <li>
                             <a href="https://www.instagram.com/">
-                                <div class="footer__social_icon"><span class="icon-instagram"></span></div>Instagram</a>
+                                <div class="footer__social_icon"><span class="icon-instagram"></span></div>
+                                <div class="footer__social_name">Instagram</div>
+                            </a>
                         </li>
                         <li>
                             <a href="https://www.youtube.com/">
-                                <div class="footer__social_icon"><span class="icon-youtube"></span></div>YouTube</a>
+                                <div class="footer__social_icon"><span class="icon-youtube"></span></div>
+                                <div class="footer__social_name">YouTube</div>
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <nav>
                     <ul>
                         <li>
-                            <a href="#">About</a>
+                            <a href="../main/index.html">About</a>
                         </li>
                         <li>
-                            <a href="#">Map</a>
+                            <a href="../map/index.html">Map</a>
                         </li>
                         <li>
-                            <a href="#">Zoos</a>
+                            <a href="../zoos/index.html">Zoos</a>
                         </li>
                         <li>
-                            <a href="#">Contact us</a>
+                            <a href="../contact/index.html">Contact us</a>
                         </li>
                     </ul>
                 </nav>
@@ -177,6 +232,9 @@
             </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>
