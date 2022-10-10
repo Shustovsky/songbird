@@ -15,3 +15,24 @@ burgerMenu.addEventListener('click', (e) => {
         burgerMenu.classList.toggle('burger_menu-active');
     }
 })
+
+
+// amount
+
+let radioInput = document.querySelectorAll('.item_input');
+let numberInput = document.querySelector('.number_input');
+
+radioInput.forEach((item) => {
+    if (item.checked) {
+        numberInput.value = item.value; //меняет поле намбер при старте
+    }
+    item.addEventListener('click', () => {
+        numberInput.value = item.value; //меняет намбер при смене инпута
+    })
+});
+
+numberInput.addEventListener('input', () => { //меняет  инпут при смене значения
+    radioInput.forEach((item) => {
+        item.checked = item.value === numberInput.value ? true : false;
+    });
+});
