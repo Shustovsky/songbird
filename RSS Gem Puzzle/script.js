@@ -256,3 +256,83 @@ let isWon = (matrix) => {
 
 const time = document.querySelector('.stopwatch');
 const stopwatch = { elapsedTime: 0 };
+
+let runtime = () => {
+    if (time.innerHTML === 'Time: 0:00') {
+        startStopwatch();
+    } else {
+        clearTimer();
+    };
+};
+
+let clearTimer = () => {
+    stopwatch.elapsedTime = 0;
+    stopwatch.startTime = Date.now();
+    displayTime(0, 0, 0, 0);
+};
+
+let startStopwatch = () => {
+    stopwatch.startTime = Date.now();
+    stopwatch.intervalId = setInterval(() => {
+
+        const elapsedTime = Date.now() - stopwatch.startTime + stopwatch.elapsedTime;
+        const milliseconds = parseInt((elapsedTime % 1000) / 10);
+        const seconds = parseInt((elapsedTime / 1000) % 60);
+        const minutes = parseInt((elapsedTime / (1000 * 60)) % 60);
+        displayTime(minutes, seconds, milliseconds);
+    }, 10);
+};
+
+let displayTime = (minutes, seconds, milliseconds) => {
+    const leadZeroTime = [minutes, seconds, milliseconds].map(time => time < 10 ? `0${time}` : time);
+    time.innerHTML = `Time: ${ leadZeroTime.join(':')}`;
+};
+
+const stopBtn = document.getElementById('stop');
+let isPaused = false;
+stopBtn.addEventListener('click', () => {
+    isPaused = isPaused === false ? true : false;
+    console.log(isPaused);
+    if (time.innerHTML !== 'Time: 0:00') {
+        if (stopBtn.innerHTML === 'Start') {
+            startStopwatch();
+            stopBtn.innerHTML = 'Stop';
+        } else {
+            stopwatch.elapsedTime += Date.now() - stopwatch.startTime;
+            clearInterval(stopwatch.intervalId);
+            stopBtn.innerHTML = 'Start';
+        };
+    };
+});
+
+
+let checkTrueArray = (matrix) => {
+    const flatMatrix = matrix.flat();
+    let count = 0;
+    console.log(flatMatrix);
+    for (let i = 0; i < flatMatrix.length; i++) {
+        // console.log(`i = ${flatMatrix[i]}`);
+        for (let j = i + 1; j < flatMatrix.length; j++) {
+            // console.log(j);
+            if (flatMatrix[i] > flatMatrix[j] && flatMatrix[i] !== flatMatrix.length && flatMatrix[j] !== flatMatrix.length) {
+                count++;
+                // console.log(`--------j = ${flatMatrix[j]}`);
+                // console.log(count);
+            }
+        };
+    }
+
+    let numEmptyRow;
+    // console.log(numEmptyRow);
+    if (flatMatrix.length % 2 === 0) {
+        for (let i = 0; i < matrix.length; i++) {
+            if (matrix[i].includes(itemsNumb)) {
+                numEmptyRow = i + 1;
+            }
+        }
+        count += numEmptyRow;
+    }
+
+    // console.log(`count === ${count}`)
+    return count % 2 === 0 ? true : false;
+}
