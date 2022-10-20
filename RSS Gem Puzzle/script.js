@@ -1,5 +1,39 @@
-let itemsNumb = 9;
 let createStructure = () => {
+
+    const select = document.createElement('select');
+    document.body.prepend(select);
+
+    const option3 = document.createElement('option');
+    option3.value = '9';
+    option3.innerHTML = `3x3`;
+    select.prepend(option3);
+
+    const option4 = document.createElement('option');
+    option4.value = '16';
+    option4.defaultSelected = true;
+    option4.innerHTML = `4x4`;
+    select.prepend(option4);
+
+    const option5 = document.createElement('option');
+    option5.value = '25';
+    option5.innerHTML = `5x5`;
+    select.prepend(option5);
+
+    const option6 = document.createElement('option');
+    option6.value = '36';
+    option6.innerHTML = `6x6`;
+    select.prepend(option6);
+
+    const option7 = document.createElement('option');
+    option7.value = '49';
+    option7.innerHTML = `7x7`;
+    select.prepend(option7);
+
+    const option8 = document.createElement('option');
+    option8.value = '64';
+    option8.innerHTML = `8x8`;
+    select.prepend(option8);
+
     const info = document.createElement('div');
     info.classList.add('info');
     document.body.prepend(info);
@@ -42,14 +76,28 @@ let createStructure = () => {
     btnResults.innerHTML = `Results`;
     nav.append(btnResults);
 
-
-
     const container = document.createElement('div');
     container.classList.add('container', 'x4');
 
     document.body.prepend(container);
 }
 createStructure();
+
+let itemsNumb = 16;
+// let selectedSize = document.querySelectorAll('option');
+// selectedSize.forEach(item => {
+//     if (item.selected === true) {
+//         itemsNumb = item.value;
+//     };
+// });
+
+document.querySelector("select").addEventListener('change', e => {
+    console.log("Changed to: " + e.target.value);
+    itemsNumb = e.target.value;
+    console.log(itemsNumb);
+
+})
+
 
 let createItems = (numberItems = itemsNumb) => {
     const container = document.querySelector('.container');
@@ -124,7 +172,6 @@ let doShuffle = () => {
 setPosition(matrix); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 // doShuffle();
 
-
 document.getElementById('shuffle').addEventListener('click', doit = () => {
     doShuffle();
     // console.log(matrix);
@@ -136,3 +183,76 @@ document.getElementById('shuffle').addEventListener('click', doit = () => {
     }
 
 });
+
+container.addEventListener('click', (e) => {
+    const item = e.target.closest('.item');
+    if (!item) {
+        return;
+    }
+
+    const itemNumber = Number(item.dataset.matrixId);
+    const itemCoords = findCoordinatesByNumber(itemNumber, matrix);
+    const emptyItemCoords = findCoordinatesByNumber(itemsNumb, matrix);
+
+    const isValid = isValidForSwap(itemCoords, emptyItemCoords);
+
+    if (isValid) {
+        swap(itemCoords, emptyItemCoords, matrix);
+        setPosition(matrix);
+    }
+})
+
+let findCoordinatesByNumber = (numb, matrix) => {
+    for (let y = 0; y < matrix.length; y++) {
+        for (let x = 0; x < matrix[y].length; x++) {
+            if (matrix[y][x] === numb) {
+                return { x, y };
+            }
+        }
+    }
+    return null;
+}
+
+let isValidForSwap = (coords1, coords2) => {
+    const x = Math.abs(coords1.x - coords2.x);
+    const y = Math.abs(coords1.y - coords2.y);
+
+    return (x === 1 || y === 1) && (coords1.x === coords2.x || coords1.y === coords2.y);
+}
+
+let swap = (coords1, coords2, matrix) => {
+    if (!isPaused) {
+        const number = matrix[coords1.y][coords1.x];
+        matrix[coords1.y][coords1.x] = matrix[coords2.y][coords2.x];
+        matrix[coords2.y][coords2.x] = number;
+
+        outputMoves();
+
+        if (isWon(matrix)) {
+            console.log(`Ура! Вы решили головоломку за ${time.innerHTML} и ${countMoves} ходов!`);
+            clearTimer();
+        };
+        new Audio('./assets/sound.mp3').play();
+    };
+};
+
+let countMoves = 0;
+let outputMoves = () => {
+    const moves = document.querySelector('.moves');
+    countMoves++;
+    moves.innerHTML = `moves: ${countMoves}`;
+}
+
+let isWon = (matrix) => {
+    const winArray = new Array(itemsNumb).fill(0).map((_item, i) => i + 1);
+    const flat = matrix.flat();
+    for (let i = 0; i < winArray.length; i++) {
+        if (flat[i] !== winArray[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+const time = document.querySelector('.stopwatch');
+const stopwatch = { elapsedTime: 0 };
