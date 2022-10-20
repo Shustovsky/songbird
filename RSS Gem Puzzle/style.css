@@ -89,6 +89,13 @@ body {
   font-size: 18px;
 }
 
+select {
+  color: #D2ED9E;
+  background: #557714;
+  font-size: 18px;
+  padding: 1%;
+}
+
 @media (max-width: 768px) {
   .container {
     width: 205px;
