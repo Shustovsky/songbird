@@ -62,3 +62,77 @@ let createItems = (numberItems = itemsNumb) => {
     }
 }
 createItems();
+
+const container = document.querySelector('.container');
+const item = Array.from(document.querySelectorAll('.item')); //Array.from превращаем в массив
+
+item[itemsNumb - 1].style.display = 'none';
+
+let getMatrix = (arr, itemsNumb) => {
+    let sqrtOfItemsNumb = Math.sqrt(itemsNumb);
+
+    const matrix = [];
+    while (matrix.length < sqrtOfItemsNumb) {
+        matrix.push([]);
+    };
+    let y = 0;
+    let x = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (x >= sqrtOfItemsNumb) {
+            y++;
+            x = 0;
+        }
+        matrix[y][x] = arr[i];
+        x++;
+    }
+    return matrix;
+}
+
+let matrix = getMatrix(
+    item.map((item) => Number(item.dataset.matrixId)), itemsNumb
+);
+
+let setPosition = (matrix) => {
+    for (let y = 0; y < matrix.length; y++) {
+        for (let x = 0; x < matrix[y].length; x++) {
+            const value = matrix[y][x];
+            // console.log(value)
+            const node = item[value - 1];
+            transform(node, x, y);
+        }
+    }
+}
+let transform = (node, x, y) => {
+    const value = 115;
+    node.style.transform = `translate(${x * value}%, ${y * value}%)`;
+}
+
+let shuffleArray = (arr) => {
+    return arr
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
+}
+
+let doShuffle = () => {
+    const flatMatrix = matrix.flat();
+    const shuffle = shuffleArray(flatMatrix)
+    matrix = getMatrix(shuffle, itemsNumb);
+    setPosition(matrix);
+}
+setPosition(matrix); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+// doShuffle();
+
+
+document.getElementById('shuffle').addEventListener('click', doit = () => {
+    doShuffle();
+    // console.log(matrix);
+    console.log(checkTrueArray(matrix));
+    if (checkTrueArray(matrix)) {
+        runtime();
+    } else {
+        doit();
+    }
+
+});
