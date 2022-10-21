@@ -1,6 +1,15 @@
-let createStructure = () => {
+let itemsNumb = 16;
 
+let matrix = [];
+let item = [];
+
+let stopwatchTime = { elapsedTime: 0 };
+let countMoves = 0;
+let isPaused = false;
+
+let createStructure = () => {
     const select = document.createElement('select');
+    select.addEventListener('change', e => changeSize(e));
     document.body.prepend(select);
 
     const option3 = document.createElement('option');
@@ -56,12 +65,30 @@ let createStructure = () => {
     btnShuffle.classList.add('btn');
     btnShuffle.id = 'shuffle';
     btnShuffle.innerHTML = `Shuffle and start`;
+    btnShuffle.addEventListener('click', () => {
+        doShuffle();
+        runtime();
+    });
     nav.append(btnShuffle);
 
     const btnStop = document.createElement('div');
     btnStop.classList.add('btn');
     btnStop.id = 'stop';
     btnStop.innerHTML = `Stop`;
+    btnStop.addEventListener('click', () => {
+        isPaused = isPaused === false ? true : false;
+
+        if (document.querySelector('.stopwatch').innerHTML !== 'Time: 0:00') {
+            if (btnStop.innerHTML === 'Start') {
+                startStopwatch();
+                btnStop.innerHTML = 'Stop';
+            } else {
+                stopwatchTime.elapsedTime += Date.now() - stopwatchTime.startTime;
+                clearInterval(stopwatchTime.intervalId);
+                btnStop.innerHTML = 'Start';
+            };
+        };
+    });
     nav.append(btnStop);
 
     const btnSave = document.createElement('div');
@@ -78,26 +105,29 @@ let createStructure = () => {
 
     const container = document.createElement('div');
     container.classList.add('container', 'x4');
+    container.addEventListener('click', findAndSwap)
 
     document.body.prepend(container);
 }
-createStructure();
 
-let itemsNumb = 16;
-// let selectedSize = document.querySelectorAll('option');
-// selectedSize.forEach(item => {
-//     if (item.selected === true) {
-//         itemsNumb = item.value;
-//     };
-// });
+function changeSize(e) {
+    itemsNumb = +e.target.value;
+    console.log("itemsNumb сhanged to: " + e.target.value);
+    delAllItems();
+    startGame();
 
-document.querySelector("select").addEventListener('change', e => {
-    console.log("Changed to: " + e.target.value);
-    itemsNumb = e.target.value;
-    console.log(itemsNumb);
+    const container = document.querySelector('.container');
 
-})
+    container.className = 'container x3';
 
+    document.querySelectorAll('option').forEach(element => {
+        if (element.value === e.target.value) {
+            element.defaultSelected = true;
+            let elemSqrt = Math.sqrt(+element.value);
+            container.className = `container x${elemSqrt}`;
+        }
+    });
+}
 
 let createItems = (numberItems = itemsNumb) => {
     const container = document.querySelector('.container');
@@ -108,16 +138,14 @@ let createItems = (numberItems = itemsNumb) => {
         item.dataset.matrixId = i + 1;
         container.append(item);
     }
+    item = Array.from(document.querySelectorAll('.item')); //Array.from превращаем в массив
+    item[itemsNumb - 1].style.display = 'none'; //скрываем последний айтем
 }
-createItems();
-
-const container = document.querySelector('.container');
-const item = Array.from(document.querySelectorAll('.item')); //Array.from превращаем в массив
-
-item[itemsNumb - 1].style.display = 'none';
 
 let getMatrix = (arr, itemsNumb) => {
+    // console.log(`itemsNumb ${itemsNumb}`)
     let sqrtOfItemsNumb = Math.sqrt(itemsNumb);
+    // console.log(`sqrtOfItemsNumb ${sqrtOfItemsNumb}`)
 
     const matrix = [];
     while (matrix.length < sqrtOfItemsNumb) {
@@ -133,13 +161,10 @@ let getMatrix = (arr, itemsNumb) => {
         }
         matrix[y][x] = arr[i];
         x++;
-    }
+    };
+
     return matrix;
 }
-
-let matrix = getMatrix(
-    item.map((item) => Number(item.dataset.matrixId)), itemsNumb
-);
 
 let setPosition = (matrix) => {
     for (let y = 0; y < matrix.length; y++) {
@@ -156,6 +181,7 @@ let transform = (node, x, y) => {
     node.style.transform = `translate(${x * value}%, ${y * value}%)`;
 }
 
+
 let shuffleArray = (arr) => {
     return arr
         .map(value => ({ value, sort: Math.random() }))
@@ -164,34 +190,46 @@ let shuffleArray = (arr) => {
 }
 
 let doShuffle = () => {
+    // do {
     const flatMatrix = matrix.flat();
-    const shuffle = shuffleArray(flatMatrix)
+    const shuffle = shuffleArray(flatMatrix);
     matrix = getMatrix(shuffle, itemsNumb);
-    setPosition(matrix);
+    // } while (!checkTrueArray(matrix))
+    // console.log(matrix);
+    // console.log(checkTrueArray(matrix));
+    if (checkTrueArray(matrix)) {
+        setPosition(matrix);
+    } else {
+        doShuffle();
+    }
 }
+
 setPosition(matrix); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 // doShuffle();
 
-document.getElementById('shuffle').addEventListener('click', doit = () => {
-    doShuffle();
-    // console.log(matrix);
-    console.log(checkTrueArray(matrix));
-    if (checkTrueArray(matrix)) {
-        runtime();
-    } else {
-        doit();
-    }
-
-});
-
-container.addEventListener('click', (e) => {
+function findAndSwap(e) {
     const item = e.target.closest('.item');
+    // console.log(item);
     if (!item) {
         return;
+    };
+
+    let findCoordinatesByNumber = (numb, matrix) => {
+        for (let y = 0; y < matrix.length; y++) {
+            for (let x = 0; x < matrix[y].length; x++) {
+                if (matrix[y][x] === numb) {
+                    return { x, y };
+                }
+            }
+        }
+        return null;
     }
 
     const itemNumber = Number(item.dataset.matrixId);
     const itemCoords = findCoordinatesByNumber(itemNumber, matrix);
+
+    console.log(matrix)
+
     const emptyItemCoords = findCoordinatesByNumber(itemsNumb, matrix);
 
     const isValid = isValidForSwap(itemCoords, emptyItemCoords);
@@ -200,17 +238,7 @@ container.addEventListener('click', (e) => {
         swap(itemCoords, emptyItemCoords, matrix);
         setPosition(matrix);
     }
-})
-
-let findCoordinatesByNumber = (numb, matrix) => {
-    for (let y = 0; y < matrix.length; y++) {
-        for (let x = 0; x < matrix[y].length; x++) {
-            if (matrix[y][x] === numb) {
-                return { x, y };
-            }
-        }
-    }
-    return null;
+    console.log(emptyItemCoords)
 }
 
 let isValidForSwap = (coords1, coords2) => {
@@ -229,14 +257,13 @@ let swap = (coords1, coords2, matrix) => {
         outputMoves();
 
         if (isWon(matrix)) {
-            console.log(`Ура! Вы решили головоломку за ${time.innerHTML} и ${countMoves} ходов!`);
+            alert(`Ура! Вы решили головоломку за ${document.querySelector('.stopwatch').innerHTML} и ${countMoves} ходов!`);
             clearTimer();
         };
         new Audio('./assets/sound.mp3').play();
     };
 };
 
-let countMoves = 0;
 let outputMoves = () => {
     const moves = document.querySelector('.moves');
     countMoves++;
@@ -254,11 +281,8 @@ let isWon = (matrix) => {
     return true;
 }
 
-const time = document.querySelector('.stopwatch');
-const stopwatch = { elapsedTime: 0 };
-
 let runtime = () => {
-    if (time.innerHTML === 'Time: 0:00') {
+    if (document.querySelector('.stopwatch').innerHTML === 'Time: 0:00') {
         startStopwatch();
     } else {
         clearTimer();
@@ -266,16 +290,16 @@ let runtime = () => {
 };
 
 let clearTimer = () => {
-    stopwatch.elapsedTime = 0;
-    stopwatch.startTime = Date.now();
+    stopwatchTime.elapsedTime = 0;
+    stopwatchTime.startTime = Date.now();
     displayTime(0, 0, 0, 0);
 };
 
 let startStopwatch = () => {
-    stopwatch.startTime = Date.now();
-    stopwatch.intervalId = setInterval(() => {
+    stopwatchTime.startTime = Date.now();
+    stopwatchTime.intervalId = setInterval(() => {
 
-        const elapsedTime = Date.now() - stopwatch.startTime + stopwatch.elapsedTime;
+        const elapsedTime = Date.now() - stopwatchTime.startTime + stopwatchTime.elapsedTime;
         const milliseconds = parseInt((elapsedTime % 1000) / 10);
         const seconds = parseInt((elapsedTime / 1000) % 60);
         const minutes = parseInt((elapsedTime / (1000 * 60)) % 60);
@@ -285,31 +309,13 @@ let startStopwatch = () => {
 
 let displayTime = (minutes, seconds, milliseconds) => {
     const leadZeroTime = [minutes, seconds, milliseconds].map(time => time < 10 ? `0${time}` : time);
-    time.innerHTML = `Time: ${ leadZeroTime.join(':')}`;
+    document.querySelector('.stopwatch').innerHTML = `Time: ${ leadZeroTime.join(':')}`;
 };
-
-const stopBtn = document.getElementById('stop');
-let isPaused = false;
-stopBtn.addEventListener('click', () => {
-    isPaused = isPaused === false ? true : false;
-    console.log(isPaused);
-    if (time.innerHTML !== 'Time: 0:00') {
-        if (stopBtn.innerHTML === 'Start') {
-            startStopwatch();
-            stopBtn.innerHTML = 'Stop';
-        } else {
-            stopwatch.elapsedTime += Date.now() - stopwatch.startTime;
-            clearInterval(stopwatch.intervalId);
-            stopBtn.innerHTML = 'Start';
-        };
-    };
-});
-
 
 let checkTrueArray = (matrix) => {
     const flatMatrix = matrix.flat();
     let count = 0;
-    console.log(flatMatrix);
+    // console.log(flatMatrix);
     for (let i = 0; i < flatMatrix.length; i++) {
         // console.log(`i = ${flatMatrix[i]}`);
         for (let j = i + 1; j < flatMatrix.length; j++) {
@@ -328,11 +334,29 @@ let checkTrueArray = (matrix) => {
         for (let i = 0; i < matrix.length; i++) {
             if (matrix[i].includes(itemsNumb)) {
                 numEmptyRow = i + 1;
+                count += numEmptyRow;
             }
         }
-        count += numEmptyRow;
     }
 
     // console.log(`count === ${count}`)
     return count % 2 === 0 ? true : false;
+};
+
+let delAllItems = () => {
+    const body = document.querySelector('body');
+    body.innerHTML = '';
 }
+
+
+function startGame() {
+    createStructure();
+    createItems();
+    matrix = getMatrix(
+        item.map((item) => Number(item.dataset.matrixId)), itemsNumb
+    );
+    doShuffle();
+    runtime();
+}
+
+startGame();
