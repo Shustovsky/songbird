@@ -10,7 +10,7 @@ let isVolumeOn = true;
 let createStructure = () => {
 
     const volume = document.createElement('img');
-    volume.src = './assets/volume-on.svg';
+    volume.src = isVolumeOn ? './assets/volume-on.svg' : './assets/volume-off.svg';
     volume.alt = 'volume on';
 
     volume.addEventListener('click', (e) => {
@@ -37,7 +37,7 @@ let createStructure = () => {
 
     const option4 = document.createElement('option');
     option4.value = '16';
-    option4.defaultSelected = true;
+    // option4.defaultSelected = true;
     option4.innerHTML = `4x4`;
     select.prepend(option4);
 
@@ -60,6 +60,13 @@ let createStructure = () => {
     option8.value = '64';
     option8.innerHTML = `8x8`;
     select.prepend(option8);
+
+    let allOptions = [option3, option4, option5, option6, option7, option8];
+    allOptions.forEach((item) => {
+        if (+item.value === itemsNumb) {
+            item.defaultSelected = true;
+        }
+    })
 
     const info = document.createElement('div');
     info.classList.add('info');
@@ -113,6 +120,7 @@ let createStructure = () => {
     btnSave.classList.add('btn');
     btnSave.id = 'save';
     btnSave.innerHTML = `Save`;
+    btnSave.addEventListener('click', setLocalStorage);
     nav.append(btnSave);
 
     const btnResults = document.createElement('div');
@@ -122,9 +130,9 @@ let createStructure = () => {
     nav.append(btnResults);
 
     const container = document.createElement('div');
-    container.classList.add('container', 'x4');
+    let elemSqrt = Math.sqrt(itemsNumb);
+    container.className = `container x${elemSqrt}`;
     container.addEventListener('click', findAndSwap)
-
     document.body.prepend(container);
 }
 
@@ -135,13 +143,13 @@ function changeSize(e) {
 
     const container = document.querySelector('.container');
 
-    container.className = 'container x3';
-
     document.querySelectorAll('option').forEach(element => {
         if (element.value === e.target.value) {
             element.defaultSelected = true;
             let elemSqrt = Math.sqrt(+element.value);
             container.className = `container x${elemSqrt}`;
+        } else {
+            element.defaultSelected = false;
         }
     });
 }
@@ -214,7 +222,6 @@ let doShuffle = () => {
         doShuffle();
     }
 }
-
 
 function findAndSwap(e) {
     const item = e.target.closest('.item');
@@ -357,4 +364,39 @@ function startGame() {
     runtime();
 }
 
-startGame();
+function initGame() {
+    getLocalStorage();
+    startGame();
+}
+initGame();
+
+//функция сохраняющая значение инпута
+function setLocalStorage() {
+    localStorage.setItem('itemsNumb', itemsNumb);
+    localStorage.setItem('matrix', JSON.stringify(matrix));
+    localStorage.setItem('stopwatchTime', JSON.stringify(stopwatchTime));
+    localStorage.setItem('countMoves', countMoves);
+    localStorage.setItem('isPaused', isPaused);
+    localStorage.setItem('isVolumeOn', isVolumeOn);
+}
+
+function getLocalStorage() {
+    if (localStorage.getItem('itemsNumb')) {
+        itemsNumb = +localStorage.getItem('itemsNumb');
+    }
+    if (localStorage.getItem('matrix')) {
+        matrix = JSON.parse(localStorage.getItem('matrix'));
+    }
+    if (localStorage.getItem('stopwatchTime')) {
+        stopwatchTime = JSON.parse(localStorage.getItem('stopwatchTime'));
+    }
+    if (localStorage.getItem('countMoves')) {
+        countMoves = +localStorage.getItem('countMoves');
+    }
+    if (localStorage.getItem('isPaused')) {
+        isPaused = localStorage.getItem('isPaused') === 'true';
+    }
+    if (localStorage.getItem('isVolumeOn')) {
+        isVolumeOn = localStorage.getItem('isVolumeOn') === 'true';
+    }
+}
