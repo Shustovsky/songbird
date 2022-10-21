@@ -14,7 +14,7 @@ body {
     max-width: 60%;
     position: relative;
     display: grid;
-    grid-template-rows: 400px 1fr 1fr 1fr;
+    grid-template-rows: 400px 100px 50px 50px;
     // flex-direction: column;
     gap: 1%;
     // justify-content: flex-end;
@@ -126,6 +126,15 @@ select {
     padding: 1%;
     justify-self: center;
     align-self: center;
+}
+
+img {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 @media(max-width: 768px) {

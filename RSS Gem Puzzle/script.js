@@ -1,13 +1,31 @@
 let itemsNumb = 16;
 
 let matrix = [];
-let item = [];
 
 let stopwatchTime = { elapsedTime: 0 };
 let countMoves = 0;
 let isPaused = false;
+let isVolumeOn = true;
 
 let createStructure = () => {
+
+    const volume = document.createElement('img');
+    volume.src = './assets/volume-on.svg';
+    volume.alt = 'volume on';
+
+    volume.addEventListener('click', (e) => {
+
+        if (isVolumeOn) {
+            isVolumeOn = false;
+            e.target.src = './assets/volume-off.svg';
+        } else {
+            isVolumeOn = true;
+            e.target.src = './assets/volume-on.svg';
+        }
+
+    })
+    document.body.prepend(volume);
+
     const select = document.createElement('select');
     select.addEventListener('change', e => changeSize(e));
     document.body.prepend(select);
@@ -112,7 +130,6 @@ let createStructure = () => {
 
 function changeSize(e) {
     itemsNumb = +e.target.value;
-    console.log("itemsNumb сhanged to: " + e.target.value);
     delAllItems();
     startGame();
 
@@ -138,14 +155,11 @@ let createItems = (numberItems = itemsNumb) => {
         item.dataset.matrixId = i + 1;
         container.append(item);
     }
-    item = Array.from(document.querySelectorAll('.item')); //Array.from превращаем в массив
-    item[itemsNumb - 1].style.display = 'none'; //скрываем последний айтем
+    Array.from(document.querySelectorAll('.item'))[itemsNumb - 1].style.display = 'none'; //скрываем последний айтем
 }
 
 let getMatrix = (arr, itemsNumb) => {
-    // console.log(`itemsNumb ${itemsNumb}`)
     let sqrtOfItemsNumb = Math.sqrt(itemsNumb);
-    // console.log(`sqrtOfItemsNumb ${sqrtOfItemsNumb}`)
 
     const matrix = [];
     while (matrix.length < sqrtOfItemsNumb) {
@@ -167,10 +181,10 @@ let getMatrix = (arr, itemsNumb) => {
 }
 
 let setPosition = (matrix) => {
+    let item = Array.from(document.querySelectorAll('.item'));
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[y].length; x++) {
             const value = matrix[y][x];
-            // console.log(value)
             const node = item[value - 1];
             transform(node, x, y);
         }
@@ -181,7 +195,6 @@ let transform = (node, x, y) => {
     node.style.transform = `translate(${x * value}%, ${y * value}%)`;
 }
 
-
 let shuffleArray = (arr) => {
     return arr
         .map(value => ({ value, sort: Math.random() }))
@@ -190,13 +203,11 @@ let shuffleArray = (arr) => {
 }
 
 let doShuffle = () => {
-    // do {
+
     const flatMatrix = matrix.flat();
     const shuffle = shuffleArray(flatMatrix);
     matrix = getMatrix(shuffle, itemsNumb);
-    // } while (!checkTrueArray(matrix))
-    // console.log(matrix);
-    // console.log(checkTrueArray(matrix));
+
     if (checkTrueArray(matrix)) {
         setPosition(matrix);
     } else {
@@ -204,12 +215,9 @@ let doShuffle = () => {
     }
 }
 
-setPosition(matrix); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-// doShuffle();
 
 function findAndSwap(e) {
     const item = e.target.closest('.item');
-    // console.log(item);
     if (!item) {
         return;
     };
@@ -228,8 +236,6 @@ function findAndSwap(e) {
     const itemNumber = Number(item.dataset.matrixId);
     const itemCoords = findCoordinatesByNumber(itemNumber, matrix);
 
-    console.log(matrix)
-
     const emptyItemCoords = findCoordinatesByNumber(itemsNumb, matrix);
 
     const isValid = isValidForSwap(itemCoords, emptyItemCoords);
@@ -238,7 +244,6 @@ function findAndSwap(e) {
         swap(itemCoords, emptyItemCoords, matrix);
         setPosition(matrix);
     }
-    console.log(emptyItemCoords)
 }
 
 let isValidForSwap = (coords1, coords2) => {
@@ -260,7 +265,9 @@ let swap = (coords1, coords2, matrix) => {
             alert(`Ура! Вы решили головоломку за ${document.querySelector('.stopwatch').innerHTML} и ${countMoves} ходов!`);
             clearTimer();
         };
-        new Audio('./assets/sound.mp3').play();
+        if (isVolumeOn) {
+            new Audio('./assets/sound.mp3').play();
+        }
     };
 };
 
@@ -298,7 +305,6 @@ let clearTimer = () => {
 let startStopwatch = () => {
     stopwatchTime.startTime = Date.now();
     stopwatchTime.intervalId = setInterval(() => {
-
         const elapsedTime = Date.now() - stopwatchTime.startTime + stopwatchTime.elapsedTime;
         const milliseconds = parseInt((elapsedTime % 1000) / 10);
         const seconds = parseInt((elapsedTime / 1000) % 60);
@@ -315,21 +321,15 @@ let displayTime = (minutes, seconds, milliseconds) => {
 let checkTrueArray = (matrix) => {
     const flatMatrix = matrix.flat();
     let count = 0;
-    // console.log(flatMatrix);
     for (let i = 0; i < flatMatrix.length; i++) {
-        // console.log(`i = ${flatMatrix[i]}`);
         for (let j = i + 1; j < flatMatrix.length; j++) {
-            // console.log(j);
             if (flatMatrix[i] > flatMatrix[j] && flatMatrix[i] !== flatMatrix.length && flatMatrix[j] !== flatMatrix.length) {
                 count++;
-                // console.log(`--------j = ${flatMatrix[j]}`);
-                // console.log(count);
             }
         };
     }
 
     let numEmptyRow;
-    // console.log(numEmptyRow);
     if (flatMatrix.length % 2 === 0) {
         for (let i = 0; i < matrix.length; i++) {
             if (matrix[i].includes(itemsNumb)) {
@@ -339,7 +339,6 @@ let checkTrueArray = (matrix) => {
         }
     }
 
-    // console.log(`count === ${count}`)
     return count % 2 === 0 ? true : false;
 };
 
@@ -348,12 +347,11 @@ let delAllItems = () => {
     body.innerHTML = '';
 }
 
-
 function startGame() {
     createStructure();
     createItems();
     matrix = getMatrix(
-        item.map((item) => Number(item.dataset.matrixId)), itemsNumb
+        Array.from(document.querySelectorAll('.item')).map((item) => Number(item.dataset.matrixId)), itemsNumb
     );
     doShuffle();
     runtime();
