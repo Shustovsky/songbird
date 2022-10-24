@@ -1,7 +1,6 @@
 let itemsNumb = 16;
 
 let matrix = [];
-
 let stopwatchTime = { elapsedTime: 0 };
 let countMoves = 0;
 let isPaused = false;
@@ -11,13 +10,11 @@ let savedResult = [];
 let time;
 
 let createStructure = () => {
-
     const volume = document.createElement('img');
     volume.src = isVolumeOn ? './assets/volume-on.svg' : './assets/volume-off.svg';
     volume.alt = 'volume on';
 
     volume.addEventListener('click', (e) => {
-
         if (isVolumeOn) {
             isVolumeOn = false;
             e.target.src = './assets/volume-off.svg';
@@ -25,7 +22,6 @@ let createStructure = () => {
             isVolumeOn = true;
             e.target.src = './assets/volume-on.svg';
         }
-
     })
     document.body.prepend(volume);
 
@@ -40,7 +36,6 @@ let createStructure = () => {
 
     const option4 = document.createElement('option');
     option4.value = '16';
-    // option4.defaultSelected = true;
     option4.innerHTML = `4x4`;
     select.prepend(option4);
 
@@ -68,8 +63,8 @@ let createStructure = () => {
     allOptions.forEach((item) => {
         if (+item.value === itemsNumb) {
             item.defaultSelected = true;
-        }
-    })
+        };
+    });
 
     const info = document.createElement('div');
     info.classList.add('info');
@@ -124,7 +119,6 @@ let createStructure = () => {
     const btnSave = document.createElement('div');
     btnSave.classList.add('btn');
     btnSave.id = 'save';
-    // btnSave.innerHTML = `Save`;
     if (isSave === false) {
         if (localStorage.getItem('isSave')) {
             btnSave.innerHTML = `Clear save`;
@@ -180,9 +174,9 @@ function changeSize(e) {
             container.className = `container x${elemSqrt}`;
         } else {
             element.defaultSelected = false;
-        }
+        };
     });
-}
+};
 
 let createItems = (numberItems = itemsNumb) => {
     const container = document.querySelector('.container');
@@ -192,9 +186,9 @@ let createItems = (numberItems = itemsNumb) => {
         item.innerHTML = i + 1;
         item.dataset.matrixId = i + 1;
         container.append(item);
-    }
+    };
     Array.from(document.querySelectorAll('.item'))[itemsNumb - 1].style.display = 'none'; //скрываем последний айтем
-}
+};
 
 let getMatrix = (arr) => {
     let sqrtOfItemsNumb = Math.sqrt(itemsNumb);
@@ -216,7 +210,7 @@ let getMatrix = (arr) => {
     };
 
     return matrix;
-}
+};
 
 let setPosition = (matrix) => {
     let item = Array.from(document.querySelectorAll('.item'));
@@ -225,26 +219,27 @@ let setPosition = (matrix) => {
             const value = matrix[y][x];
             const node = item[value - 1];
             transform(node, x, y);
-        }
-    }
-}
+        };
+    };
+};
+
 let transform = (node, x, y) => {
     const value = 115;
     node.style.transform = `translate(${x * value}%, ${y * value}%)`;
-}
+};
 
 let shuffleArray = (arr) => {
     return arr
         .map(value => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
-}
+};
 
 let doShuffle = () => {
 
     shuffleMatrix();
     setPosition(matrix);
-}
+};
 
 function shuffleMatrix() {
     do {
@@ -252,7 +247,7 @@ function shuffleMatrix() {
         const shuffle = shuffleArray(flatMatrix);
         matrix = getMatrix(shuffle);
     } while (!checkTrueArray(matrix))
-}
+};
 
 function findAndSwap(e) {
     const item = e.target.closest('.item');
@@ -265,11 +260,11 @@ function findAndSwap(e) {
             for (let x = 0; x < matrix[y].length; x++) {
                 if (matrix[y][x] === numb) {
                     return { x, y };
-                }
-            }
-        }
+                };
+            };
+        };
         return null;
-    }
+    };
 
     const itemNumber = Number(item.dataset.matrixId);
     const itemCoords = findCoordinatesByNumber(itemNumber, matrix);
@@ -281,15 +276,15 @@ function findAndSwap(e) {
     if (isValid) {
         swap(itemCoords, emptyItemCoords, matrix);
         setPosition(matrix);
-    }
-}
+    };
+};
 
 let isValidForSwap = (coords1, coords2) => {
     const x = Math.abs(coords1.x - coords2.x);
     const y = Math.abs(coords1.y - coords2.y);
 
     return (x === 1 || y === 1) && (coords1.x === coords2.x || coords1.y === coords2.y);
-}
+};
 
 let swap = (coords1, coords2, matrix) => {
     if (!isPaused) {
@@ -303,19 +298,15 @@ let swap = (coords1, coords2, matrix) => {
             setTimeout(() => {
                 doSaveResult();
                 alert(`Ура! Вы решили головоломку за ${time} и ${countMoves} ходов!`);
-                // stopwatchTime.elapsedTime += Date.now() - stopwatchTime.startTime;
-                clearInterval(stopwatchTime.intervalId);
                 isPaused = true;
-                // startStopwatch();
-                // clearTimer();
+                stopwatchTime.elapsedTime += Date.now() - stopwatchTime.startTime;
+                clearInterval(stopwatchTime.intervalId);
                 runtime();
             }, 200);
-            // countMoves = 0;
-            // moves.innerHTML = `moves: ${countMoves}`;
         };
         if (isVolumeOn) {
             new Audio('./assets/sound.mp3').play();
-        }
+        };
     };
 };
 
@@ -323,7 +314,7 @@ let outputMoves = () => {
     const moves = document.querySelector('.moves');
     countMoves++;
     moves.innerHTML = `moves: ${countMoves}`;
-}
+};
 
 let isWon = (matrix) => {
     const winArray = new Array(itemsNumb).fill(0).map((_item, i) => i + 1);
@@ -331,10 +322,10 @@ let isWon = (matrix) => {
     for (let i = 0; i < winArray.length; i++) {
         if (flat[i] !== winArray[i]) {
             return false;
-        }
-    }
+        };
+    };
     return true;
-}
+};
 
 let runtime = () => {
     if (document.querySelector('.stopwatch').innerHTML === 'Time: 00:00:00') {
@@ -358,7 +349,6 @@ let startStopwatch = () => {
         const seconds = parseInt((elapsedTime / 1000) % 60);
         const minutes = parseInt((elapsedTime / (1000 * 60)) % 60);
         displayTime(minutes, seconds, milliseconds);
-
     }, 10);
 };
 
@@ -400,13 +390,9 @@ let delAllItems = () => {
 function startGame() {
     createStructure();
     createItems();
-    // matrix = getMatrix(
-    // Array.from(document.querySelectorAll('.item')).map((item) => Number(item.dataset.matrixId)), itemsNumb
-    // );
-    // doShuffle();
     setPosition(matrix);
     runtime();
-}
+};
 
 function initGame() {
     if (localStorage.getItem('matrix')) {
@@ -415,7 +401,6 @@ function initGame() {
         matrix = initMatrix();
         shuffleMatrix();
     }
-    //else generate matrix
     startGame();
 }
 initGame();
@@ -431,9 +416,8 @@ function initMatrix() {
             matrix[i][j] = counter++;
         }
     }
-
     return matrix;
-}
+};
 
 //функция сохраняющая значение инпута
 function setLocalStorage() {
@@ -472,7 +456,7 @@ function getLocalStorage() {
     if (localStorage.getItem('savedResult')) {
         savedResult = JSON.parse(localStorage.getItem('savedResult'));
     };
-}
+};
 
 window.addEventListener('beforeunload', () => {
     localStorage.setItem('savedResult', JSON.stringify(savedResult));
@@ -482,7 +466,6 @@ window.addEventListener('load', () => {
         savedResult = JSON.parse(localStorage.getItem('savedResult'));
     };
 });
-
 
 function doSaveResult() {
     savedResult.push({
@@ -512,7 +495,7 @@ function doSaveResult() {
     });
     if (savedResult.length > 10) {
         savedResult.pop();
-    }
+    };
 };
 
 function showOnScreenResult() {
