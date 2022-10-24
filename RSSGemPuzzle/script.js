@@ -10,21 +10,6 @@ let savedResult = [];
 let time;
 
 let createStructure = () => {
-    const volume = document.createElement('img');
-    volume.src = isVolumeOn ? './assets/volume-on.svg' : './assets/volume-off.svg';
-    volume.alt = 'volume on';
-
-    volume.addEventListener('click', (e) => {
-        if (isVolumeOn) {
-            isVolumeOn = false;
-            e.target.src = './assets/volume-off.svg';
-        } else {
-            isVolumeOn = true;
-            e.target.src = './assets/volume-on.svg';
-        }
-    })
-    document.body.prepend(volume);
-
     const select = document.createElement('select');
     select.addEventListener('change', e => changeSize(e));
     document.body.prepend(select);
@@ -148,6 +133,21 @@ let createStructure = () => {
         showOnScreenResult();
     })
     nav.append(btnResults);
+
+    const btnVolume = document.createElement('div');
+    btnVolume.classList.add('btn');
+    btnVolume.id = 'volume';
+    btnVolume.innerHTML = `Volume OFF`;
+    btnVolume.addEventListener('click', (e) => {
+        if (isVolumeOn) {
+            isVolumeOn = false;
+            btnVolume.innerHTML = `Volume ON`;
+        } else {
+            isVolumeOn = true;
+            btnVolume.innerHTML = `Volume OFF`;
+        }
+    })
+    nav.append(btnVolume);
 
     const container = document.createElement('div');
     let elemSqrt = Math.sqrt(itemsNumb);

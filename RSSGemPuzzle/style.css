@@ -64,7 +64,7 @@ body {
 }
 
 .x6 {
-  scale: 0.55;
+  scale: 0.53;
 }
 
 .x7 {
@@ -104,7 +104,7 @@ body {
   width: 100%;
 }
 
-.timer,
+.stopwatch,
 .moves {
   width: 150px;
   color: #354F00;
@@ -121,15 +121,6 @@ select {
   align-self: center;
 }
 
-img {
-  position: fixed;
-  bottom: 0;
-  right: 10%;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
 @media (max-width: 768px) {
   body {
     max-width: 100%;
@@ -137,7 +128,7 @@ img {
   }
   .container {
     transform: scale(0.8);
-    left: 3%;
+    left: 25%;
   }
   .btn {
     padding: 10% 5%;
@@ -145,7 +136,29 @@ img {
   .btn_container {
     height: 10px;
     flex-direction: column;
-    transform: scale(0.5);
+    transform: scale(0.6);
     gap: 10px;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    transform: scale(0.8);
+    left: 30%;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    left: 20%;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    left: 15%;
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 400px) {
+  .container {
+    left: 3%;
   }
 }
