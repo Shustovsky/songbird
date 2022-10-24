@@ -7,6 +7,8 @@ let countMoves = 0;
 let isPaused = false;
 let isVolumeOn = true;
 let isSave = false;
+let savedResult = [];
+let time;
 
 let createStructure = () => {
 
@@ -75,7 +77,7 @@ let createStructure = () => {
 
     const stopwatch = document.createElement('div');
     stopwatch.classList.add('stopwatch');
-    stopwatch.innerHTML = `Time: 0:00`;
+    stopwatch.innerHTML = `Time: 00:00:00`;
     info.append(stopwatch);
 
     const moves = document.createElement('div');
@@ -92,30 +94,32 @@ let createStructure = () => {
     btnShuffle.id = 'shuffle';
     btnShuffle.innerHTML = `Shuffle and start`;
     btnShuffle.addEventListener('click', () => {
-        doShuffle();
+        isPaused = false;
+        countMoves = 0;
         runtime();
+        doShuffle();
     });
     nav.append(btnShuffle);
 
-    const btnStop = document.createElement('div');
-    btnStop.classList.add('btn');
-    btnStop.id = 'stop';
-    btnStop.innerHTML = `Stop`;
-    btnStop.addEventListener('click', () => {
-        isPaused = isPaused === false ? true : false;
+    /*  const btnStop = document.createElement('div');
+     btnStop.classList.add('btn');
+     btnStop.id = 'stop';
+     btnStop.innerHTML = `Stop`;
+     btnStop.addEventListener('click', () => {
+         isPaused = isPaused === false ? true : false;
 
-        if (document.querySelector('.stopwatch').innerHTML !== 'Time: 0:00') {
-            if (btnStop.innerHTML === 'Start') {
-                startStopwatch();
-                btnStop.innerHTML = 'Stop';
-            } else {
-                stopwatchTime.elapsedTime += Date.now() - stopwatchTime.startTime;
-                clearInterval(stopwatchTime.intervalId);
-                btnStop.innerHTML = 'Start';
-            };
-        };
-    });
-    nav.append(btnStop);
+         if (document.querySelector('.stopwatch').innerHTML !== 'Time: 0:00') {
+             if (btnStop.innerHTML === 'Start') {
+                 startStopwatch();
+                 btnStop.innerHTML = 'Stop';
+             } else {
+                 stopwatchTime.elapsedTime += Date.now() - stopwatchTime.startTime;
+                 clearInterval(stopwatchTime.intervalId);
+                 btnStop.innerHTML = 'Start';
+             };
+         };
+     });
+     nav.append(btnStop); */
 
     const btnSave = document.createElement('div');
     btnSave.classList.add('btn');
@@ -146,6 +150,9 @@ let createStructure = () => {
     btnResults.classList.add('btn');
     btnResults.id = 'results';
     btnResults.innerHTML = `Results`;
+    btnResults.addEventListener('click', () => {
+        showOnScreenResult();
+    })
     nav.append(btnResults);
 
     const container = document.createElement('div');
@@ -156,6 +163,7 @@ let createStructure = () => {
 }
 
 function changeSize(e) {
+    isPaused = false;
     countMoves = 0;
     itemsNumb = +e.target.value;
     delAllItems();
@@ -233,6 +241,7 @@ let shuffleArray = (arr) => {
 }
 
 let doShuffle = () => {
+
     shuffleMatrix();
     setPosition(matrix);
 }
@@ -292,8 +301,14 @@ let swap = (coords1, coords2, matrix) => {
 
         if (isWon(matrix)) {
             setTimeout(() => {
-                alert(`Ура! Вы решили головоломку за ${document.querySelector('.stopwatch').innerHTML} и ${countMoves} ходов!`);
-                clearTimer();
+                doSaveResult();
+                alert(`Ура! Вы решили головоломку за ${time} и ${countMoves} ходов!`);
+                // stopwatchTime.elapsedTime += Date.now() - stopwatchTime.startTime;
+                clearInterval(stopwatchTime.intervalId);
+                isPaused = true;
+                // startStopwatch();
+                // clearTimer();
+                runtime();
             }, 200);
             // countMoves = 0;
             // moves.innerHTML = `moves: ${countMoves}`;
@@ -322,7 +337,7 @@ let isWon = (matrix) => {
 }
 
 let runtime = () => {
-    if (document.querySelector('.stopwatch').innerHTML === 'Time: 0:00') {
+    if (document.querySelector('.stopwatch').innerHTML === 'Time: 00:00:00') {
         startStopwatch();
     } else {
         clearTimer();
@@ -343,12 +358,14 @@ let startStopwatch = () => {
         const seconds = parseInt((elapsedTime / 1000) % 60);
         const minutes = parseInt((elapsedTime / (1000 * 60)) % 60);
         displayTime(minutes, seconds, milliseconds);
+
     }, 10);
 };
 
 let displayTime = (minutes, seconds, milliseconds) => {
     const leadZeroTime = [minutes, seconds, milliseconds].map(time => time < 10 ? `0${time}` : time);
     document.querySelector('.stopwatch').innerHTML = `Time: ${ leadZeroTime.join(':')}`;
+    time = leadZeroTime.join(':');
 };
 
 let checkTrueArray = (matrix) => {
@@ -424,10 +441,11 @@ function setLocalStorage() {
     localStorage.setItem('matrix', JSON.stringify(matrix));
     localStorage.setItem('stopwatchTime', JSON.stringify(stopwatchTime));
     localStorage.setItem('countMoves', countMoves);
-    localStorage.setItem('isPaused', isPaused);
+    // localStorage.setItem('isPaused', isPaused);
     localStorage.setItem('isVolumeOn', isVolumeOn);
     localStorage.setItem('isSave', isSave);
-}
+    localStorage.setItem('savedResult', JSON.stringify(savedResult));
+};
 
 function getLocalStorage() {
     if (localStorage.getItem('itemsNumb')) {
@@ -442,13 +460,65 @@ function getLocalStorage() {
     if (localStorage.getItem('countMoves')) {
         countMoves = +localStorage.getItem('countMoves');
     };
-    if (localStorage.getItem('isPaused')) {
-        isPaused = localStorage.getItem('isPaused') === 'true';
-    };
+    // if (localStorage.getItem('isPaused')) {
+    //     isPaused = localStorage.getItem('isPaused') === 'true';
+    // };
     if (localStorage.getItem('isVolumeOn')) {
         isVolumeOn = localStorage.getItem('isVolumeOn') === 'true';
     };
     if (localStorage.getItem('isSave')) {
         isSave = localStorage.getItem('isSave') === 'true';
     };
+    if (localStorage.getItem('savedResult')) {
+        savedResult = JSON.parse(localStorage.getItem('savedResult'));
+    };
 }
+
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('savedResult', JSON.stringify(savedResult));
+});
+window.addEventListener('load', () => {
+    if (localStorage.getItem('savedResult')) {
+        savedResult = JSON.parse(localStorage.getItem('savedResult'));
+    };
+});
+
+
+function doSaveResult() {
+    savedResult.push({
+        time: time,
+        moves: countMoves,
+        size: `${Math.sqrt(itemsNumb)}x${Math.sqrt(itemsNumb)}`,
+    });
+    savedResult = savedResult.sort((a, b) => {
+        // a.time > b.time ? 1 : -1;
+        if (a.size > b.size) {
+            return 1;
+        } else if ((a.size < b.size)) {
+            return -1;
+        } else if (a.size === b.size) {
+            if (a.moves > b.moves) {
+                return 1;
+            } else if ((a.moves < b.moves)) {
+                return -1;
+            } else if ((a.moves === b.moves)) {
+                if (a.time > b.time) {
+                    return 1;
+                } else if ((a.time < b.time)) {
+                    return -1;
+                };
+            };
+        };
+    });
+    if (savedResult.length > 10) {
+        savedResult.pop();
+    }
+};
+
+function showOnScreenResult() {
+    let text = '';
+    for (let i = 0; i < savedResult.length; i++) {
+        text += `#${i+1} | Moves: ${savedResult[i].moves} | Time: ${savedResult[i].time} | Size: ${savedResult[i].size} \n`;
+    };
+    alert(text || 'Список результатов пуст');
+};
