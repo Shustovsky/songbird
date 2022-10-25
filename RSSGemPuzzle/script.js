@@ -161,6 +161,7 @@ function changeSize(e) {
     isPaused = false;
     countMoves = 0;
     itemsNumb = +e.target.value;
+    clearTimer();
     delAllItems();
     matrix = initMatrix();
     shuffleMatrix();
@@ -398,6 +399,8 @@ function startGame() {
 function initGame() {
     if (localStorage.getItem('matrix')) {
         getLocalStorage();
+        stopwatchTime.elapsedTime += Date.now() - (stopwatchTime.startTime);
+
     } else {
         matrix = initMatrix();
         shuffleMatrix();
