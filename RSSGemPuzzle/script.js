@@ -76,8 +76,9 @@ let createStructure = () => {
     btnShuffle.addEventListener('click', () => {
         isPaused = false;
         countMoves = 0;
-        runtime();
         doShuffle();
+        clearTimer();
+        startStopwatch();
     });
     nav.append(btnShuffle);
 
@@ -299,9 +300,9 @@ let swap = (coords1, coords2, matrix) => {
                 doSaveResult();
                 alert(`Ура! Вы решили головоломку за ${time} и ${countMoves} ходов!`);
                 isPaused = true;
-                stopwatchTime.elapsedTime += Date.now() - stopwatchTime.startTime;
+                // stopwatchTime.elapsedTime += Date.now() - stopwatchTime.startTime;
                 clearInterval(stopwatchTime.intervalId);
-                runtime();
+                // runtime();
             }, 200);
         };
         if (isVolumeOn) {
