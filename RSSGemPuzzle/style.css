@@ -187,8 +187,3 @@ select {
     left: 10%;
   }
 }
-@media (max-width: 321px) {
-  .container {
-    left: 4%;
-  }
-}
