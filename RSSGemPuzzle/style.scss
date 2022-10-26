@@ -120,6 +120,27 @@ select {
     align-self: center;
 }
 
+
+
+
+
+@media(max-width: 1300px) {
+    .container {
+        left: 25%;
+    }
+}
+@media(max-width: 1000px) {
+    .container {
+        left: 20%;
+    }
+}
+
+@media(max-width: 800px) {
+    .container {
+        left: 20%;
+    }
+}
+
 @media(max-width: 768px) {
     body {
         max-width: 100%;
@@ -127,7 +148,7 @@ select {
     }
     .container {
         transform: scale(0.8);
-        left: 25%;
+        left: 30%;
     }
     .btn {
         padding: 10% 5%;
@@ -137,6 +158,12 @@ select {
             transform: scale(0.6);
             gap: 10px;
         }
+    }
+}
+
+@media(max-width: 700px) {
+    .container {
+        left: 30%;
     }
 }
 
@@ -153,19 +180,29 @@ select {
 
 @media(max-width: 600px) {
     .container {
-        left: 20%;
+        left: 25%;
     }
 }
 
 @media(max-width: 500px) {
     .container {
-        left: 15%;
+        left: 20%;
         transform: scale(0.8);
     }
 }
 
 @media(max-width: 400px) {
     .container {
-        left: 3%;
+        left: 14%;
+    }
+}
+@media(max-width: 360px) {
+    .container {
+        left: 10%;
+    }
+}
+@media(max-width: 321px) {
+    .container {
+        left: 4%;
     }
 }
