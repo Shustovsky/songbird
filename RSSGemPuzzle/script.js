@@ -48,7 +48,7 @@ let createStructure = () => {
     allOptions.forEach((item) => {
         if (+item.value === itemsNumb) {
             item.defaultSelected = true;
-        };
+        }
     });
 
     const info = document.createElement('div');
@@ -139,7 +139,7 @@ let createStructure = () => {
     btnVolume.classList.add('btn');
     btnVolume.id = 'volume';
     btnVolume.innerHTML = `Volume OFF`;
-    btnVolume.addEventListener('click', (e) => {
+    btnVolume.addEventListener('click', () => {
         if (isVolumeOn) {
             isVolumeOn = false;
             btnVolume.innerHTML = `Volume ON`;
@@ -176,9 +176,9 @@ function changeSize(e) {
             container.className = `container x${elemSqrt}`;
         } else {
             element.defaultSelected = false;
-        };
+        }
     });
-};
+}
 
 let createItems = (numberItems = itemsNumb) => {
     const container = document.querySelector('.container');
@@ -188,7 +188,7 @@ let createItems = (numberItems = itemsNumb) => {
         item.innerHTML = i + 1;
         item.dataset.matrixId = i + 1;
         container.append(item);
-    };
+    }
     Array.from(document.querySelectorAll('.item'))[itemsNumb - 1].style.display = 'none'; //скрываем последний айтем
 };
 
@@ -198,7 +198,7 @@ let getMatrix = (arr) => {
     const matrix = [];
     while (matrix.length < sqrtOfItemsNumb) {
         matrix.push([]);
-    };
+    }
     let y = 0;
     let x = 0;
 
@@ -209,7 +209,7 @@ let getMatrix = (arr) => {
         }
         matrix[y][x] = arr[i];
         x++;
-    };
+    }
 
     return matrix;
 };
@@ -221,8 +221,8 @@ let setPosition = (matrix) => {
             const value = matrix[y][x];
             const node = item[value - 1];
             transform(node, x, y);
-        };
-    };
+        }
+    }
 };
 
 let transform = (node, x, y) => {
@@ -249,22 +249,22 @@ function shuffleMatrix() {
         const shuffle = shuffleArray(flatMatrix);
         matrix = getMatrix(shuffle);
     } while (!checkTrueArray(matrix))
-};
+}
 
 function findAndSwap(e) {
     const item = e.target.closest('.item');
     if (!item) {
         return;
-    };
+    }
 
     let findCoordinatesByNumber = (numb, matrix) => {
         for (let y = 0; y < matrix.length; y++) {
             for (let x = 0; x < matrix[y].length; x++) {
                 if (matrix[y][x] === numb) {
                     return { x, y };
-                };
-            };
-        };
+                }
+            }
+        }
         return null;
     };
 
@@ -278,8 +278,8 @@ function findAndSwap(e) {
     if (isValid) {
         swap(itemCoords, emptyItemCoords, matrix);
         setPosition(matrix);
-    };
-};
+    }
+}
 
 let isValidForSwap = (coords1, coords2) => {
     const x = Math.abs(coords1.x - coords2.x);
@@ -305,11 +305,11 @@ let swap = (coords1, coords2, matrix) => {
                 clearInterval(stopwatchTime.intervalId);
                 // runtime();
             }, 200);
-        };
+        }
         if (isVolumeOn) {
             new Audio('./assets/sound.mp3').play();
-        };
-    };
+        }
+    }
 };
 
 let outputMoves = () => {
@@ -324,8 +324,8 @@ let isWon = (matrix) => {
     for (let i = 0; i < winArray.length; i++) {
         if (flat[i] !== winArray[i]) {
             return false;
-        };
-    };
+        }
+    }
     return true;
 };
 
@@ -334,7 +334,7 @@ let runtime = () => {
         startStopwatch();
     } else {
         clearTimer();
-    };
+    }
 };
 
 let clearTimer = () => {
@@ -368,7 +368,7 @@ let checkTrueArray = (matrix) => {
             if (flatMatrix[i] > flatMatrix[j] && flatMatrix[i] !== flatMatrix.length && flatMatrix[j] !== flatMatrix.length) {
                 count++;
             }
-        };
+        }
     }
 
     let numEmptyRow;
@@ -394,7 +394,7 @@ function startGame() {
     createItems();
     setPosition(matrix);
     runtime();
-};
+}
 
 function initGame() {
     if (localStorage.getItem('matrix')) {
@@ -421,7 +421,7 @@ function initMatrix() {
         }
     }
     return matrix;
-};
+}
 
 //функция сохраняющая значение инпута
 function setLocalStorage() {
@@ -433,34 +433,34 @@ function setLocalStorage() {
     localStorage.setItem('isVolumeOn', isVolumeOn);
     localStorage.setItem('isSave', isSave);
     localStorage.setItem('savedResult', JSON.stringify(savedResult));
-};
+}
 
 function getLocalStorage() {
     if (localStorage.getItem('itemsNumb')) {
         itemsNumb = +localStorage.getItem('itemsNumb');
-    };
+    }
     if (localStorage.getItem('matrix')) {
         matrix = JSON.parse(localStorage.getItem('matrix'));
-    };
+    }
     if (localStorage.getItem('stopwatchTime')) {
         stopwatchTime = JSON.parse(localStorage.getItem('stopwatchTime'));
-    };
+    }
     if (localStorage.getItem('countMoves')) {
         countMoves = +localStorage.getItem('countMoves');
-    };
+    }
     // if (localStorage.getItem('isPaused')) {
     //     isPaused = localStorage.getItem('isPaused') === 'true';
     // };
     if (localStorage.getItem('isVolumeOn')) {
         isVolumeOn = localStorage.getItem('isVolumeOn') === 'true';
-    };
+    }
     if (localStorage.getItem('isSave')) {
         isSave = localStorage.getItem('isSave') === 'true';
-    };
+    }
     if (localStorage.getItem('savedResult')) {
         savedResult = JSON.parse(localStorage.getItem('savedResult'));
-    };
-};
+    }
+}
 
 window.addEventListener('beforeunload', () => {
     localStorage.setItem('savedResult', JSON.stringify(savedResult));
@@ -468,7 +468,7 @@ window.addEventListener('beforeunload', () => {
 window.addEventListener('load', () => {
     if (localStorage.getItem('savedResult')) {
         savedResult = JSON.parse(localStorage.getItem('savedResult'));
-    };
+    }
 });
 
 function doSaveResult() {
@@ -493,19 +493,19 @@ function doSaveResult() {
                     return 1;
                 } else if ((a.time < b.time)) {
                     return -1;
-                };
-            };
-        };
+                }
+            }
+        }
     });
     if (savedResult.length > 10) {
         savedResult.pop();
-    };
-};
+    }
+}
 
 function showOnScreenResult() {
     let text = '';
     for (let i = 0; i < savedResult.length; i++) {
         text += `#${i+1} | Moves: ${savedResult[i].moves} | Time: ${savedResult[i].time} | Size: ${savedResult[i].size} \n`;
-    };
+    }
     alert(text || 'Список результатов пуст');
-};
+}
