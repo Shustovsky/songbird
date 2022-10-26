@@ -133,6 +133,15 @@ select {
     .container {
         left: 20%;
     }
+    .btn {
+        padding: 10% 5%;
+        &_container {
+            height: 10px;
+            flex-direction: column;
+            transform: scale(0.6);
+            gap: 10px;
+        }
+    }
 }
 
 @media(max-width: 800px) {
@@ -150,15 +159,7 @@ select {
         transform: scale(0.8);
         left: 30%;
     }
-    .btn {
-        padding: 10% 5%;
-        &_container {
-            height: 10px;
-            flex-direction: column;
-            transform: scale(0.6);
-            gap: 10px;
-        }
-    }
+    
 }
 
 @media(max-width: 700px) {
@@ -201,8 +202,8 @@ select {
         left: 10%;
     }
 }
-@media(max-width: 321px) {
+@media(max-width: 320px) {
     .container {
-        left: 4%;
+        left: 5%;
     }
 }
