@@ -1,0 +1,19 @@
+@media(max-width: 1599px) {
+  .container {
+    max-width: 940px;
+  }
+}
+
+@media(max-width: 999px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media(max-width: 639px) {
+  .container {
+    max-width: 300px;
+  }
+}
+
+@import '01-header-media';

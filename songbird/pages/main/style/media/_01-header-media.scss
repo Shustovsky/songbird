@@ -1,0 +1,19 @@
+@media(max-width: 999px) {
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    &__logo {
+      border: none;
+    }
+    nav {
+      display: none;
+    }
+    .burger {
+      display: flex;
+    }
+    .burger_menu {
+      display: block;
+    }
+  }
+}

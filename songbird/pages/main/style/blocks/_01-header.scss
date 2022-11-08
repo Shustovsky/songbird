@@ -1,0 +1,125 @@
+.header {
+  background: #000000;
+  backdrop-filter: blur(2px);
+  color: #FFFFFF;
+  font-size: 20px;
+  &_wrapper {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    width: 200px;
+    height: 55px;
+    border: 1px solid #ffffff86;
+    border-radius: 2px;
+    &_img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+nav {
+  ul {
+    display: flex;
+    list-style-type: none;
+    gap: 5vw;
+    justify-content: center;
+    li:first-child {
+      a {
+        pointer-events: none;
+        font-weight: 700;
+        color: #FE9013;
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+  &:hover {
+    transition: all 1s;
+    color: #FE9013;
+  }
+}
+
+.burger {
+  display: none;
+  width: 20px;
+  height: 10px;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  &_line {
+    width: 100%;
+    height: 2px;
+    background: #FFFFFF;
+    border-radius: 2px;
+  }
+  &-active {
+    z-index: 1;
+    position: relative;
+    .burger_line {
+      background-color: #333B41;
+      transition: all 1s;
+      &:nth-child(1) {
+        transform: rotate(45deg) translateX(28%);
+      }
+      &:nth-child(2) {
+        background: #FFFFFF;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg) translateX(28%);
+      }
+    }
+  }
+}
+
+.burger_menu {
+  display: none;
+  transform: translateX(100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all .5s;
+  .wrapper {
+    width: 100%;
+    height: 330px;
+    padding: 30px;
+    background: #FFFFFF;
+    .burger__logo {
+      display: block;
+      position: relative;
+      width: 100px;
+      height: 45px;
+      border: 0.8px solid #FE9013;
+      border-radius: 2px;
+      cursor: pointer;
+      img {
+        position: absolute;
+        left: 10px;
+        bottom: 5px;
+      }
+    }
+    ul {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      gap: 15px;
+      a {
+        text-decoration: none;
+        color: #333B41;
+      }
+    }
+  }
+  &-active {
+    transform: translateX(0);
+  }
+}
