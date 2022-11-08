@@ -1,12 +1,12 @@
 .header {
-  background: #000000;
+  // background: #8ABD5F;
   backdrop-filter: blur(2px);
   color: #FFFFFF;
   font-size: 20px;
   &_wrapper {
     height: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
   &__logo {
@@ -31,7 +31,7 @@ nav {
       a {
         pointer-events: none;
         font-weight: 700;
-        color: #FE9013;
+        color: #3E7213;
       }
     }
   }
@@ -42,7 +42,7 @@ a {
   color: #FFFFFF;
   &:hover {
     transition: all 1s;
-    color: #FE9013;
+    color: #3E7213;
   }
 }
 
@@ -64,12 +64,12 @@ a {
     position: relative;
     .burger_line {
       background-color: #333B41;
-      transition: all 1s;
+      transition: all 0.7s;
       &:nth-child(1) {
         transform: rotate(45deg) translateX(28%);
       }
       &:nth-child(2) {
-        background: #FFFFFF;
+        background: none;
       }
       &:nth-child(3) {
         transform: rotate(-45deg) translateX(28%);
@@ -79,20 +79,22 @@ a {
 }
 
 .burger_menu {
-  display: none;
-  transform: translateX(100%);
+  display: block;
+  transform: translateY(-150%);
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: all .5s;
+  transition: all 0.5s;
   .wrapper {
     width: 100%;
     height: 330px;
     padding: 30px;
-    background: #FFFFFF;
+    background: linear-gradient(-45deg, #8ABD5F, #B9E397, #8ABD5F, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     .burger__logo {
       display: block;
       position: relative;
@@ -120,6 +122,7 @@ a {
     }
   }
   &-active {
-    transform: translateX(0);
+    display: block;
+    transform: translateY(0);
   }
 }

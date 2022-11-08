@@ -15,3 +15,10 @@ burgerMenu.addEventListener('click', (e) => {
     burgerMenu.classList.toggle('burger_menu-active');
   }
 })
+
+const btn = document.getElementById('btn');
+btn.addEventListener('click', () => {
+  document.location = '../quiz/index.html';
+})
+
+{ /* <button onclick="document.location='page/new.html'">Переход по ссылке</button> */ }
