@@ -176,8 +176,16 @@ a:hover {
   flex: 1 1 auto;
   padding: 30px 0;
   font-size: 20px;
+  margin-bottom: 5%;
+}
+.main .questions {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
 }
 .main .questions__list {
+  grid-column: 1/3;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -195,11 +203,11 @@ a:hover {
   color: #E8F6A4;
 }
 .main .questions__current {
+  grid-column: 1/3;
   display: flex;
   flex-wrap: wrap;
   gap: 3%;
   align-items: center;
-  margin-top: 3%;
   padding: 1%;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -300,6 +308,36 @@ a:hover {
 .main .questions__current__player .volume__container .sound-volume::-webkit-slider-thumb:hover {
   background: #E47209;
 }
+.main .questions__answer_item {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #3E7213;
+  cursor: pointer;
+  padding: 10px 10px 10px 30px;
+  margin-bottom: 1%;
+}
+.main .questions__answer_item:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+.main .questions__answer_item:last-child {
+  margin-bottom: 0;
+}
+.main .questions__info {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #3E7213;
+  padding: 5%;
+}
+.main .questions__btn {
+  grid-column: 1/3;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #3E7213;
+  border-radius: 10px;
+}
+.main .questions__btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
 
 .footer {
   background: #8ABD5F;
@@ -319,6 +357,7 @@ a:hover {
 }
 .footer__logo:hover {
   transition: all 1s;
+  transform: rotate(360deg);
   scale: 1.1;
 }
 .footer_date {
@@ -366,6 +405,11 @@ a:hover {
 @media (max-width: 999px) {
   .main {
     padding: 0 0 5% 0;
+    min-height: 800px;
+  }
+  .main .questions {
+    grid-template-rows: repeat(7, auto);
+    grid-template-columns: 1fr;
   }
   .main .questions__current__block {
     min-width: 60%;
@@ -381,11 +425,18 @@ a:hover {
   .main .questions__current__player .volume__container {
     grid-column: 2/3;
   }
+  .main .questions__answer, .main .questions__info {
+    grid-column: 1/3;
+  }
 }
 @media (max-width: 639px) {
   .main {
     padding: 0;
     font-size: 17px;
+    min-height: 950px;
+  }
+  .main .questions {
+    gap: 2%;
   }
   .main .questions__current {
     display: flex;
