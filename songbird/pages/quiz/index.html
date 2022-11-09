@@ -75,11 +75,11 @@
 
         <div class="questions__current">
           <div class="questions__current_img">
-            <img src="https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg" alt="">
+            <img src="../../assets/images/default_bird.jpg" alt="">
           </div>
           <div class="questions__current__block">
             <div class="questions__current_name">Кукушка</div>
-            <div class="player">
+            <div id="current_player" class="player">
               <button class="play">▶</button>
               <div class="timeline">
                 <div class="progress"></div>
@@ -99,8 +99,8 @@
 
         <div class="questions__answer">
           <div class="questions__answer_item">Ворон</div>
-          <div class="questions__answer_item">Журавль</div>
-          <div class="questions__answer_item">Цапля</div>
+          <div class="questions__answer_item questions__answer_item-wrong">Журавль</div>
+          <div class="questions__answer_item questions__answer_item-right">Цапля</div>
           <div class="questions__answer_item">Ласточка</div>
           <div class="questions__answer_item">Козодой</div>
           <div class="questions__answer_item">Аист</div>
@@ -108,6 +108,30 @@
 
         <div class="questions__info">
           <div class="help">Послушайте плеер. <br> Выберите птицу из списка</div>
+          <div class="description">
+            <div class="description_img">
+              <img src="https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg" alt="">
+            </div>
+            <div class="description_name">Ворон</div>
+            <div class="description_species">Corvus corax</div>
+            <div id="description_player" class="player">
+              <button class="play">▶</button>
+              <div class="timeline">
+                <div class="progress"></div>
+                <div class="time">
+                  <div class="current">0:00</div>
+                  <div class="length">0:29</div>
+                </div>
+              </div>
+              <!-- ▶ II -->
+              <div class="volume__container">
+                <div class="volume"><img src="../../assets/icons/volume-on.png" alt="volume"></div>
+                <input class="sound-volume" type="range" min="0" max="1" step="0.01">
+              </div>
+            </div>
+            <div class="description_dscr"> Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров. Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны улетят от Тауэра, монархия рухнет.
+            </div>
+          </div>
         </div>
 
 

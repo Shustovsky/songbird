@@ -13,8 +13,6 @@ html {
   font-family: "Roboto";
   font-style: normal;
   height: 100%;
-  overflow-x: hidden;
-  margin-right: calc(-1 * (100vw - 100%));
 }
 
 .container {
@@ -176,7 +174,7 @@ a:hover {
   flex: 1 1 auto;
   padding: 30px 0;
   font-size: 20px;
-  margin-bottom: 5%;
+  margin-bottom: 8%;
 }
 .main .questions {
   display: grid;
@@ -197,6 +195,7 @@ a:hover {
   border: 1px solid #697B15;
   color: #697B15;
   padding: 0.5%;
+  cursor: default;
 }
 .main .questions__list_item-active {
   background-color: #697B15;
@@ -239,17 +238,52 @@ a:hover {
   padding: 10px 10px 10px 30px;
   margin-bottom: 1%;
 }
+.main .questions__answer_item-wrong {
+  background-color: lightcoral;
+}
+.main .questions__answer_item-right {
+  background-color: rgba(62, 114, 19, 0.7);
+  color: #E8F6A4;
+}
+.main .questions__answer_item-right:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
 .main .questions__answer_item:hover {
   background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(62, 114, 19, 0.5);
 }
 .main .questions__answer_item:last-child {
   margin-bottom: 0;
 }
 .main .questions__info {
+  display: inline-block;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.2);
   border: 1px solid #3E7213;
   padding: 5%;
+}
+.main .questions__info .help {
+  display: none;
+}
+.main .questions__info .description {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  gap: 3% 3%;
+}
+.main .questions__info .description_img {
+  grid-row: 1/4;
+  width: 200px;
+  height: 155px;
+}
+.main .questions__info .description_img img {
+  border-radius: 10%;
+  width: 100%;
+  height: 100%;
+}
+.main .questions__info .description_dscr {
+  grid-column: 1/3;
+  display: inline-block;
 }
 .main .questions__btn {
   grid-column: 1/3;
@@ -340,6 +374,23 @@ a:hover {
   background: #E47209;
 }
 
+#description_player {
+  height: 80%;
+  padding-right: 10%;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr 1fr;
+}
+#description_player .volume__container {
+  grid-column: 2/3;
+}
+#description_player .volume__container .volume {
+  min-width: 20px;
+  height: 20px;
+}
+#description_player .volume__container .sound-volume {
+  width: 50%;
+}
+
 .footer {
   background: #8ABD5F;
   color: #FFFFFF;
@@ -403,10 +454,17 @@ a:hover {
     width: 100px;
   }
 }
+@media (max-width: 1599px) {
+  #description_player {
+    padding-right: 10%;
+    grid-template-columns: 25% 80%;
+    grid-template-rows: 1fr 1fr;
+  }
+}
 @media (max-width: 999px) {
   .main {
     padding: 0 0 5% 0;
-    min-height: 800px;
+    min-height: 1050px;
   }
   .main .questions {
     grid-template-rows: repeat(7, auto);
@@ -415,29 +473,35 @@ a:hover {
   .main .questions__current__block {
     min-width: 60%;
   }
-  .main .questions__current__player {
+  .main .questions__answer, .main .questions__info {
+    grid-column: 1/3;
+  }
+  .player {
     padding-right: 5%;
     grid-template-columns: 10% 80%;
     grid-template-rows: 1fr 1fr;
   }
-  .main .questions__current__player .timeline .time {
+  .player .timeline .time {
     margin-top: 3%;
   }
-  .main .questions__current__player .volume__container {
+  .player .volume__container {
     grid-column: 2/3;
   }
-  .main .questions__answer, .main .questions__info {
-    grid-column: 1/3;
+  #description_player {
+    padding-right: 10%;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 1fr 1fr;
   }
 }
 @media (max-width: 639px) {
   .main {
     padding: 0;
     font-size: 17px;
-    min-height: 950px;
+    min-height: 1255px;
+    margin-bottom: 0%;
   }
   .main .questions {
-    gap: 2%;
+    gap: 1%;
   }
   .main .questions__current {
     display: flex;
@@ -452,7 +516,23 @@ a:hover {
     min-width: 100%;
     align-items: center;
   }
-  .main .questions__current__player {
+  .main .questions__info {
+    overflow: hidden;
+    min-height: 500px;
+  }
+  .main .questions__info .description {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    gap: 2%;
+  }
+  .main .questions__info .description_img {
+    grid-row: 1/2;
+  }
+  .main .questions__info .description_dscr {
+    grid-column: 1/2;
+    font-size: 14px;
+  }
+  .player {
     padding-right: 5%;
     grid-template-columns: 15% 80%;
   }
