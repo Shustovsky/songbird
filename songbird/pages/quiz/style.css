@@ -284,6 +284,7 @@ a:hover {
   border-radius: 10%;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .main .questions__info .description_dscr {
   grid-column: 1/3;
@@ -357,6 +358,7 @@ a:hover {
 .player .volume__container .volume img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .player .volume__container .sound-volume {
   appearance: none;
