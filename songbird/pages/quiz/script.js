@@ -20,21 +20,21 @@ burgerMenu.addEventListener('click', (e) => {
 
 import birdsData from './js/birds.js';
 
-
-
 let stageNumb = 0;
 let randomNum;
+let haveTrueAnswer = false;
 
 const btn = document.querySelector('.questions__btn');
 btn.addEventListener('click', () => {
-  stageNumb++;
-  selectActiveNavItem();
-  hideName();
-  hideImg();
-  fillAnswerItems();
-
-
-  console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
+  if (haveTrueAnswer) {
+    stageNumb++;
+    haveTrueAnswer = false;
+    selectActiveNavItem();
+    hideName();
+    hideImg();
+    fillAnswerItems();
+    console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
+  };
 });
 
 function getStarted() {
@@ -81,6 +81,7 @@ function checkTrueAnswer() {
         item.classList.add('questions__answer_item-right');
         showName(birdsData[stageNumb][randomNum].name);
         showImg(birdsData[stageNumb][randomNum].image, birdsData[stageNumb][randomNum].name);
+        haveTrueAnswer = true;
       } else {
         item.classList.add('questions__answer_item-wrong');
       };
