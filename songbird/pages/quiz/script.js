@@ -21,9 +21,17 @@ burgerMenu.addEventListener('click', (e) => {
 import birdsData from './js/birds.js';
 
 console.log(birdsData);
-console.log(birdsData.length);
 
 let stageNumb = 0;
+
+
+const btn = document.querySelector('.questions__btn');
+btn.addEventListener('click', () => {
+  stageNumb++;
+  console.log(stageNumb);
+  selectActiveNavItem();
+})
+
 
 function selectActiveNavItem() {
   const navItems = document.querySelectorAll('.questions__list_item');
