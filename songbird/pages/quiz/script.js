@@ -28,9 +28,8 @@ let stageNumb = 0;
 const btn = document.querySelector('.questions__btn');
 btn.addEventListener('click', () => {
   stageNumb++;
-  console.log(stageNumb);
   selectActiveNavItem();
-})
+});
 
 
 function selectActiveNavItem() {
@@ -44,3 +43,9 @@ function selectActiveNavItem() {
   });
 };
 selectActiveNavItem();
+
+function getRandom() {
+  let maxValue = 6;
+  let random = Math.random() * maxValue;
+  return Math.floor(random);
+}
