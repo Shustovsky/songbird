@@ -23,7 +23,7 @@ import birdsData from './js/birds.js';
 console.log(birdsData);
 
 let stageNumb = 0;
-
+let randomNum;
 
 const btn = document.querySelector('.questions__btn');
 btn.addEventListener('click', () => {
@@ -31,6 +31,12 @@ btn.addEventListener('click', () => {
   selectActiveNavItem();
 });
 
+function getStarted() {
+  getRandom();
+
+
+}
+getStarted();
 
 function selectActiveNavItem() {
   const navItems = document.querySelectorAll('.questions__list_item');
@@ -45,7 +51,7 @@ function selectActiveNavItem() {
 selectActiveNavItem();
 
 function getRandom() {
-  let maxValue = 6;
+  let maxValue = birdsData.length;
   let random = Math.random() * maxValue;
-  return Math.floor(random);
+  randomNum = Math.floor(random);
 }
