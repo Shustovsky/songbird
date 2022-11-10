@@ -23,11 +23,14 @@ import birdsData from './js/birds.js';
 let stageNumb = 0;
 let randomNum;
 let haveTrueAnswer = false;
+let totalScore = 0;
+let pointsNumb = 5;
 
 function getStarted() {
   hideName();
   hideImg();
   hideInfo();
+  showPoints();
   getRandom();
   fillAnswerItems();
   checkTrueAnswer();
@@ -47,7 +50,6 @@ function pushBtn() {
       hideInfo();
       getRandom();
       fillAnswerItems();
-      checkTrueAnswer();
       console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
     };
   });
@@ -83,14 +85,14 @@ function fillAnswerItems() {
 function checkTrueAnswer() {
   const items = document.querySelectorAll('.questions__answer_item');
   items.forEach(item => {
-
-    const name = birdsData[stageNumb][randomNum].name;
-    const species = birdsData[stageNumb][randomNum].species;
-    const description = birdsData[stageNumb][randomNum].description;
-    const image = birdsData[stageNumb][randomNum].image;
-    const audio = birdsData[stageNumb][randomNum].audio;
-
     item.addEventListener('click', () => {
+
+      const name = birdsData[stageNumb][randomNum].name;
+      const species = birdsData[stageNumb][randomNum].species;
+      const description = birdsData[stageNumb][randomNum].description;
+      const image = birdsData[stageNumb][randomNum].image;
+      const audio = birdsData[stageNumb][randomNum].audio;
+
       if (haveTrueAnswer === false) {
         if (item.innerHTML === name) {
           item.classList.add('questions__answer_item-right');
@@ -98,8 +100,12 @@ function checkTrueAnswer() {
           showImg(image, name);
           showInfo(name, species, description, image);
           haveTrueAnswer = true;
+          calcPoints();
+          showPoints();
+          pointsNumb = 5;
         } else {
           item.classList.add('questions__answer_item-wrong');
+          pointsNumb--;
         };
       };
     });
@@ -133,8 +139,7 @@ function hideInfo() {
   const descriptionSection = document.querySelector('.description');
   helpSection.style.display = 'block';
   descriptionSection.style.display = 'none';
-}
-// hideInfo()
+};
 
 function showInfo(name, species, description, image) {
   const helpSection = document.querySelector('.help');
@@ -152,4 +157,14 @@ function showInfo(name, species, description, image) {
   nameItem.innerHTML = `${name}`;
   speciesItem.innerHTML = `${species}`;
   dscrItem.innerHTML = `${description}`;
+};
+
+function calcPoints() {
+  totalScore += pointsNumb;
+};
+
+function showPoints() {
+  const score = document.querySelector('.header_score');
+  score.innerHTML = `Score: ${totalScore}`;
+
 };
