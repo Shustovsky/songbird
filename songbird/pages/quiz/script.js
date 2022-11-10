@@ -15,3 +15,7 @@ burgerMenu.addEventListener('click', (e) => {
     burgerMenu.classList.toggle('burger_menu-active');
   }
 })
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+import birdsData from './js/birds.js';
