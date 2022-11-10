@@ -19,3 +19,20 @@ burgerMenu.addEventListener('click', (e) => {
 /////////////////////////////////////////////////////////////////////////////////////
 
 import birdsData from './js/birds.js';
+
+console.log(birdsData);
+console.log(birdsData.length);
+
+let stageNumb = 0;
+
+function selectActiveNavItem() {
+  const navItems = document.querySelectorAll('.questions__list_item');
+  navItems.forEach((item, index) => {
+    if (index === stageNumb) {
+      item.classList.add('questions__list_item-active');
+    } else {
+      item.classList = 'questions__list_item';
+    };
+  });
+};
+selectActiveNavItem();
