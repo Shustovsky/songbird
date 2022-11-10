@@ -64,19 +64,22 @@
         cursor: pointer;
         padding: 10px 10px 10px 30px;
         margin-bottom: 1%;
+        &:hover {
+          background-color: rgba( 0, 0, 0, 0.0);
+          // background-color: rgba(62, 114, 19, 0.5);
+        }
         &-wrong {
           background-color: lightcoral;
+          &:hover {
+            background-color: lightcoral;
+          }
         }
         &-right {
           background-color: rgba(62, 114, 19, 0.7);
           color: #E8F6A4;
           &:hover {
-            background-color: rgba( 0, 0, 0, 0.0);
+            background-color: rgba(62, 114, 19, 0.7);
           }
-        }
-        &:hover {
-          background-color: rgba( 0, 0, 0, 0.0);
-          background-color: rgba(62, 114, 19, 0.5);
         }
         &:last-child {
           margin-bottom: 0;

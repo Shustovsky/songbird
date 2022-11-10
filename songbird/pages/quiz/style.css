@@ -240,7 +240,13 @@ a:hover {
   padding: 10px 10px 10px 30px;
   margin-bottom: 1%;
 }
+.main .questions__answer_item:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
 .main .questions__answer_item-wrong {
+  background-color: lightcoral;
+}
+.main .questions__answer_item-wrong:hover {
   background-color: lightcoral;
 }
 .main .questions__answer_item-right {
@@ -248,11 +254,7 @@ a:hover {
   color: #E8F6A4;
 }
 .main .questions__answer_item-right:hover {
-  background-color: rgba(0, 0, 0, 0);
-}
-.main .questions__answer_item:hover {
-  background-color: rgba(0, 0, 0, 0);
-  background-color: rgba(62, 114, 19, 0.5);
+  background-color: rgba(62, 114, 19, 0.7);
 }
 .main .questions__answer_item:last-child {
   margin-bottom: 0;
