@@ -79,6 +79,7 @@ function fillAnswerItems() {
   for (let i = 0; i < items.length; i++) {
     items[i].innerHTML = `${birdsData[stageNumb][i].name}`;
     items[i].classList = 'questions__answer_item';
+    items[i].setAttribute('data-id', i);
   };
 };
 
@@ -86,15 +87,15 @@ function checkTrueAnswer() {
   const items = document.querySelectorAll('.questions__answer_item');
   items.forEach(item => {
     item.addEventListener('click', () => {
-
-      const name = birdsData[stageNumb][randomNum].name;
-      const species = birdsData[stageNumb][randomNum].species;
-      const description = birdsData[stageNumb][randomNum].description;
-      const image = birdsData[stageNumb][randomNum].image;
-      const audio = birdsData[stageNumb][randomNum].audio;
+      const itemNumb = item.getAttribute('data-id');
+      const name = birdsData[stageNumb][itemNumb].name;
+      const species = birdsData[stageNumb][itemNumb].species;
+      const description = birdsData[stageNumb][itemNumb].description;
+      const image = birdsData[stageNumb][itemNumb].image;
+      const audio = birdsData[stageNumb][itemNumb].audio;
 
       if (haveTrueAnswer === false) {
-        if (item.innerHTML === name) {
+        if (item.innerHTML === birdsData[stageNumb][randomNum].name) {
           item.classList.add('questions__answer_item-right');
           showName(name);
           showImg(image, name);
@@ -105,7 +106,9 @@ function checkTrueAnswer() {
           pointsNumb = 5;
         } else {
           item.classList.add('questions__answer_item-wrong');
+          showInfo(name, species, description, image);
           pointsNumb--;
+
         };
       };
     });
@@ -166,5 +169,4 @@ function calcPoints() {
 function showPoints() {
   const score = document.querySelector('.header_score');
   score.innerHTML = `Score: ${totalScore}`;
-
 };
