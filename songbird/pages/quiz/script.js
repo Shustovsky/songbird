@@ -20,7 +20,7 @@ burgerMenu.addEventListener('click', (e) => {
 
 import birdsData from './js/birds.js';
 
-console.log(birdsData);
+
 
 let stageNumb = 0;
 let randomNum;
@@ -29,12 +29,21 @@ const btn = document.querySelector('.questions__btn');
 btn.addEventListener('click', () => {
   stageNumb++;
   selectActiveNavItem();
+  hideName();
+  hideImg();
+  fillAnswerItems();
+
+
+  console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
 });
 
 function getStarted() {
+  hideName();
+  hideImg();
   getRandom();
-
-
+  fillAnswerItems();
+  checkTrueAnswer();
+  console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
 }
 getStarted();
 
@@ -54,4 +63,49 @@ function getRandom() {
   let maxValue = birdsData.length;
   let random = Math.random() * maxValue;
   randomNum = Math.floor(random);
-}
+};
+
+function fillAnswerItems() {
+  const items = document.querySelectorAll('.questions__answer_item');
+  for (let i = 0; i < items.length; i++) {
+    items[i].innerHTML = `${birdsData[stageNumb][i].name}`;
+    items[i].classList = 'questions__answer_item';
+  };
+};
+
+function checkTrueAnswer() {
+  const items = document.querySelectorAll('.questions__answer_item');
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.innerHTML === birdsData[stageNumb][randomNum].name) {
+        item.classList.add('questions__answer_item-right');
+        showName(birdsData[stageNumb][randomNum].name);
+        showImg(birdsData[stageNumb][randomNum].image, birdsData[stageNumb][randomNum].name);
+      } else {
+        item.classList.add('questions__answer_item-wrong');
+      };
+    });
+  });
+};
+
+function hideName() {
+  const name = document.querySelector('.questions__current_name');
+  name.innerHTML = '******';
+};
+
+function showName(answer) {
+  const name = document.querySelector('.questions__current_name');
+  name.innerHTML = `${answer}`;
+};
+
+function hideImg() {
+  const img = document.querySelector('.questions__current_img img');
+  img.src = '../../assets/images/default_bird.jpg';
+  img.alt = 'unknown bird';
+};
+
+function showImg(path, alt) {
+  const img = document.querySelector('.questions__current_img img');
+  img.src = `${path}`;
+  img.alt = `${alt}`;
+};
