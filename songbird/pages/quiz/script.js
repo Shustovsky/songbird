@@ -33,7 +33,6 @@ function getStarted() {
   showPoints();
   getRandom();
   fillAnswerItems();
-  player('current_player', birdsData[stageNumb][randomNum].audio);
   checkTrueAnswer();
   console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
 }
@@ -51,7 +50,9 @@ function pushBtn() {
       hideInfo();
       getRandom();
       fillAnswerItems();
-      player('current_player', birdsData[stageNumb][randomNum].audio);
+      changeSrcPlayer(audioCurrent, birdsData[stageNumb][randomNum].audio);
+      stopSound(audioCurrent, document.getElementById('current_player'));
+      stopSound(audioDscr, document.getElementById('description_player'));
       console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
     };
   });
@@ -105,15 +106,19 @@ function checkTrueAnswer() {
           haveTrueAnswer = true;
           calcPoints();
           showPoints();
-          player('description_player', audio);
-          playRightSound();
+          // playRightSound();
+          stopSound(audioCurrent, document.getElementById('current_player'));
           pointsNumb = 5;
+          changeSrcPlayer(audioDscr, audio);
+          stopSound(audioDscr, document.getElementById('description_player'));
+          // audioDscr
         } else {
           item.classList.add('questions__answer_item-wrong');
           showInfo(name, species, description, image);
           pointsNumb--;
-          player('description_player', audio);
-          playWrongSound();
+          // playWrongSound();
+          changeSrcPlayer(audioDscr, audio);
+          stopSound(audioDscr, document.getElementById('description_player'));
         };
       };
     });
@@ -178,18 +183,21 @@ function showPoints() {
 };
 
 function playRightSound() {
-  new Audio('./../../assets/sound/wrong-sound.mp3').play();
+  new Audio('./../../assets/sound/right-sound.mp3').play();
 };
 
 function playWrongSound() {
   new Audio('./../../assets/sound/wrong-sound.mp3').play();
 };
 
-///////////////audioplayer////////////////
+const audioCurrent = new Audio();
+audioCurrent.src = birdsData[stageNumb][randomNum].audio;
 
-function player(id, src) {
+const audioDscr = new Audio();
+
+function player(id, sound) {
   const audioPlayer = document.getElementById(id);
-  const audio = new Audio(src);
+  const audio = sound;
 
   audio.addEventListener('loadeddata', () => {
     audioPlayer.querySelector('.time .length').textContent = getTimeCodeFromNum(audio.duration);
@@ -262,4 +270,15 @@ function player(id, src) {
     seconds % 60
   ).padStart(2, 0)}`;
   };
+};
+player('current_player', audioCurrent);
+player('description_player', audioDscr);
+
+function stopSound(audio, path) {
+  audio.pause();
+  path.querySelector('.play').innerHTML = `▶`;
+};
+
+function changeSrcPlayer(audio, src) {
+  audio.src = src;
 };
