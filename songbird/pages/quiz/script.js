@@ -51,6 +51,7 @@ function pushBtn() {
       hideInfo();
       getRandom();
       fillAnswerItems();
+      player('current_player', birdsData[stageNumb][randomNum].audio);
       console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
     };
   });
@@ -105,13 +106,14 @@ function checkTrueAnswer() {
           calcPoints();
           showPoints();
           player('description_player', audio);
+          playRightSound();
           pointsNumb = 5;
         } else {
           item.classList.add('questions__answer_item-wrong');
           showInfo(name, species, description, image);
           pointsNumb--;
           player('description_player', audio);
-
+          playWrongSound();
         };
       };
     });
@@ -173,6 +175,14 @@ function calcPoints() {
 function showPoints() {
   const score = document.querySelector('.header_score');
   score.innerHTML = `Score: ${totalScore}`;
+};
+
+function playRightSound() {
+  new Audio('./../../assets/sound/wrong-sound.mp3').play();
+};
+
+function playWrongSound() {
+  new Audio('./../../assets/sound/wrong-sound.mp3').play();
 };
 
 ///////////////audioplayer////////////////
