@@ -42,9 +42,9 @@ function pushBtn() {
   const btn = document.querySelector('.questions__btn');
   const playerCurrent = document.getElementById('current_player');
   const playerDscr = document.getElementById('description_player');
-  const randomBirdObj = birdsData[stageNumb][randomNum];
 
   btn.addEventListener('click', () => {
+
     if (haveTrueAnswer) {
       stageNumb++;
       haveTrueAnswer = false;
@@ -54,10 +54,10 @@ function pushBtn() {
       hideInfo();
       getRandom();
       fillAnswerItems();
-      changeSrcPlayer(audioCurrent, randomBirdObj.audio);
+      changeSrcPlayer(audioCurrent, birdsData[stageNumb][randomNum].audio);
       stopSound(audioCurrent, playerCurrent);
       stopSound(audioDscr, playerDscr);
-      console.log(`true bird === ${randomBirdObj.name}`);
+      console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
     };
   });
 };
