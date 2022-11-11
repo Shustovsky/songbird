@@ -1,0 +1,39 @@
+.main {
+  flex: 1 1 auto;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 20px;
+  .title {
+    font-size: 48px;
+    color: #224C00;
+  }
+  .subtitle {
+    color: #224C00;
+  }
+  .rules {
+    text-align: left;
+    margin: 5%;
+    color: #224C00;
+    &_item {
+      margin-top: 1%;
+      // display: none;
+    }
+  }
+  #btn {
+    cursor: pointer;
+    border: 0;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    font-size: 24px;
+    color: #B9E397;
+    border-radius: 10px;
+    background: #609732;
+    &:hover {
+      filter: brightness(1.2);
+    }
+    &:active {
+      background: #F9804B;
+    }
+  }
+}
