@@ -40,6 +40,10 @@ getStarted();
 
 function pushBtn() {
   const btn = document.querySelector('.questions__btn');
+  const playerCurrent = document.getElementById('current_player');
+  const playerDscr = document.getElementById('description_player');
+  const randomBirdObj = birdsData[stageNumb][randomNum];
+
   btn.addEventListener('click', () => {
     if (haveTrueAnswer) {
       stageNumb++;
@@ -50,10 +54,10 @@ function pushBtn() {
       hideInfo();
       getRandom();
       fillAnswerItems();
-      changeSrcPlayer(audioCurrent, birdsData[stageNumb][randomNum].audio);
-      stopSound(audioCurrent, document.getElementById('current_player'));
-      stopSound(audioDscr, document.getElementById('description_player'));
-      console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
+      changeSrcPlayer(audioCurrent, randomBirdObj.audio);
+      stopSound(audioCurrent, playerCurrent);
+      stopSound(audioDscr, playerDscr);
+      console.log(`true bird === ${randomBirdObj.name}`);
     };
   });
 };
@@ -97,6 +101,9 @@ function checkTrueAnswer() {
       const image = birdsData[stageNumb][itemNumb].image;
       const audio = birdsData[stageNumb][itemNumb].audio;
 
+      const playerCurrent = document.getElementById('current_player');
+      const playerDscr = document.getElementById('description_player');
+
       if (haveTrueAnswer === false) {
         if (item.innerHTML === birdsData[stageNumb][randomNum].name) {
           item.classList.add('questions__answer_item-right');
@@ -107,10 +114,10 @@ function checkTrueAnswer() {
           calcPoints();
           showPoints();
           // playRightSound();
-          stopSound(audioCurrent, document.getElementById('current_player'));
+          stopSound(audioCurrent, playerCurrent);
           pointsNumb = 5;
           changeSrcPlayer(audioDscr, audio);
-          stopSound(audioDscr, document.getElementById('description_player'));
+          stopSound(audioDscr, playerDscr);
           // audioDscr
         } else {
           item.classList.add('questions__answer_item-wrong');
@@ -118,7 +125,7 @@ function checkTrueAnswer() {
           pointsNumb--;
           // playWrongSound();
           changeSrcPlayer(audioDscr, audio);
-          stopSound(audioDscr, document.getElementById('description_player'));
+          stopSound(audioDscr, playerDscr);
         };
       };
     });
