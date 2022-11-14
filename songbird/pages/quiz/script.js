@@ -58,6 +58,7 @@ function pushBtn() {
       stopSound(audioCurrent, playerCurrent);
       stopSound(audioDscr, playerDscr);
       console.log(`true bird === ${birdsData[stageNumb][randomNum].name}`);
+      removeClassToBtn();
     };
   });
 };
@@ -113,17 +114,18 @@ function checkTrueAnswer() {
           haveTrueAnswer = true;
           calcPoints();
           showPoints();
-          // playRightSound();
+          playRightSound();
           stopSound(audioCurrent, playerCurrent);
           pointsNumb = 5;
           changeSrcPlayer(audioDscr, audio);
           stopSound(audioDscr, playerDscr);
-          // audioDscr
+          addClassToBtn();
+
         } else {
           item.classList.add('questions__answer_item-wrong');
           showInfo(name, species, description, image);
           pointsNumb--;
-          // playWrongSound();
+          playWrongSound();
           changeSrcPlayer(audioDscr, audio);
           stopSound(audioDscr, playerDscr);
         };
@@ -288,4 +290,14 @@ function stopSound(audio, path) {
 
 function changeSrcPlayer(audio, src) {
   audio.src = src;
+};
+
+function addClassToBtn(action) {
+  const btn = document.querySelector('.questions__btn');
+  btn.classList.add('questions__btn-active');
+};
+
+function removeClassToBtn(action) {
+  const btn = document.querySelector('.questions__btn');
+  btn.classList.remove('questions__btn-active');
 };

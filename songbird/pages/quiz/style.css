@@ -298,6 +298,10 @@ a:hover {
   border: 1px solid #3E7213;
   border-radius: 10px;
 }
+.main .questions__btn-active {
+  background-color: rgba(62, 114, 19, 0.7);
+  color: #E8F6A4;
+}
 .main .questions__btn:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
