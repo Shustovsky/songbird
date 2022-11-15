@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid red; */
+  /* подчеркивает каждый элемент карсным */
+}
+
+html {
+  scroll-behavior: smooth;
+  /* для плавной прокрутки */
+  font-family: 'Roboto';
+  font-style: normal;
+  height: 100%;
+  // overflow-x: hidden;
+  // margin-right: calc(-1 * (100vw - 100%));
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1140px;
+  // position: relative;
+}
+
+.body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #B9E397;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@import 'blocks/01-header';
+@import 'blocks/02-main';
+@import 'blocks/03-footer';
+@import 'media/!media_main';
