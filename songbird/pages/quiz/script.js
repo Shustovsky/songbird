@@ -120,7 +120,6 @@ function checkTrueAnswer() {
           changeSrcPlayer(audioDscr, audio);
           stopSound(audioDscr, playerDscr);
           addClassToBtn();
-
         } else {
           item.classList.add('questions__answer_item-wrong');
           showInfo(name, species, description, image);
@@ -129,6 +128,9 @@ function checkTrueAnswer() {
           changeSrcPlayer(audioDscr, audio);
           stopSound(audioDscr, playerDscr);
         };
+      };
+      if (stageNumb === 5) { // 5 -это номер последнего раунда
+        setTimeout(goResultPage, 500);
       };
     });
   });
@@ -300,6 +302,10 @@ function addClassToBtn(action) {
 function removeClassToBtn(action) {
   const btn = document.querySelector('.questions__btn');
   btn.classList.remove('questions__btn-active');
+};
+
+function goResultPage() {
+  document.location = '../result/index.html';
 };
 
 window.addEventListener('beforeunload', () => {
