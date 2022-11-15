@@ -18,11 +18,33 @@ burgerMenu.addEventListener('click', (e) => {
 
 ///////////////////////////////////////////////////////////////////////
 
-function createItem() {
+import birdsData from './js/birds.js';
+
+function startPage() {
+  let countItems = 0;
+  for (let i = 0; i < birdsData.length; i++) {
+    for (let j = 0; j < birdsData[i].length; j++) {
+      const name = birdsData[i][j].name;
+      const species = birdsData[i][j].species;
+      const description = birdsData[i][j].description;
+      const image = birdsData[i][j].image;
+      const audio = birdsData[i][j].audio;
+
+
+      createItem(countItems);
+      fillItem(countItems, name, species, description, image);
+      countItems++;
+    };
+  };
+};
+startPage();
+
+function createItem(id) {
   const container = document.querySelector('.items__container');
 
   const item = document.createElement('div');
   item.classList.add('item');
+  item.setAttribute('data-id', id);
   container.append(item);
 
   const itemImg = document.createElement('div');
@@ -95,4 +117,19 @@ function createItem() {
   itemDscr.classList.add('item_dscr');
   item.append(itemDscr);
 };
-createItem();
+
+function fillItem(id, name, species, description, image) {
+
+  const itemId = document.querySelector(`[data-id='${id}']`);
+
+  const imgItem = itemId.querySelector('.item_img img');
+  const nameItem = itemId.querySelector('.item_name');
+  const speciesItem = itemId.querySelector('.item_species');
+  const dscrItem = itemId.querySelector('.item_dscr');
+
+  imgItem.src = `${image}`;
+  imgItem.alt = `${name}`;
+  nameItem.innerHTML = `${name}`;
+  speciesItem.innerHTML = `${species}`;
+  dscrItem.innerHTML = `${description}`;
+};
