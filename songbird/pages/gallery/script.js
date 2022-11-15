@@ -33,6 +33,7 @@ function startPage() {
 
       createItem(countItems);
       fillItem(countItems, name, species, description, image);
+      player(countItems, audio);
       countItems++;
     };
   };
@@ -132,4 +133,82 @@ function fillItem(id, name, species, description, image) {
   nameItem.innerHTML = `${name}`;
   speciesItem.innerHTML = `${species}`;
   dscrItem.innerHTML = `${description}`;
+};
+
+function player(id, sound) {
+  const audioPlayer = document.querySelector(`[data-id='${id}'] .player`);
+  // const audioPlayer = document.getElementById(id);
+  const audio = new Audio(sound);
+
+  audio.addEventListener('loadeddata', () => {
+    audioPlayer.querySelector('.time .length').textContent = getTimeCodeFromNum(audio.duration);
+    audio.volume = 0.75;
+  }, false);
+
+  const timeline = audioPlayer.querySelector('.timeline');
+  timeline.addEventListener('click', e => {
+    const timelineWidth = window.getComputedStyle(timeline).width;
+    const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+    audio.currentTime = timeToSeek;
+  }, false);
+
+  const soundVolume = audioPlayer.querySelector('.sound-volume');
+
+  soundVolume.addEventListener('input', () => {
+    audio.volume = soundVolume.value;
+  });
+
+  let restoreValue;
+
+  const volumeBtn = audioPlayer.querySelector('.volume');
+  volumeBtn.addEventListener('click', muter);
+
+  function muter() {
+    // let volumeImg = document.querySelector('.volume').classList.toggle('volume-off');
+    let volumeImg = audioPlayer.querySelector('.volume_img');
+    if (soundVolume.value === '0') {
+      audio.volume = restoreValue;
+      soundVolume.value = restoreValue;
+      volumeImg.src = '../../assets/icons/volume-on.png';
+      volumeImg.alt = 'volume on';
+    } else {
+      restoreValue = soundVolume.value;
+      audio.volume = 0;
+      soundVolume.value = 0;
+      volumeImg.src = '../../assets/icons/volume-off.png';
+      volumeImg.alt = 'volume off';
+    };
+  };
+
+  setInterval(() => {
+    const progressBar = audioPlayer.querySelector('.progress');
+    progressBar.style.width = audio.currentTime / audio.duration * 100 + '%';
+    audioPlayer.querySelector('.time .current').textContent = getTimeCodeFromNum(
+      audio.currentTime
+    );
+  }, 500);
+
+  const playBtn = audioPlayer.querySelector('.play');
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      playBtn.innerHTML = `II`;
+      audio.play();
+    } else {
+      playBtn.innerHTML = `▶`;
+      audio.pause();
+    }
+  }, false);
+
+  function getTimeCodeFromNum(num) {
+    let seconds = parseInt(num);
+    let minutes = parseInt(seconds / 60);
+    seconds -= minutes * 60;
+    const hours = parseInt(minutes / 60);
+    minutes -= hours * 60;
+
+    if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+    return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+    seconds % 60
+  ).padStart(2, 0)}`;
+  };
 };
