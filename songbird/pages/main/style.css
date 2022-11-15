@@ -271,6 +271,15 @@ a:hover {
     margin: 0 0 30px;
   }
 }
+@media (max-width: 639px) {
+  .main .title {
+    font-size: 30px;
+    margin: 0 0 10px;
+  }
+  .main .rules {
+    font-size: 18px;
+  }
+}
 @media (max-width: 999px) {
   .footer_wrapper {
     justify-content: space-between;

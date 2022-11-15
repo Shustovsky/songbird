@@ -6,3 +6,15 @@
     }
   }
 }
+
+@media(max-width: 639px) {
+  .main {
+    .title {
+      font-size: 30px;
+      margin: 0 0 10px;
+    }
+    .rules {
+      font-size: 18px;
+    }
+  }
+}
