@@ -301,3 +301,7 @@ function removeClassToBtn(action) {
   const btn = document.querySelector('.questions__btn');
   btn.classList.remove('questions__btn-active');
 };
+
+window.addEventListener('beforeunload', () => {
+  localStorage.setItem('totalScore', totalScore);
+});
