@@ -38,6 +38,7 @@
     font-size: 17px;
     .items__container {
       .item {
+        width: 100%;
         grid-template-columns: 1fr;
         grid-template-rows: 160px 20px 20px 100px 150px;
         gap: 2%;
