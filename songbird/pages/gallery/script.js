@@ -18,7 +18,13 @@ burgerMenu.addEventListener('click', (e) => {
 
 ///////////////////////////////////////////////////////////////////////
 
-import birdsData from './js/birds.js';
+import birdsDataRu from './js/birds.js';
+import birdsDataEn from './js/birds-en.js';
+import { translations } from './js/translations.js';
+
+let currentLang = 'ru';
+let birdsData;
+choiceBirdsData();
 
 function startPage() {
   let countItems = 0;
@@ -212,3 +218,67 @@ function player(id, sound) {
   ).padStart(2, 0)}`;
   };
 };
+
+
+
+const btnLang = document.querySelectorAll('.lang');
+btnLang.forEach(btn => {
+  btn.addEventListener('click', switchLang);
+});
+
+window.addEventListener('load', () => {
+  if (localStorage.getItem('lang')) {
+    currentLang = localStorage.getItem('lang');
+  };
+  changeLang(currentLang);
+});
+
+function switchLang() {
+  currentLang = currentLang === 'en' ? 'ru' : 'en';
+
+  localStorage.setItem('lang', currentLang);
+  changeLang(currentLang);
+  choiceBirdsData();
+  clearContainer();
+  startPage();
+};
+
+function changeLang(lang) {
+  document.querySelectorAll('.lang')
+    .forEach(item => {
+      item.innerHTML = translations[lang].langBtn;
+    });
+
+  document.querySelectorAll('.main-link')
+    .forEach(item => {
+      item.innerHTML = translations[lang].linkToMain;
+    });
+  document.querySelectorAll('.quiz-link')
+    .forEach(item => {
+      item.innerHTML = translations[lang].linkToQuiz;
+    });
+  document.querySelectorAll('.gallery-link')
+    .forEach(item => {
+      item.innerHTML = translations[lang].linkToGallery;
+    });
+
+  document.querySelector('.title').innerHTML = translations[lang].title;
+
+};
+
+function choiceBirdsData() {
+  if (localStorage.getItem('lang')) {
+    if (localStorage.getItem('lang') === 'ru') {
+      birdsData = birdsDataRu;
+    } else {
+      birdsData = birdsDataEn;
+    };
+  } else {
+    birdsData = birdsDataRu;
+  };
+};
+
+function clearContainer() {
+  const container = document.querySelector('.items__container');
+  container.innerHTML = '';
+}

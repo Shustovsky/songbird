@@ -18,7 +18,13 @@ burgerMenu.addEventListener('click', (e) => {
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-import birdsData from './js/birds.js';
+import birdsDataRu from './js/birds.js';
+import birdsDataEn from './js/birds-en.js';
+import { translations } from './js/translations.js';
+
+let currentLang = 'ru';
+let birdsData;
+choiceBirdsData();
 
 let stageNumb = 0;
 let randomNum;
@@ -27,6 +33,7 @@ let totalScore = 0;
 let pointsNumb = 5;
 
 function getStarted() {
+
   hideName();
   hideImg();
   hideInfo();
@@ -53,6 +60,7 @@ function pushBtn() {
       hideImg();
       hideInfo();
       getRandom();
+      clearAnswerItems();
       fillAnswerItems();
       changeSrcPlayer(audioCurrent, birdsData[stageNumb][randomNum].audio);
       stopSound(audioCurrent, playerCurrent);
@@ -86,21 +94,32 @@ function fillAnswerItems() {
   const items = document.querySelectorAll('.questions__answer_item');
   for (let i = 0; i < items.length; i++) {
     items[i].innerHTML = `${birdsData[stageNumb][i].name}`;
-    items[i].classList = 'questions__answer_item';
+    // items[i].classList = 'questions__answer_item';
     items[i].setAttribute('data-id', i);
   };
 };
+
+function clearAnswerItems() {
+  const items = document.querySelectorAll('.questions__answer_item');
+  items.forEach(item => {
+    item.classList = 'questions__answer_item';
+
+  });
+};
+
+
+let choiceAnswerItem;
 
 function checkTrueAnswer() {
   const items = document.querySelectorAll('.questions__answer_item');
   items.forEach(item => {
     item.addEventListener('click', () => {
-      const itemNumb = item.getAttribute('data-id');
-      const name = birdsData[stageNumb][itemNumb].name;
-      const species = birdsData[stageNumb][itemNumb].species;
-      const description = birdsData[stageNumb][itemNumb].description;
-      const image = birdsData[stageNumb][itemNumb].image;
-      const audio = birdsData[stageNumb][itemNumb].audio;
+      choiceAnswerItem = item.getAttribute('data-id');
+      const name = birdsData[stageNumb][choiceAnswerItem].name;
+      const species = birdsData[stageNumb][choiceAnswerItem].species;
+      const description = birdsData[stageNumb][choiceAnswerItem].description;
+      const image = birdsData[stageNumb][choiceAnswerItem].image;
+      const audio = birdsData[stageNumb][choiceAnswerItem].audio;
 
       const playerCurrent = document.getElementById('current_player');
       const playerDscr = document.getElementById('description_player');
@@ -120,6 +139,9 @@ function checkTrueAnswer() {
           changeSrcPlayer(audioDscr, audio);
           stopSound(audioDscr, playerDscr);
           addClassToBtn();
+          if (stageNumb === 5) { // 5 -это номер последнего раунда
+            setTimeout(goResultPage, 500);
+          };
         } else {
           item.classList.add('questions__answer_item-wrong');
           showInfo(name, species, description, image);
@@ -127,11 +149,10 @@ function checkTrueAnswer() {
           playWrongSound();
           changeSrcPlayer(audioDscr, audio);
           stopSound(audioDscr, playerDscr);
+
         };
       };
-      if (stageNumb === 5) { // 5 -это номер последнего раунда
-        setTimeout(goResultPage, 500);
-      };
+
     });
   });
 };
@@ -189,8 +210,8 @@ function calcPoints() {
 };
 
 function showPoints() {
-  const score = document.querySelector('.header_score');
-  score.innerHTML = `Score: ${totalScore}`;
+  const scorePoint = document.querySelector('.header_score_point');
+  scorePoint.innerHTML = totalScore;
 };
 
 function playRightSound() {
@@ -311,3 +332,82 @@ function goResultPage() {
 window.addEventListener('beforeunload', () => {
   localStorage.setItem('totalScore', totalScore);
 });
+
+///////////////////////////////////////////////////
+
+
+
+const btnLang = document.querySelectorAll('.lang');
+btnLang.forEach(btn => {
+  btn.addEventListener('click', switchLang);
+});
+
+window.addEventListener('load', () => {
+  if (localStorage.getItem('lang')) {
+    currentLang = localStorage.getItem('lang');
+  };
+  changeLang(currentLang);
+});
+
+function switchLang() {
+  currentLang = currentLang === 'en' ? 'ru' : 'en';
+
+  localStorage.setItem('lang', currentLang);
+  changeLang(currentLang);
+  choiceBirdsData();
+  fillAnswerItems();
+  const name = birdsData[stageNumb][choiceAnswerItem].name;
+  const species = birdsData[stageNumb][choiceAnswerItem].species;
+  const description = birdsData[stageNumb][choiceAnswerItem].description;
+  const image = birdsData[stageNumb][choiceAnswerItem].image;
+  showName(name);
+  showInfo(name, species, description, image);
+};
+
+function changeLang(lang) {
+  document.querySelector('.header_score_name')
+    .innerHTML = translations[lang].score;
+
+  document.querySelectorAll('.lang')
+    .forEach(item => {
+      item.innerHTML = translations[lang].langBtn;
+    });
+
+  document.querySelectorAll('.main-link')
+    .forEach(item => {
+      item.innerHTML = translations[lang].linkToMain;
+    });
+  document.querySelectorAll('.quiz-link')
+    .forEach(item => {
+      item.innerHTML = translations[lang].linkToQuiz;
+    });
+  document.querySelectorAll('.gallery-link')
+    .forEach(item => {
+      item.innerHTML = translations[lang].linkToGallery;
+    });
+
+  const stagesOfGame = document.querySelectorAll('.questions__list_item')
+  for (let i = 0; i < stagesOfGame.length; i++) {
+    stagesOfGame[i].innerHTML = translations[lang].stage[i]
+  };
+
+  document.querySelector('.questions__btn')
+    .innerHTML = translations[lang].btnNext;
+
+  document.querySelector('.help')
+    .innerHTML = translations[lang].help;
+
+
+};
+
+function choiceBirdsData() {
+  if (localStorage.getItem('lang')) {
+    if (localStorage.getItem('lang') === 'ru') {
+      birdsData = birdsDataRu;
+    } else {
+      birdsData = birdsDataEn;
+    };
+  } else {
+    birdsData = birdsDataRu;
+  };
+};

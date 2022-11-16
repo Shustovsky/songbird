@@ -12,11 +12,12 @@
   }
   .rules {
     text-align: left;
-    margin: 5%;
+    margin: 1% 5%;
     color: #224C00;
-    &_item {
-      margin-top: 1%;
-      // display: none;
+    &_dscr {
+      text-align: left;
+      color: #224C00;
+      margin: 3% 5% 1%;
     }
   }
   #btn {
