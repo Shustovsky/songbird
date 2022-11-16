@@ -178,7 +178,11 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto 200px;
-  gap: 3% 3%;
+  gap: 3%;
+  border: 1px solid #224C00;
+  border-radius: 5%;
+  padding: 1%;
+  margin-top: 1%;
 }
 .main .items__container .item_img {
   grid-row: 1/4;
@@ -352,6 +356,9 @@ a:hover {
   .main .title {
     margin: 0 0 30px;
   }
+  .main .items__container .item {
+    grid-template-rows: auto auto auto 170px;
+  }
   .player {
     padding-right: 10%;
     grid-template-columns: 20% 80%;
@@ -370,10 +377,10 @@ a:hover {
     font-size: 17px;
   }
   .main .items__container .item {
-    width: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 160px 20px 20px 100px 150px;
+    grid-template-rows: auto auto auto auto 155px;
     gap: 2%;
+    margin-bottom: 2%;
   }
   .main .items__container .item_img {
     grid-row: 1/2;

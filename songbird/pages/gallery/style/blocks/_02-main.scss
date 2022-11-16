@@ -11,16 +11,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    // display: grid;
-    // grid-template-columns: 1fr 1fr;
-    // grid-template-rows: auto;
     gap: 5%;
     .item {
       width: 430px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto auto 200px;
-      gap: 3% 3%;
+      gap: 3%;
+      border: 1px solid #224C00;
+      border-radius: 5%;
+      padding: 1%;
+      margin-top: 1%;
       &_img {
         grid-row: 1/4;
         width: 200px;
