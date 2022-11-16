@@ -139,6 +139,9 @@ function checkTrueAnswer() {
           changeSrcPlayer(audioDscr, audio);
           stopSound(audioDscr, playerDscr);
           addClassToBtn();
+          if (stageNumb === 5) { // 5 -это номер последнего раунда
+            setTimeout(goResultPage, 500);
+          };
         } else {
           item.classList.add('questions__answer_item-wrong');
           showInfo(name, species, description, image);
@@ -146,11 +149,10 @@ function checkTrueAnswer() {
           playWrongSound();
           changeSrcPlayer(audioDscr, audio);
           stopSound(audioDscr, playerDscr);
+
         };
       };
-      if (stageNumb === 5) { // 5 -это номер последнего раунда
-        setTimeout(goResultPage, 500);
-      };
+
     });
   });
 };
