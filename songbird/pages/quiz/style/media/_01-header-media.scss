@@ -17,6 +17,9 @@
 
 @media(max-width: 639px) {
   .header {
+    &_wrapper {
+      height: 60px;
+    }
     &__logo {
       width: 100px;
     }
