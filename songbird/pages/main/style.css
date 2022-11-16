@@ -63,25 +63,24 @@ html {
   width: 100%;
   height: 100%;
 }
-.header a {
-  text-decoration: none;
-  color: #FFFFFF;
-}
-.header a:hover {
-  transition: all 1s;
-  color: #3E7213;
-}
-
-nav ul {
+.header__nav .list {
   display: flex;
   list-style-type: none;
   gap: 5vw;
   justify-content: center;
   align-items: center;
 }
-nav ul li:first-child a {
+.header__nav .list__item:first-child a {
   pointer-events: none;
   font-weight: 700;
+  color: #3E7213;
+}
+.header a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.header a:hover {
+  transition: all 1s;
   color: #3E7213;
 }
 
@@ -192,11 +191,13 @@ nav ul li:first-child a {
 }
 .main .rules {
   text-align: left;
-  margin: 5%;
+  margin: 1% 5%;
   color: #224C00;
 }
-.main .rules_item {
-  margin-top: 1%;
+.main .rules_dscr {
+  text-align: left;
+  color: #224C00;
+  margin: 3% 5% 1%;
 }
 .main #btn {
   cursor: pointer;
