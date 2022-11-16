@@ -18,19 +18,19 @@
       height: 100%;
     }
   }
-}
-
-nav {
-  ul {
-    display: flex;
-    list-style-type: none;
-    gap: 5vw;
-    justify-content: center;
-    li:last-child {
-      a {
-        pointer-events: none;
-        font-weight: 700;
-        color: #3E7213;
+  &__nav {
+    .list {
+      display: flex;
+      list-style-type: none;
+      gap: 5vw;
+      justify-content: center;
+      align-items: center;
+      &__item:nth-child(3) {
+        a {
+          pointer-events: none;
+          font-weight: 700;
+          color: #3E7213;
+        }
       }
     }
   }
@@ -123,5 +123,20 @@ a {
   &-active {
     display: block;
     transform: translateY(0);
+  }
+}
+
+.lang {
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  background: #609732;
+  &:hover {
+    filter: brightness(1.2);
+  }
+  &:active {
+    background: #F9804B;
   }
 }

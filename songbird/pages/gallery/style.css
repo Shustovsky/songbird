@@ -55,14 +55,14 @@ html {
   width: 100%;
   height: 100%;
 }
-
-nav ul {
+.header__nav .list {
   display: flex;
   list-style-type: none;
   gap: 5vw;
   justify-content: center;
+  align-items: center;
 }
-nav ul li:last-child a {
+.header__nav .list__item:nth-child(3) a {
   pointer-events: none;
   font-weight: 700;
   color: #3E7213;
@@ -156,6 +156,21 @@ a:hover {
 .burger_menu-active {
   display: block;
   transform: translateY(0);
+}
+
+.lang {
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  background: #609732;
+}
+.lang:hover {
+  filter: brightness(1.2);
+}
+.lang:active {
+  background: #F9804B;
 }
 
 .main {
