@@ -19,6 +19,14 @@
       height: 100%;
     }
   }
+  a {
+    text-decoration: none;
+    color: #FFFFFF;
+    &:hover {
+      transition: all 1s;
+      color: #3E7213;
+    }
+  }
 }
 
 nav {
@@ -27,6 +35,7 @@ nav {
     list-style-type: none;
     gap: 5vw;
     justify-content: center;
+    align-items: center;
     li:first-child {
       a {
         pointer-events: none;
@@ -34,15 +43,6 @@ nav {
         color: #3E7213;
       }
     }
-  }
-}
-
-a {
-  text-decoration: none;
-  color: #FFFFFF;
-  &:hover {
-    transition: all 1s;
-    color: #3E7213;
   }
 }
 
@@ -115,14 +115,25 @@ a {
       flex-direction: column;
       list-style-type: none;
       gap: 15px;
-      a {
-        text-decoration: none;
-        color: #333B41;
-      }
     }
   }
   &-active {
     display: block;
     transform: translateY(0);
+  }
+}
+
+.lang {
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  background: #609732;
+  &:hover {
+    filter: brightness(1.2);
+  }
+  &:active {
+    background: #F9804B;
   }
 }

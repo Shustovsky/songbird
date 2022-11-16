@@ -63,25 +63,25 @@ html {
   width: 100%;
   height: 100%;
 }
+.header a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.header a:hover {
+  transition: all 1s;
+  color: #3E7213;
+}
 
 nav ul {
   display: flex;
   list-style-type: none;
   gap: 5vw;
   justify-content: center;
+  align-items: center;
 }
 nav ul li:first-child a {
   pointer-events: none;
   font-weight: 700;
-  color: #3E7213;
-}
-
-a {
-  text-decoration: none;
-  color: #FFFFFF;
-}
-a:hover {
-  transition: all 1s;
   color: #3E7213;
 }
 
@@ -157,13 +157,24 @@ a:hover {
   list-style-type: none;
   gap: 15px;
 }
-.burger_menu .wrapper ul a {
-  text-decoration: none;
-  color: #333B41;
-}
 .burger_menu-active {
   display: block;
   transform: translateY(0);
+}
+
+.lang {
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  background: #609732;
+}
+.lang:hover {
+  filter: brightness(1.2);
+}
+.lang:active {
+  background: #F9804B;
 }
 
 .main {
@@ -207,7 +218,6 @@ a:hover {
 
 .footer {
   background: #8ABD5F;
-  color: #FFFFFF;
   font-size: 20px;
 }
 .footer_wrapper {
@@ -215,6 +225,22 @@ a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.footer_date {
+  color: #FFFFFF;
+  cursor: default;
+}
+.footer_date:hover {
+  transition: all 1s;
+  color: #3E7213;
+}
+.footer__git a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.footer__git a:hover {
+  transition: all 1s;
+  color: #3E7213;
 }
 .footer__logo {
   width: 80px;
@@ -225,13 +251,6 @@ a:hover {
   transition: all 1s;
   transform: rotate(360deg);
   scale: 1.1;
-}
-.footer_date {
-  cursor: default;
-}
-.footer_date:hover {
-  transition: all 1s;
-  color: #3E7213;
 }
 
 @media (max-width: 1599px) {
