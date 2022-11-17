@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../../assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../../assets/icons/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/styles/normalize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>SongBird</title>
+</head>
+
+<body class="body">
+  <header class="header">
+    <div class="container">
+      <div class="header_wrapper">
+        <div class="header__logo">
+          <a href="../main/index.html">
+            <img class="header__logo_img" src="../../assets/icons/logo.svg" alt="logo">
+          </a>
+        </div>
+        <nav class="header__nav">
+          <ul class="list">
+            <li class="list__item">
+              <a class="main-link" href="../main/index.html"></a>
+            </li>
+            <li class="list__item">
+              <a class="quiz-link" href="../quiz/index.html"></a>
+            </li>
+            <li class="list__item">
+              <a class="gallery-link" href="../gallery/index.html"></a>
+            </li>
+            <li class="list__item">
+              <a class="result-link" href="../result/index.html">Результаты</a>
+            </li>
+            <li class="list__item">
+              <button class="lang"></button>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="burger">
+          <div class="burger_line"></div>
+          <div class="burger_line"></div>
+          <div class="burger_line"></div>
+        </div>
+        <div class="burger_menu">
+          <div class="wrapper">
+            <img class="burger__logo" src="../../assets/icons/logo.svg" alt="logo">
+            <ul>
+              <li>
+                <a class="main-link" href="../main/index.html"></a>
+              </li>
+              <li>
+                <a class="quiz-link" href="../quiz/index.html"></a>
+              </li>
+              <li>
+                <a class="gallery-link" href="../gallery/index.html"></a>
+              </li>
+              <li>
+                <a class="result-link" href="../result/index.html">Результаты</a>
+              </li>
+              <li>
+                <button class="lang"></button>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+
+    <div class="container">
+      <h1 class="title">Поздравляем!</h1>
+      <p class="subtitle"><span class="part1"></span><span id="result"></span><span class="part2"></span></p>
+      <input type="button" id="btn" value="Попробовать еще раз!">
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer_wrapper">
+        <div class="footer_date">
+          © 2022
+        </div>
+        <div class="footer__git">
+          <a href="https://github.com/shustovsky" target="_blank">GitHub</a>
+        </div>
+        <div class="footer__logo">
+          <a href="https://rs.school/js/" target="_blank">
+            <img src="../../assets/icons/rs_school_js.svg" alt="rs_school logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <script type="module" src="script.js"></script>
+
+</body>
+
+</html>

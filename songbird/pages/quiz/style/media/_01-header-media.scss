@@ -1,0 +1,27 @@
+@media(max-width: 999px) {
+  .header {
+    &_wrapper {
+      justify-content: space-between;
+    }
+    &__logo {
+      border: none;
+    }
+    nav {
+      display: none;
+    }
+    .burger {
+      display: flex;
+    }
+  }
+}
+
+@media(max-width: 639px) {
+  .header {
+    &_wrapper {
+      height: 60px;
+    }
+    &__logo {
+      width: 100px;
+    }
+  }
+}
