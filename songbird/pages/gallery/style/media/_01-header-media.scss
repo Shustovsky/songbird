@@ -1,0 +1,16 @@
+@media(max-width: 999px) {
+  .header {
+    &_wrapper {
+      justify-content: space-between;
+    }
+    &__logo {
+      border: none;
+    }
+    nav {
+      display: none;
+    }
+    .burger {
+      display: flex;
+    }
+  }
+}

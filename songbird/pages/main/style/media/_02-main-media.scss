@@ -1,0 +1,20 @@
+@media(max-width: 999px) {
+  .main {
+    padding: 0 0 5% 0;
+    .title {
+      margin: 0 0 30px;
+    }
+  }
+}
+
+@media(max-width: 639px) {
+  .main {
+    .title {
+      font-size: 30px;
+      margin: 0 0 10px;
+    }
+    .rules {
+      font-size: 18px;
+    }
+  }
+}
