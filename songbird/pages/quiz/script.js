@@ -33,7 +33,6 @@ let totalScore = 0;
 let pointsNumb = 5;
 
 function getStarted() {
-
   hideName();
   hideImg();
   hideInfo();
@@ -51,7 +50,6 @@ function pushBtn() {
   const playerDscr = document.getElementById('description_player');
 
   btn.addEventListener('click', () => {
-
     if (haveTrueAnswer) {
       stageNumb++;
       haveTrueAnswer = false;
@@ -103,10 +101,8 @@ function clearAnswerItems() {
   const items = document.querySelectorAll('.questions__answer_item');
   items.forEach(item => {
     item.classList = 'questions__answer_item';
-
   });
 };
-
 
 let choiceAnswerItem;
 
@@ -124,35 +120,32 @@ function checkTrueAnswer() {
       const playerCurrent = document.getElementById('current_player');
       const playerDscr = document.getElementById('description_player');
 
-      if (haveTrueAnswer === false) {
-        if (item.innerHTML === birdsData[stageNumb][randomNum].name) {
-          item.classList.add('questions__answer_item-right');
-          showName(name);
-          showImg(image, name);
-          showInfo(name, species, description, image);
-          haveTrueAnswer = true;
-          calcPoints();
-          showPoints();
-          playRightSound();
-          stopSound(audioCurrent, playerCurrent);
-          pointsNumb = 5;
-          changeSrcPlayer(audioDscr, audio);
-          stopSound(audioDscr, playerDscr);
-          addClassToBtn();
-          if (stageNumb === 5) { // 5 -это номер последнего раунда
-            setTimeout(goResultPage, 500);
-          };
-        } else {
-          item.classList.add('questions__answer_item-wrong');
-          showInfo(name, species, description, image);
-          pointsNumb--;
-          playWrongSound();
-          changeSrcPlayer(audioDscr, audio);
-          stopSound(audioDscr, playerDscr);
-
+      if (item.innerHTML === birdsData[stageNumb][randomNum].name) {
+        item.classList.add('questions__answer_item-right');
+        showName(name);
+        showImg(image, name);
+        showInfo(name, species, description, image);
+        haveTrueAnswer = true;
+        calcPoints();
+        showPoints();
+        playRightSound();
+        stopSound(audioCurrent, playerCurrent);
+        pointsNumb = 5;
+        changeSrcPlayer(audioDscr, audio);
+        stopSound(audioDscr, playerDscr);
+        addClassToBtn();
+        if (stageNumb === 5) { // 5 -это номер последнего раунда
+          setTimeout(goResultPage, 500);
         };
-      };
+      } else {
+        item.classList.add('questions__answer_item-wrong');
+        showInfo(name, species, description, image);
+        pointsNumb--;
+        playWrongSound();
+        changeSrcPlayer(audioDscr, audio);
+        stopSound(audioDscr, playerDscr);
 
+      };
     });
   });
 };
@@ -335,8 +328,6 @@ window.addEventListener('beforeunload', () => {
 
 ///////////////////////////////////////////////////
 
-
-
 const btnLang = document.querySelectorAll('.lang');
 btnLang.forEach(btn => {
   btn.addEventListener('click', switchLang);
@@ -366,8 +357,6 @@ function switchLang() {
       showName(name);
     }
   };
-
-
 };
 
 function changeLang(lang) {
@@ -402,8 +391,6 @@ function changeLang(lang) {
 
   document.querySelector('.help')
     .innerHTML = translations[lang].help;
-
-
 };
 
 function choiceBirdsData() {
