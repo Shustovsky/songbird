@@ -285,16 +285,17 @@ a:hover {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.2);
   border: 1px solid #3E7213;
-  padding: 5%;
 }
 .main .questions__info .help {
+  padding: 5%;
   display: none;
 }
 .main .questions__info .description {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(4, auto);
-  gap: 3% 3%;
+  gap: 1%;
+  padding: 2%;
 }
 .main .questions__info .description_img {
   grid-row: 1/4;
@@ -306,6 +307,12 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.main .questions__info .description_name {
+  font-weight: bold;
+}
+.main .questions__info .description_species {
+  font-style: italic;
 }
 .main .questions__info .description_dscr {
   grid-column: 1/3;
