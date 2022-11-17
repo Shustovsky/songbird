@@ -32,6 +32,7 @@ html {
 }
 
 .header {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
   backdrop-filter: blur(2px);
   color: #FFFFFF;
   font-size: 20px;
@@ -60,7 +61,7 @@ html {
 .header__nav .list__item:nth-child(4) a {
   pointer-events: none;
   font-weight: 700;
-  color: #3E7213;
+  color: #609732;
 }
 
 a {
@@ -69,7 +70,7 @@ a {
 }
 a:hover {
   transition: all 1s;
-  color: #3E7213;
+  color: #609732;
 }
 
 .burger {
@@ -203,7 +204,7 @@ a:hover {
   height: 50px;
   text-align: center;
   font-size: 24px;
-  color: #B9E397;
+  color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   background: #609732;
 }
