@@ -281,4 +281,4 @@ function choiceBirdsData() {
 function clearContainer() {
   const container = document.querySelector('.items__container');
   container.innerHTML = '';
-}
+};
