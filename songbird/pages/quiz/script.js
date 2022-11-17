@@ -119,32 +119,34 @@ function checkTrueAnswer() {
 
       const playerCurrent = document.getElementById('current_player');
       const playerDscr = document.getElementById('description_player');
-
-      if (item.innerHTML === birdsData[stageNumb][randomNum].name) {
-        item.classList.add('questions__answer_item-right');
-        showName(name);
-        showImg(image, name);
-        showInfo(name, species, description, image);
-        haveTrueAnswer = true;
-        calcPoints();
-        showPoints();
-        playRightSound();
-        stopSound(audioCurrent, playerCurrent);
-        pointsNumb = 5;
-        changeSrcPlayer(audioDscr, audio);
-        stopSound(audioDscr, playerDscr);
-        addClassToBtn();
-        if (stageNumb === 5) { // 5 -это номер последнего раунда
-          setTimeout(goResultPage, 500);
+      if (haveTrueAnswer === false) {
+        if (item.innerHTML === birdsData[stageNumb][randomNum].name) {
+          item.classList.add('questions__answer_item-right');
+          showName(name);
+          showImg(image, name);
+          showInfo(name, species, description, image);
+          haveTrueAnswer = true;
+          calcPoints();
+          showPoints();
+          playRightSound();
+          stopSound(audioCurrent, playerCurrent);
+          pointsNumb = 5;
+          changeSrcPlayer(audioDscr, audio);
+          stopSound(audioDscr, playerDscr);
+          addClassToBtn();
+          if (stageNumb === 5) { // 5 -это номер последнего раунда
+            setTimeout(goResultPage, 500);
+          };
+        } else {
+          item.classList.add('questions__answer_item-wrong');
+          showInfo(name, species, description, image);
+          pointsNumb--;
+          playWrongSound();
+          changeSrcPlayer(audioDscr, audio);
+          stopSound(audioDscr, playerDscr);
         };
       } else {
-        item.classList.add('questions__answer_item-wrong');
         showInfo(name, species, description, image);
-        pointsNumb--;
-        playWrongSound();
-        changeSrcPlayer(audioDscr, audio);
-        stopSound(audioDscr, playerDscr);
-
       };
     });
   });
