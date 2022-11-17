@@ -11,6 +11,8 @@ html {
   /* для плавной прокрутки */
   font-family: 'Roboto';
   font-style: normal;
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
 }
 
 .container {

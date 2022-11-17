@@ -356,12 +356,18 @@ function switchLang() {
   changeLang(currentLang);
   choiceBirdsData();
   fillAnswerItems();
-  const name = birdsData[stageNumb][choiceAnswerItem].name;
-  const species = birdsData[stageNumb][choiceAnswerItem].species;
-  const description = birdsData[stageNumb][choiceAnswerItem].description;
-  const image = birdsData[stageNumb][choiceAnswerItem].image;
-  showName(name);
-  showInfo(name, species, description, image);
+  if (document.querySelector('.help').style.display !== 'block') {
+    const name = birdsData[stageNumb][choiceAnswerItem].name;
+    const species = birdsData[stageNumb][choiceAnswerItem].species;
+    const description = birdsData[stageNumb][choiceAnswerItem].description;
+    const image = birdsData[stageNumb][choiceAnswerItem].image;
+    showInfo(name, species, description, image);
+    if (haveTrueAnswer === true) {
+      showName(name);
+    }
+  };
+
+
 };
 
 function changeLang(lang) {
