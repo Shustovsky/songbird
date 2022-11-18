@@ -78,6 +78,7 @@
         &-right {
           background-color: rgba(62, 114, 19, 0.7);
           color: #E8F6A4;
+          transition: 0.5s all;
           &:hover {
             background-color: rgba(62, 114, 19, 0.7);
           }
@@ -130,6 +131,7 @@
       background-color: rgba( 0, 0, 0, 0.0);
       border: 1px solid #3E7213;
       border-radius: 10px;
+      transition: 0.8s all;
       &-active {
         cursor: pointer;
         background-color: rgba(62, 114, 19, 0.7);
@@ -137,6 +139,9 @@
         &:hover {
           background-color: rgba(62, 114, 19, 1);
           ;
+          &:active {
+            background: #F9804B;
+          }
         }
       }
     }

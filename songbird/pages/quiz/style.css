@@ -273,6 +273,7 @@ a:hover {
 .main .questions__answer_item-right {
   background-color: rgba(62, 114, 19, 0.7);
   color: #E8F6A4;
+  transition: 0.5s all;
 }
 .main .questions__answer_item-right:hover {
   background-color: rgba(62, 114, 19, 0.7);
@@ -323,6 +324,7 @@ a:hover {
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #3E7213;
   border-radius: 10px;
+  transition: 0.8s all;
 }
 .main .questions__btn-active {
   cursor: pointer;
@@ -331,6 +333,9 @@ a:hover {
 }
 .main .questions__btn-active:hover {
   background-color: rgb(62, 114, 19);
+}
+.main .questions__btn-active:hover:active {
+  background: #F9804B;
 }
 
 .player {
