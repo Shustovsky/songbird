@@ -67,6 +67,10 @@ function pushBtn() {
       removeClassToBtn();
     };
   });
+
+  document.addEventListener("keyup", e => {
+    if (e.keyCode === 13) btn.click();
+  });
 };
 pushBtn();
 
