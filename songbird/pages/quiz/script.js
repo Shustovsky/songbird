@@ -213,11 +213,19 @@ function showPoints() {
 };
 
 function playRightSound() {
-  new Audio('./../../assets/sound/right-sound.mp3').play();
+  // new Audio('./../../assets/sound/right-sound.mp3').play();
+  let sound = new Audio();
+  sound.src = './../../assets/sound/right-sound.mp3';
+  sound.volume = 0.5;
+  sound.play();
 };
 
 function playWrongSound() {
-  new Audio('./../../assets/sound/wrong-sound.mp3').play();
+  // new Audio('./../../assets/sound/wrong-sound.mp3').play();
+  let sound = new Audio();
+  sound.src = './../../assets/sound/wrong-sound.mp3';
+  sound.volume = 0.3;
+  sound.play();
 };
 
 const audioCurrent = new Audio();
