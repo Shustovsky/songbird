@@ -218,6 +218,7 @@ a:hover {
   color: #697B15;
   padding: 0.5%;
   cursor: default;
+  transition: 0.5s all;
 }
 .main .questions__list_item-active {
   background-color: #697B15;
@@ -375,6 +376,7 @@ a:hover {
   height: 100%;
   transition: 0.25s;
   border-radius: 10px;
+  transition: 1s;
 }
 .player .timeline .time {
   display: flex;

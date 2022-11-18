@@ -21,6 +21,7 @@
         color: #697B15;
         padding: 0.5%;
         cursor: default;
+        transition: 0.5s all;
         &-active {
           background-color: #697B15;
           color: #E8F6A4;
@@ -183,6 +184,7 @@
       height: 100%;
       transition: 0.25s;
       border-radius: 10px;
+      transition: 1s;
     }
     .time {
       display: flex;
