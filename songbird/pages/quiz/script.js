@@ -138,12 +138,16 @@ function checkTrueAnswer() {
             setTimeout(goResultPage, 500);
           };
         } else {
-          item.classList.add('questions__answer_item-wrong');
-          showInfo(name, species, description, image);
-          pointsNumb--;
-          playWrongSound();
-          changeSrcPlayer(audioDscr, audio);
-          stopSound(audioDscr, playerDscr);
+          if (!item.classList.contains('questions__answer_item-wrong')) {
+            item.classList.add('questions__answer_item-wrong');
+            showInfo(name, species, description, image);
+            pointsNumb--;
+            playWrongSound();
+            changeSrcPlayer(audioDscr, audio);
+            stopSound(audioDscr, playerDscr);
+          } else {
+            showInfo(name, species, description, image);
+          };
         };
       } else {
         showInfo(name, species, description, image);
@@ -200,7 +204,6 @@ function showInfo(name, species, description, image) {
 };
 
 function calcPoints() {
-  if (pointsNumb < 0) pointsNumb = 0;
   totalScore += pointsNumb;
 };
 
