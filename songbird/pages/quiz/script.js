@@ -154,6 +154,8 @@ function checkTrueAnswer() {
           };
         };
       } else {
+        stopSound(audioDscr, playerDscr);
+        changeSrcPlayer(audioDscr, audio);
         showInfo(name, species, description, image);
       };
     });
